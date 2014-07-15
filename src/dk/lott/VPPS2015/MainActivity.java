@@ -8,12 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import java.util.Set;
-
 public class MainActivity extends Activity {
 
-Potato potato = new Potato();
-Progressbar progressbar = new Progressbar(getApplicationContext());
+    Potato potato = new Potato();
+    Progressbar progressbar = new Progressbar(getApplicationContext());
 
     /**
      * Called when the activity is first created.

@@ -8,7 +8,7 @@ import android.view.View;
  * Created by sdc on 7/15/14.
  */
 public class Progressbar extends View {
-    Potato potato = new Potato();
+Potato potato = new Potato();
 public long timePause;
 public long timeRes;
 
