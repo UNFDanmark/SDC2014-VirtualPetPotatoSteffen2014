@@ -28,32 +28,42 @@ public class Potato {
     public long lose = time.timeRes;
 
     boolean death = false;
+    public void resetPotatoStats(){
+        hunger = 5;
+        happiness = 5;
+        thirst = 5;
+        energy = 5;
+    }
+
+    public void diePotato(){
+
+    }
 
     public void eat() {
         if (hunger != MAX_HUNGER) {
             hunger++;
-            System.out.println("Hunger:" + hunger);
+            System.out.println("Hunger:"+hunger);
         }
     }
 
     public void drink() {
         if (thirst != MAX_THIRST) {
             thirst++;
-            System.out.println("thirst:" + thirst);
+            System.out.println("thirst:"+thirst);
         }
     }
 
     public void play() {
         if (happiness != MAX_HAPPINESS) {
             happiness++;
-            System.out.println("Happiness:" + happiness);
+            System.out.println("Happiness:"+happiness);
         }
     }
 
     public void eatfucapo() {
         if (energy != MAX_ENERGY) {
             energy++;
-            System.out.println("Energy:" + energy);
+            System.out.println("Energy:"+energy);
         }
     }
 
