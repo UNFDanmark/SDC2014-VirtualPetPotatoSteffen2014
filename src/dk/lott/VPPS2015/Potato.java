@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
  */
 public class Potato {
 
-    Time time = new time();
+    Time time = new Time();
 
     final static int MIN_HUNGER = 0;
     int hunger = 5;
