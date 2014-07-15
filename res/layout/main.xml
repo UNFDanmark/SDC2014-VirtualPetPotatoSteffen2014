@@ -27,14 +27,14 @@
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:text="Fucapo"
-                android:id="@+id/bext."
+                android:id="@+id/bfucapo"
                 android:layout_weight="0.15"
                 android:clickable="true" android:layout_gravity="center"/>
         <Button
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:text="Drinks"
-                android:id="@+id/button" android:layout_weight="0.15" android:layout_gravity="center"/>
+                android:id="@+id/bdrinks" android:layout_weight="0.15" android:layout_gravity="center"/>
     </LinearLayout>
     <FrameLayout
             android:layout_width="360dip"
