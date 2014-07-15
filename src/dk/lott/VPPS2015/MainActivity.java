@@ -13,6 +13,7 @@ import java.util.Set;
 public class MainActivity extends Activity {
 
 Potato potato = new Potato();
+Progressbar progressbar = new Progressbar();
 
     /**
      * Called when the activity is first created.
@@ -70,8 +71,16 @@ Potato potato = new Potato();
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        progressbar.onPause();
+    }
 
-
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        progressbar.onResume();
+    }
 }
    
