@@ -13,7 +13,7 @@ import java.util.Set;
 public class MainActivity extends Activity {
 
 Potato potato = new Potato();
-Progressbar progressbar = new Progressbar();
+Progressbar progressbar = new Progressbar(getApplicationContext());
 
     /**
      * Called when the activity is first created.
