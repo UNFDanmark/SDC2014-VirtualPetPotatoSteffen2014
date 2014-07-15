@@ -9,21 +9,27 @@ import android.widget.Toast;
  */
 public class Potato {
 
+    Time time = new Time();
+
     final static int MIN_HUNGER = 0;
-    int hunger = 5;
+    long hunger = 5;
     final static int MAX_HUNGER = 10;
 
     final static int MIN_HAPPINESS = 0;
-    int happiness = 5;
+    long happiness = 5;
     final static int MAX_HAPPINESS = 10;
 
     final static int MIN_THIRST = 0;
-    int thirst = 5;
+    long thirst = 5;
     final static int MAX_THIRST = 10;
 
     final static int MIN_ENERGY = 0;
-    int energy = 5;
+    long energy = 5;
     final static int MAX_ENERGY = 10;
+
+    public long lose = time.timeRes;
+
+    boolean death = false;
 
     public void resetPotatoStats(){
         hunger = 5;
@@ -79,14 +85,23 @@ public class Potato {
         }
     }
 
-    public void hungerloose() {
+    public void onResume() {
+        hunger = hunger - lose;
+        happiness = happiness - lose;
+        thirst = thirst - lose;
+        energy = energy - lose;
+        System.out.println("Hunger:"+hunger);
+        System.out.println("thirst:"+thirst);
+        System.out.println("Happiness:"+happiness);
+        System.out.println("Energy:"+energy);
 
     }
+
     public void save(SharedPreferences.Editor editorSave) {
-        editorSave.putInt("hunger", hunger);
-        editorSave.putInt("thirst", thirst);
-        editorSave.putInt("happiness", happiness);
-        editorSave.putInt("energy", energy);
+        editorSave.putLong("hunger", hunger);
+        editorSave.putLong("thirst", thirst);
+        editorSave.putLong("happiness", happiness);
+        editorSave.putLong("energy", energy);
         editorSave.commit();
 
     }
@@ -98,6 +113,7 @@ public class Potato {
         energy = preferences.getInt("energy", 5);
 
     }
+
     public class StatusEffect extends Potato {
         // Afgøre hvilket humør der skal vises. F.eks normal, sulten, trist, glad.
 

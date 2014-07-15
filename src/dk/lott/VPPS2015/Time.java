@@ -23,7 +23,7 @@ public class Time {
 
     public void onResume() {
         timeRes = (((getTimeDiffrence(timePause) / 60) / 60) / 10);
-        System.out.println("Progressbarlooses:" + timeRes);
+        System.out.println("Progressbarloses:" + timeRes);
     }
 }
 
