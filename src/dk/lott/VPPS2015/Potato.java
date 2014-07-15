@@ -42,24 +42,19 @@ public class Potato {
         energyn = 5;
     }
 
-    public void diePotato() {
-
-    public void diePotato(Context context){
-        if(hunger == MIN_HUNGER){
-        resetPotatoStats();
-            Toast.makeText(context,"Your Potato Steffen died of hunger! Shame on you!", Toast.LENGTH_LONG ).show();
-        }
-        else if(thirst == MIN_THIRST){
-        resetPotatoStats();
-            Toast.makeText(context, "You fool! Potato Steffen died of thirst!", Toast.LENGTH_LONG ).show();
-        }
-        else if(energy == MIN_ENERGY){
+    public void diePotato(Context context) {
+        if (hungern == MIN_HUNGER) {
             resetPotatoStats();
-            Toast.makeText(context,"You lily liver! Potato Steffen died of energy loss!", Toast.LENGTH_LONG ).show();
-        }
-        else if(happiness == MIN_HAPPINESS){
+            Toast.makeText(context, "Your Potato Steffen died of hunger! Shame on you!", Toast.LENGTH_LONG).show();
+        } else if (thirstn == MIN_THIRST) {
             resetPotatoStats();
-            Toast.makeText(context,"Your Potato Steffen died of energy loss! You suck!", Toast.LENGTH_LONG ).show();
+            Toast.makeText(context, "You fool! Potato Steffen died of thirst!", Toast.LENGTH_LONG).show();
+        } else if (energyn == MIN_ENERGY) {
+            resetPotatoStats();
+            Toast.makeText(context, "You lily liver! Potato Steffen died of energy loss!", Toast.LENGTH_LONG).show();
+        } else if (happinessn == MIN_HAPPINESS) {
+            resetPotatoStats();
+            Toast.makeText(context, "Your Potato Steffen died of depression! You suck!", Toast.LENGTH_LONG).show();
         }
     }
 
