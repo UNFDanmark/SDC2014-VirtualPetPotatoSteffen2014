@@ -12,7 +12,7 @@ public class MainActivity extends Activity {
 
     Potato potato = new Potato();
     Time time = new Time();
-    Progbar progbar= new Progbar();
+    Progbar progbar= new Progbar(getApplicationContext());
 
     /**
      * Called when the activity is first created.
@@ -23,7 +23,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         potato.load(preferences);
-        // Hvorfor load?
+        // Hvorfor load? -Casper
 /**
  * Toys
  */
@@ -82,7 +82,6 @@ public class MainActivity extends Activity {
     protected void onResume() {
         super.onResume();
         time.onResume();
-        Progbar.onResume();
     }
 }
    

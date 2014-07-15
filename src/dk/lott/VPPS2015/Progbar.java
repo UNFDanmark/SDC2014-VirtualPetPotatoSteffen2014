@@ -1,5 +1,6 @@
 package dk.lott.VPPS2015;
 
+import android.content.Context;
 import android.view.View;
 import android.content.SharedPreferences;
 
@@ -11,9 +12,9 @@ public class Progbar extends View {
     Potato potato = new Potato();
     Time time = new Time();
     int progbarLength;
-    long progbarLoose;
+    long progbarLoose=time.timeRes;
 
-    public void onResume() {
-        progbarLoose = time.timeRes;
+    public Progbar(Context context) { // Ingen ide hvad denne gør? - Casper
+        super(context);
     }
 }
