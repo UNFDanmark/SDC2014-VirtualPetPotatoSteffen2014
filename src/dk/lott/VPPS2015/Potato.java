@@ -63,4 +63,9 @@ public class Potato {
         energy = preferences.getInt("energy",5);
 
     }
+    public class StatusEffect extends Potato {
+        // Afgøre hvilket humør der skal vises. F.eks normal, sulten, trist, glad.
+
+    }
 }
+
