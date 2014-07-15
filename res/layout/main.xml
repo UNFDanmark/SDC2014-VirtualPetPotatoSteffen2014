@@ -13,24 +13,28 @@
                 android:layout_height="wrap_content"
                 android:text="Toys"
                 android:id="@+id/btoys"
-                android:layout_weight="0.3"
+                android:layout_weight="0.15"
                 android:clickable="true"
-                android:layout_gravity="left"/>
+                android:layout_gravity="center"/>
         <Button
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
-                android:text="Ædelse"
+                android:text="Food"
                 android:id="@+id/bfood"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="0.3"
-                android:clickable="true"/>
+                android:layout_weight="0.15"
+                android:clickable="true" android:layout_gravity="center"/>
         <Button
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
-                android:text="ext."
-                android:id="@+id/brandom"
-                android:layout_weight="0.3"
-                android:clickable="true"/>
+                android:text="Fucapo"
+                android:id="@+id/bext."
+                android:layout_weight="0.15"
+                android:clickable="true" android:layout_gravity="center"/>
+        <Button
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:text="Drinks"
+                android:id="@+id/button" android:layout_weight="0.15" android:layout_gravity="center"/>
     </LinearLayout>
     <FrameLayout
             android:layout_width="wrap_content"
@@ -125,7 +129,7 @@
                     android:id="@+id/progressBar"
                     android:layout_weight="0.5"
                     android:clickable="true"
-                    android:background="#ff00ff00"
+                    android:background="#ffff00ff"
                     android:focusableInTouchMode="true"/>
             <Space android:layout_width="20px"
                    android:layout_height="20px"
@@ -135,7 +139,7 @@
                          android:layout_height="12dp"
                          android:id="@+id/progressBar2"
                          android:layout_weight="0.5"
-                         android:background="#ffff0000"/>
+                         android:background="#FF0000FF"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
