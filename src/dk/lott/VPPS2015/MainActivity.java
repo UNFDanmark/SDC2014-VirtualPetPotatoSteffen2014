@@ -23,6 +23,8 @@ public class MainActivity extends Activity {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         potato.load(preferences);
         // Hvorfor load? -Casper
+
+        potato.diePotato(getApplicationContext());
 /**
  * Toys
  */

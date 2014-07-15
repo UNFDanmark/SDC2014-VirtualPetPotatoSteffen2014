@@ -1,6 +1,8 @@
 package dk.lott.VPPS2015;
 
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.widget.Toast;
 
 /**
  * Created by sdc on 7/15/14.
@@ -42,6 +44,23 @@ public class Potato {
 
     public void diePotato() {
 
+    public void diePotato(Context context){
+        if(hunger == MIN_HUNGER){
+        resetPotatoStats();
+            Toast.makeText(context,"Your Potato Steffen died of hunger! Shame on you!", Toast.LENGTH_LONG ).show();
+        }
+        else if(thirst == MIN_THIRST){
+        resetPotatoStats();
+            Toast.makeText(context, "You fool! Potato Steffen died of thirst!", Toast.LENGTH_LONG ).show();
+        }
+        else if(energy == MIN_ENERGY){
+            resetPotatoStats();
+            Toast.makeText(context,"You lily liver! Potato Steffen died of energy loss!", Toast.LENGTH_LONG ).show();
+        }
+        else if(happiness == MIN_HAPPINESS){
+            resetPotatoStats();
+            Toast.makeText(context,"Your Potato Steffen died of energy loss! You suck!", Toast.LENGTH_LONG ).show();
+        }
     }
 
     public void eat() {
