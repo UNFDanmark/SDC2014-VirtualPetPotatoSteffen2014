@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.sql.SQLOutput;
 import java.util.Set;
 
 public class MainActivity extends Activity {
@@ -27,6 +28,7 @@ Potato potato = new Potato();
             @Override
             public void onClick(View v) {
                 potato.play();
+                System.out.println("Happiness:"+potato.happiness);
             }
         });
 /**
@@ -37,9 +39,9 @@ Potato potato = new Potato();
             @Override
             public void onClick(View v) {
                 potato.eat();
+                System.out.println("Hunger:"+potato.hunger);
             }
         });
-
 /**
  * Fucapo
  */
@@ -48,19 +50,20 @@ Potato potato = new Potato();
             @Override
             public void onClick(View v) {
                 potato.eatfucapo();
+                System.out.println("Energi:"+potato.energi);
             }
         });
-        /**
-         * Drinks
-         */
+/**
+ * Drinks
+ */
         Button drinks = (Button) findViewById(R.id.bdrinks);
         drinks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 potato.drink();
+                System.out.println("Thirst:"+potato.thirst);
             }
         });
     }
-
 }
    

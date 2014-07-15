@@ -7,16 +7,16 @@ import java.util.Set;
  */
 public class Potato {
     int minHunger = 0;
-    int hunger = 5;
+    int hunger = 0;
     int maxHunger = 10;
     int minHappiness = 0;
-    int happiness = 5;
+    int happiness = 0;
     int maxHappiness = 10;
     int minThirst = 0;
-    int thirst = 5;
+    int thirst = 0;
     int maxThirst = 10;
     int minEnergy = 0;
-    int energi = 5;
+    int energi = 0;
     int maxEnergy = 10;
     boolean death = false;
 
