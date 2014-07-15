@@ -37,16 +37,18 @@
                 android:id="@+id/button" android:layout_weight="0.15" android:layout_gravity="center"/>
     </LinearLayout>
     <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="360dip"
+            android:layout_height="400dip"
             android:layout_gravity="center">
         <ImageView
-                android:layout_width="360dip"
-                android:layout_height="400dip"
-                android:id="@+id/Avatar"
-                android:layout_gravity="center"
-                android:background="@drawable/ic_launcher"
-                android:clickable="false"/>
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/body" android:layout_gravity="center" android:background="@drawable/pet_potato"
+                android:visibility="visible"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/normal" android:layout_gravity="center_horizontal|top"/>
     </FrameLayout>
     <LinearLayout
             android:orientation="vertical"
