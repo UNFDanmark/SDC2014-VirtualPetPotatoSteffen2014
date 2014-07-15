@@ -24,6 +24,7 @@ public class Potato {
         if(hunger != maxHunger){
             hunger++;
         }
+
     }
 
     public void drink() {
