@@ -125,23 +125,19 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/linearLayout">
-            <ProgressBar
+            <ImageView
                     android:layout_width="0dp"
                     android:layout_height="12dp"
-                    android:id="@+id/progressBar"
-                    android:layout_weight="0.5"
-                    android:clickable="true"
-                    android:background="#ffff00ff"
-                    android:focusableInTouchMode="true"/>
+                    android:id="@+id/energiBar"
+                    android:layout_weight="0.45"/>
             <Space android:layout_width="20px"
                    android:layout_height="20px"
                    android:layout_weight="0.1"
                    android:id="@+id/space"/>
-            <ProgressBar android:layout_width="0dp"
-                         android:layout_height="12dp"
-                         android:id="@+id/progressBar2"
-                         android:layout_weight="0.5"
-                         android:background="#FF0000FF"/>
+            <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="12dp"
+                    android:id="@+id/thirstBar" android:layout_weight="0.45"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
