@@ -9,12 +9,13 @@ import android.content.SharedPreferences;
  */
 
 public class Progbar extends View {
+    public Progbar(Context context) {
+        super(context);
+    }
+
     Potato potato = new Potato();
     Time time = new Time();
     int progbarLength;
-    long progbarLoose=time.timeRes;
+    long progbarLoose = time.timeRes;
 
-    public Progbar(Context context) { // Ingen ide hvad denne gør? - Casper
-        super(context);
-    }
 }

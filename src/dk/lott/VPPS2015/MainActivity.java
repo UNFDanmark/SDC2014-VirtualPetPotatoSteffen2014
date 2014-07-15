@@ -12,7 +12,7 @@ public class MainActivity extends Activity {
 
     Potato potato = new Potato();
     Time time = new Time();
-    Progbar progbar= new Progbar(getApplicationContext());
+    Progbar progbar;
 
     /**
      * Called when the activity is first created.
@@ -21,6 +21,7 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        progbar = new Progbar(getApplicationContext());
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         potato.load(preferences);
         // Hvorfor load? -Casper
