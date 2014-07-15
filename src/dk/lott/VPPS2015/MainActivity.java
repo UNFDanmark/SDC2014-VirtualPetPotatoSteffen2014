@@ -53,6 +53,8 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 potato.eatfucapo();
+                potato.clickcount++;
+                System.out.println("Click Count:"+potato.clickcount);
             }
         });
 /**

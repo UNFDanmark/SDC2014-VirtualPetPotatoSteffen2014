@@ -20,6 +20,7 @@ public class Potato {
     long starthappiness = 5;
     long happinessn;
     final static int MAX_HAPPINESS = 10;
+    int clickcount=0;
 
     final static int MIN_THIRST = 0;
     long startthirst = 5;
