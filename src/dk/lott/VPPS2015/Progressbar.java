@@ -1,26 +1,15 @@
 package dk.lott.VPPS2015;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.view.View;
+import android.content.SharedPreferences;
 
 /**
  * Created by sdc on 7/15/14.
  */
-public class Progressbar extends View {
-Potato potato = new Potato();
+public class Progressbar {
+//Potato potato = new Potato();
 public long timePause;
 public long timeRes;
-
-    public Progressbar(Context context) {
-        super(context);
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-
-    }
+public long Progressbarlooses=(timeRes-timePause);
 
     public void onPause() {
         timePause=getTimeMilis();
@@ -28,8 +17,7 @@ public long timeRes;
 
     public void onResume() {
         timeRes=getTimeDiffrence(timePause);
-
-
+        System.out.println(Progressbarlooses);
     }
 
     private long getTimeMilis() {
@@ -40,3 +28,4 @@ public long timeRes;
         return System.currentTimeMillis() - lastTime;
     }
 }
+

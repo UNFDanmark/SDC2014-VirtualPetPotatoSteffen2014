@@ -11,7 +11,7 @@ import android.widget.ImageView;
 public class MainActivity extends Activity {
 
     Potato potato = new Potato();
-    Progressbar progressbar = new Progressbar(getApplicationContext());
+    Progressbar progressbar = new Progressbar();
 
     /**
      * Called when the activity is first created.
@@ -20,7 +20,6 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         potato.load(preferences);
 /**
