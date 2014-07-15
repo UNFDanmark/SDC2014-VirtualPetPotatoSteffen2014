@@ -73,6 +73,11 @@ public class Potato {
         happiness = happiness - lose;
         thirst = thirst - lose;
         energy = energy - lose;
+        System.out.println("Hunger:"+hunger);
+        System.out.println("thirst:"+thirst);
+        System.out.println("Happiness:"+happiness);
+        System.out.println("Energy:"+energy);
+
     }
 
     public void save(SharedPreferences.Editor editorSave) {
