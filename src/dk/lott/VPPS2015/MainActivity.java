@@ -11,7 +11,7 @@ import android.widget.ImageView;
 public class MainActivity extends Activity {
 
     Potato potato = new Potato();
-    Progressbar progressbar = new Progressbar();
+    Time time = new Time();
 
     /**
      * Called when the activity is first created.
@@ -22,6 +22,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         potato.load(preferences);
+        // Hvorfor load?
 /**
  * Toys
  */
@@ -62,7 +63,9 @@ public class MainActivity extends Activity {
                 potato.drink();
             }
         });
-
+/**
+ * Faces
+ */
         ImageView body = (ImageView) findViewById(R.id.body);
         body.setVisibility(View.VISIBLE);
 
@@ -71,13 +74,14 @@ public class MainActivity extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-        progressbar.onPause();
+        time.onPause();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        progressbar.onResume();
+        time.onResume();
+        Progbar.onResume();
     }
 }
    

@@ -26,43 +26,46 @@ public class Potato {
     boolean death = false;
 
     public void eat() {
-        if(hunger != MAX_HUNGER){
+        if (hunger != MAX_HUNGER) {
             hunger++;
         }
     }
 
     public void drink() {
-        if(thirst != MAX_THIRST){
+        if (thirst != MAX_THIRST) {
             thirst++;
         }
     }
 
     public void play() {
-        if(happiness != MAX_HAPPINESS){
+        if (happiness != MAX_HAPPINESS) {
             happiness++;
         }
     }
 
     public void eatfucapo() {
-        if(energy != MAX_ENERGY){
+        if (energy != MAX_ENERGY) {
             energy++;
         }
     }
-    public void save(SharedPreferences.Editor editorSave){
-        editorSave.putInt("hunger",hunger);
-        editorSave.putInt("thirst",thirst);
-        editorSave.putInt("happiness",happiness);
-        editorSave.putInt("energy",energy);
+
+    public void save(SharedPreferences.Editor editorSave) {
+        editorSave.putInt("hunger", hunger);
+        editorSave.putInt("thirst", thirst);
+        editorSave.putInt("happiness", happiness);
+        editorSave.putInt("energy", energy);
         editorSave.commit();
 
     }
-    public void load(SharedPreferences preferences){
-        hunger = preferences.getInt("hunger",5);
-        thirst = preferences.getInt("thirst",5);
-        happiness = preferences.getInt("happiness",5);
-        energy = preferences.getInt("energy",5);
+
+    public void load(SharedPreferences preferences) {
+        hunger = preferences.getInt("hunger", 5);
+        thirst = preferences.getInt("thirst", 5);
+        happiness = preferences.getInt("happiness", 5);
+        energy = preferences.getInt("energy", 5);
 
     }
+
     public class StatusEffect extends Potato {
         // Afgøre hvilket humør der skal vises. F.eks normal, sulten, trist, glad.
 
