@@ -26,7 +26,7 @@ Potato potato = new Potato();
             toys.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    potato.play();
                 }
             });
 /**
@@ -36,7 +36,7 @@ Potato potato = new Potato();
             food.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    potato.eat();
                 }
             });
 
@@ -47,7 +47,7 @@ Potato potato = new Potato();
             fucapo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    potato.eatfucapo();
                 }
             });
             /**
@@ -57,9 +57,7 @@ Potato potato = new Potato();
             drinks.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (potato.thirst == 5) ;
-
-
+                    potato.drink();
                 }
             });
         }
