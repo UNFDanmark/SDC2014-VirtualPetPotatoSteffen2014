@@ -1,11 +1,12 @@
 package dk.lott.VPPS2015;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 
-import java.sql.SQLOutput;
 import java.util.Set;
 
 public class MainActivity extends Activity {
@@ -20,6 +21,8 @@ Potato potato = new Potato();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        potato.load(preferences);
 /**
  * Toys
  */
@@ -28,7 +31,6 @@ Potato potato = new Potato();
             @Override
             public void onClick(View v) {
                 potato.play();
-                System.out.println("Happiness:"+potato.happiness);
             }
         });
 /**
@@ -39,7 +41,6 @@ Potato potato = new Potato();
             @Override
             public void onClick(View v) {
                 potato.eat();
-                System.out.println("Hunger:"+potato.hunger);
             }
         });
 /**
@@ -50,7 +51,6 @@ Potato potato = new Potato();
             @Override
             public void onClick(View v) {
                 potato.eatfucapo();
-                System.out.println("Energi:"+potato.energi);
             }
         });
 /**
@@ -61,7 +61,6 @@ Potato potato = new Potato();
             @Override
             public void onClick(View v) {
                 potato.drink();
-                System.out.println("Thirst:"+potato.thirst);
             }
         });
     }
