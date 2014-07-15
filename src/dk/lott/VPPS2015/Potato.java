@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
  */
 public class Potato {
 
+    Time time = new time();
+
     final static int MIN_HUNGER = 0;
     int hunger = 5;
     final static int MAX_HUNGER = 10;
@@ -23,39 +25,45 @@ public class Potato {
     int energy = 5;
     final static int MAX_ENERGY = 10;
 
+    public long lose = time.timeRes;
+
     boolean death = false;
 
     public void eat() {
         if (hunger != MAX_HUNGER) {
             hunger++;
-            System.out.println("Hunger:"+hunger);
+            System.out.println("Hunger:" + hunger);
         }
     }
 
     public void drink() {
         if (thirst != MAX_THIRST) {
             thirst++;
-            System.out.println("thirst:"+thirst);
+            System.out.println("thirst:" + thirst);
         }
     }
 
     public void play() {
         if (happiness != MAX_HAPPINESS) {
             happiness++;
-            System.out.println("Happiness:"+happiness);
+            System.out.println("Happiness:" + happiness);
         }
     }
 
     public void eatfucapo() {
         if (energy != MAX_ENERGY) {
             energy++;
-            System.out.println("Energy:"+energy);
+            System.out.println("Energy:" + energy);
         }
     }
 
-    public void hungerloose() {
-
+    public void onResume() {
+        long hungerlose = hunger - lose;
+        long happinesslose = happiness - lose;
+        long thirstlose = thirst - lose;
+        long energylose = energy - lose;
     }
+
     public void save(SharedPreferences.Editor editorSave) {
         editorSave.putInt("hunger", hunger);
         editorSave.putInt("thirst", thirst);
@@ -72,6 +80,7 @@ public class Potato {
         energy = preferences.getInt("energy", 5);
 
     }
+
     public class StatusEffect extends Potato {
         // Afgøre hvilket humør der skal vises. F.eks normal, sulten, trist, glad.
 

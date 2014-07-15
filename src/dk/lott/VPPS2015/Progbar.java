@@ -9,7 +9,6 @@ import android.content.SharedPreferences;
  */
 
 public class Progbar extends View {
-    Potato potato = new Potato();
     public Progbar(Context context) {
         super(context);
     }
@@ -17,6 +16,5 @@ public class Progbar extends View {
     Potato potato = new Potato();
     Time time = new Time();
     int progbarLength;
-    long progbarLoose = time.timeRes;
 
 }
