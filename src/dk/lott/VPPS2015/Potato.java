@@ -19,9 +19,9 @@ public class Potato {
     int thirst = 5;
     int maxThirst = 10;
 
-    int minEnergy = 0;
+    int minEnergi = 0;
     int energi = 5;
-    int maxEnergy = 10;
+    int maxEnergi = 10;
 
     boolean death = false;
 

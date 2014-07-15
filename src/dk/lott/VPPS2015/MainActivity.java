@@ -64,6 +64,8 @@ Potato potato = new Potato();
                 System.out.println("Thirst:"+potato.thirst);
             }
         });
+
     }
+
 }
    
