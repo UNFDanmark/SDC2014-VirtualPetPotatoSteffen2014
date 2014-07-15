@@ -12,6 +12,7 @@ public class MainActivity extends Activity {
 
     Potato potato = new Potato();
     Time time = new Time();
+    Progbar progbar= new Progbar();
 
     /**
      * Called when the activity is first created.
