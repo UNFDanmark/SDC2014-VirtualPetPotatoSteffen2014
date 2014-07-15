@@ -6,32 +6,44 @@ import java.util.Set;
  * Created by sdc on 7/15/14.
  */
 public class Potato {
-    int hunger=50;
-    int happiness=50;
-    int eat;
+    int minHunger = 0;
+    int hunger = 5;
+    int maxHunger = 10;
+    int minHappiness = 0;
+    int happiness = 5;
+    int maxHappiness = 10;
+    int minThirst = 0;
+    int thirst = 5;
+    int maxThirst = 10;
+    int minEnergy = 0;
+    int energi = 5;
+    int maxEnergy = 10;
+    boolean death = false;
 
-    /**
-     * Hunger
-     */
-    if (hunger > 100) {
-        hunger = 100;
+    public void eat() {
+        if(hunger != maxHunger){
+            hunger++;
+        }
     }
-    else if (hunger <= 50) {
 
+    public void drink() {
+        if(thirst != maxThirst){
+            thirst++;
+        }
     }
-    else if (hunger <= 0) {
-        hunger = 0;
-        //Die somehow
-    }
-    if (eat) {
-        hunger+20;
-    }
-    /**
-     * Happiness
-     */
 
-    if (happiness <=0) {
-
+    public void play() {
+        if(happiness != maxHappiness){
+            happiness++;
+        }
     }
-    //Evt. Flere Ting
+
+    public void eatfucapo() {
+        if(energi != maxEnergy){
+            energi++;
+        }
+    }
+
+
+
 }
