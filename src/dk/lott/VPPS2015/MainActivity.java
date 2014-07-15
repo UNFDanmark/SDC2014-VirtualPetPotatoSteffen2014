@@ -12,7 +12,7 @@ public class MainActivity extends Activity {
 
     Potato potato = new Potato();
     Time time = new Time();
-    Progbar progbar;
+    Progbar progbar = new Progbar();
 
     /**
      * Called when the activity is first created.
@@ -70,6 +70,9 @@ public class MainActivity extends Activity {
  */
         ImageView body = (ImageView) findViewById(R.id.body);
         body.setVisibility(View.VISIBLE);
+/**
+ * Die function
+ */
 
     }
 
@@ -77,6 +80,7 @@ public class MainActivity extends Activity {
     protected void onPause() {
         super.onPause();
         time.onPause();
+
     }
 
     @Override

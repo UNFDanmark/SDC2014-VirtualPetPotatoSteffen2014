@@ -28,27 +28,34 @@ public class Potato {
     public void eat() {
         if (hunger != MAX_HUNGER) {
             hunger++;
+            System.out.println("Hunger:"+hunger);
         }
     }
 
     public void drink() {
         if (thirst != MAX_THIRST) {
             thirst++;
+            System.out.println("thirst:"+thirst);
         }
     }
 
     public void play() {
         if (happiness != MAX_HAPPINESS) {
             happiness++;
+            System.out.println("Happiness:"+happiness);
         }
     }
 
     public void eatfucapo() {
         if (energy != MAX_ENERGY) {
             energy++;
+            System.out.println("Energy:"+energy);
         }
     }
 
+    public void hungerloose() {
+
+    }
     public void save(SharedPreferences.Editor editorSave) {
         editorSave.putInt("hunger", hunger);
         editorSave.putInt("thirst", thirst);
@@ -65,7 +72,6 @@ public class Potato {
         energy = preferences.getInt("energy", 5);
 
     }
-
     public class StatusEffect extends Potato {
         // Afgøre hvilket humør der skal vises. F.eks normal, sulten, trist, glad.
 

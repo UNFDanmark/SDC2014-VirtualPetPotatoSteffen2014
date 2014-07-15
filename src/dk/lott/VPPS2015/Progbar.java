@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
  */
 
 public class Progbar extends View {
+    Potato potato = new Potato();
     public Progbar(Context context) {
         super(context);
     }
