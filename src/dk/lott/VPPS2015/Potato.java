@@ -10,90 +10,94 @@ public class Potato {
     Time time = new Time();
 
     final static int MIN_HUNGER = 0;
-    long hunger = 5;
+    long starthunger = 5;
+    long hungern;
     final static int MAX_HUNGER = 10;
 
     final static int MIN_HAPPINESS = 0;
-    long happiness = 5;
+    long starthappiness = 5;
+    long happinessn;
     final static int MAX_HAPPINESS = 10;
 
     final static int MIN_THIRST = 0;
-    long thirst = 5;
+    long startthirst = 5;
+    long thirstn;
     final static int MAX_THIRST = 10;
 
     final static int MIN_ENERGY = 0;
-    long energy = 5;
+    long startenergy = 5;
+    long energyn;
     final static int MAX_ENERGY = 10;
 
     public long lose = time.timeRes;
 
     boolean death = false;
 
-    public void resetPotatoStats(){
-        hunger = 5;
-        happiness = 5;
-        thirst = 5;
-        energy = 5;
+    public void resetPotatoStats() {
+        hungern = 5;
+        happinessn = 5;
+        thirstn = 5;
+        energyn = 5;
     }
 
-    public void diePotato(){
+    public void diePotato() {
 
     }
 
     public void eat() {
-        if (hunger != MAX_HUNGER) {
-            hunger++;
-            System.out.println("Hunger:"+hunger);
+        if (hungern != MAX_HUNGER) {
+            hungern++;
+            System.out.println("Hunger:" + hungern);
         }
     }
 
     public void drink() {
-        if (thirst != MAX_THIRST) {
-            thirst++;
-            System.out.println("thirst:"+thirst);
+        if (thirstn != MAX_THIRST) {
+            thirstn++;
+            System.out.println("thirst:" + thirstn);
         }
     }
 
     public void play() {
-        if (happiness != MAX_HAPPINESS) {
-            happiness++;
-            System.out.println("Happiness:"+happiness);
+        if (happinessn != MAX_HAPPINESS) {
+            happinessn++;
+            System.out.println("Happiness:" + happinessn);
         }
     }
 
     public void eatfucapo() {
-        if (energy != MAX_ENERGY) {
-            energy++;
-            System.out.println("Energy:"+energy);
+        if (energyn != MAX_ENERGY) {
+            energyn++;
+            System.out.println("Energy:" + energyn);
         }
     }
 
     public void onResume() {
-        hunger = hunger - lose;
-        happiness = happiness - lose;
-        thirst = thirst - lose;
-        energy = energy - lose;
-        System.out.println("Hunger:"+hunger);
-        System.out.println("thirst:"+thirst);
-        System.out.println("Happiness:"+happiness);
-        System.out.println("Energy:"+energy);
+        hungern = hungern - lose;
+        happinessn = happinessn - lose;
+        thirstn = thirstn - lose;
+        energyn = energyn - lose;
+        System.out.println("Hunger:" + hungern);
+        System.out.println("Thirst:" + thirstn);
+        System.out.println("Happiness:" + happinessn);
+        System.out.println("Energy:" + energyn);
 
     }
 
     public void save(SharedPreferences.Editor editorSave) {
-        editorSave.putLong("hunger", hunger);
-        editorSave.putLong("thirst", thirst);
-        editorSave.putLong("happiness", happiness);
-        editorSave.putLong("energy", energy);
+        editorSave.putLong("hunger", hungern);
+        editorSave.putLong("thirst", thirstn);
+        editorSave.putLong("happiness", happinessn);
+        editorSave.putLong("energy", energyn);
         editorSave.commit();
 
     }
 
     public void load(SharedPreferences preferences) {
-        hunger = preferences.getInt("hunger", 5);
-        thirst = preferences.getInt("thirst", 5);
-        happiness = preferences.getInt("happiness", 5);
-        energy = preferences.getInt("energy", 5);
+        hungern = preferences.getInt("hunger", 5);
+        thirstn = preferences.getInt("thirst", 5);
+        happinessn = preferences.getInt("happiness", 5);
+        energyn = preferences.getInt("energy", 5);
 
     }
 
