@@ -14,12 +14,15 @@ public class Potato {
      * Hunger
      */
     if (hunger > 100) {
-        hunger =100;
+        hunger = 100;
     }
-    if (hunger <=0) {
-        Die somehow
-    }
+    else if (hunger <= 50) {
 
+    }
+    else if (hunger <= 0) {
+        hunger = 0;
+        //Die somehow
+    }
     if (eat) {
         hunger+20;
     }
