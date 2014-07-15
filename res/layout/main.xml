@@ -57,32 +57,29 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="Happiness"
-                    android:id="@+id/PBhappiness"
                     android:layout_weight="0.4"
-                    android:textColor="#ffffffff"/>
+                    android:textColor="#ffffffff"
+                    android:textSize="18dip"/>
+            <Space android:layout_width="20px" android:layout_height="20px" android:layout_weight="0.1"
+                   android:id="@+id/space2"/>
             <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="Hunger"
-                    android:id="@+id/PBhunger"
                     android:layout_weight="0.4"
-                    android:textSize="20dip"
+                    android:textSize="18dip"
                     android:textColor="#ffffffff"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
-                android:layout_height="40dip">
-            <Space
-                    android:layout_width="20px"
-                    android:layout_height="20px"
-                    android:layout_weight="0.1"/>
+                android:layout_height="wrap_content">
             <ProgressBar
                     android:layout_width="0dp"
-                    android:layout_height="24dp"
-                    android:id="@+id/PB1"
-                    android:layout_weight="0.15"
+                    android:layout_height="12dp"
+                    android:id="@+id/PBHappines"
+                    android:layout_weight="0.45"
                     android:clickable="true"
                     android:background="#ff00ff00"/>
             <Space
@@ -91,28 +88,54 @@
                     android:layout_weight="0.1"/>
             <ProgressBar
                     android:layout_width="0dp"
-                    android:layout_height="24dp"
-                    android:id="@+id/PB2"
-                    android:layout_weight="0.15"
+                    android:layout_height="12dp"
+                    android:id="@+id/PBHunger"
+                    android:layout_weight="0.45"
                     android:background="#ffff0000"/>
-            <Space
-                    android:layout_width="20px"
-                    android:layout_height="20px"
-                    android:layout_weight="0.1"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:id="@+id/linearLayout2">
+            <TextView android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:textAppearance="?android:attr/textAppearanceMedium"
+                      android:text="Energi"
+                      android:layout_weight="0.4"
+                      android:textColor="#ffffffff"
+                      android:textSize="18dip"/>
+            <Space android:layout_width="20px" android:layout_height="20px" android:layout_weight="0.1"
+                   android:id="@+id/space3"/>
+            <TextView android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:textAppearance="?android:attr/textAppearanceMedium"
+                      android:text="Thirst"
+                      android:layout_weight="0.4"
+                      android:textColor="#ffffffff"
+                      android:textSize="18dip"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout">
             <ProgressBar
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/PB3" android:layout_weight="0.15"/>
-            <Space
-                    android:layout_width="20px"
-                    android:layout_height="20px"
-                    android:layout_weight="0.1"/>
-            <ProgressBar android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/PB4"
-                         android:layout_weight="0.15"/>
-            <Space
-                    android:layout_width="20px"
-                    android:layout_height="20px"
-                    android:layout_weight="0.1"/>
+                    android:layout_width="0dp"
+                    android:layout_height="12dp"
+                    android:id="@+id/progressBar"
+                    android:layout_weight="0.5"
+                    android:clickable="true"
+                    android:background="#ff00ff00"
+                    android:focusableInTouchMode="true"/>
+            <Space android:layout_width="20px"
+                   android:layout_height="20px"
+                   android:layout_weight="0.1"
+                   android:id="@+id/space"/>
+            <ProgressBar android:layout_width="0dp"
+                         android:layout_height="12dp"
+                         android:id="@+id/progressBar2"
+                         android:layout_weight="0.5"
+                         android:background="#ffff0000"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
