@@ -23,7 +23,16 @@ public class Potato {
     int energy = 5;
     final static int MAX_ENERGY = 10;
 
-    boolean death = false;
+    public void resetPotatoStats(){
+        hunger = 5;
+        happiness = 5;
+        thirst = 5;
+        energy = 5;
+    }
+
+    public void diePotato(){
+
+    }
 
     public void eat() {
         if (hunger != MAX_HUNGER) {
