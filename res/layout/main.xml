@@ -132,11 +132,10 @@
                    android:layout_height="20px"
                    android:layout_weight="0.1"
                    android:id="@+id/space"/>
-            <ProgressBar android:layout_width="0dp"
-                         android:layout_height="12dp"
-                         android:id="@+id/progressBar2"
-                         android:layout_weight="0.45"
-                         android:background="#FF0000FF"/>
+            <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="12dp"
+                    android:id="@+id/thirstBar" android:layout_weight="0.45"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
