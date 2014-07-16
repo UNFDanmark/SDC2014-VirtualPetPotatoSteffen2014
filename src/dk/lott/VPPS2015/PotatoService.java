@@ -1,9 +1,6 @@
 package dk.lott.VPPS2015;
 
-import android.app.AlarmManager;
-import android.app.IntentService;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
+import android.app.*;
 import android.content.Context;
 import android.content.Intent;
 import android.preference.PreferenceManager;
