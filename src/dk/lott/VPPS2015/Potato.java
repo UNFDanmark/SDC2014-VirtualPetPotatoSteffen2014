@@ -20,7 +20,7 @@ public class Potato {
     final static int MIN_HAPPINESS = 0;
     long happiness;
     final static int MAX_HAPPINESS = 1000;
-    int clickcount = 0;
+    long clickcount = 0;
 
     final static int MIN_THIRST = 0;
     long thirst;
@@ -111,9 +111,14 @@ public class Potato {
         thirst = thirst - time.timeRes;
         happiness = happiness - time.timeRes;
         energy = energy - time.timeRes;
-        // if (clickcount !=0){ clickcount - time.timeRes; }
+        if (clickcount <= 0) {
+            clickcount = 0;
+        } else if (clickcount != 0) {
+            clickcount = clickcount - time.timeRes;
+        }
 
 
-    }}
+    }
+}
 
 
