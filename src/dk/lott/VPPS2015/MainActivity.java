@@ -26,8 +26,8 @@ public class MainActivity extends Activity {
     }
 
     Potato potato = new Potato();
-    SharedPreferences preferences;
-    SharedPreferences.Editor editor;
+    public SharedPreferences preferences;
+    public SharedPreferences.Editor editor;
 
     boolean sultenBool = false;
     boolean tristBool = false;
@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         potato.load(preferences);
-        PotatoService.setAlarm(getApplicationContext());
+        //PotatoService.setAlarm(getApplicationContext());
 
 
 

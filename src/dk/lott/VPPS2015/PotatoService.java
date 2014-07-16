@@ -32,7 +32,7 @@ public class PotatoService extends IntentService {
     }
 /**
 * notificationer
-*/
+*
 
     NotificationManager notificationManager = (NotificationManager)
         getSystemService(NOTIFICATION_SERVICE);
