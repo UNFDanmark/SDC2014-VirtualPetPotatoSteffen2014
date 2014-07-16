@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
@@ -12,20 +11,20 @@ import android.widget.ImageView;
 
 public class MainActivity extends Activity {
 
-    // Views
-    private ProgressbarView energyView;
+    private ReverseProgressbarView energyView;
     private ProgressbarView hungerView;
-    private ProgressbarView happinessView;
+    private ReverseProgressbarView happinessView;
     private ProgressbarView thirstView;
 
+    Potato potato = new Potato();
+
     public void updateBars() {
-        energyView.setValues(potato.energy, potato.MIN_ENERGY, potato.MAX_ENERGY); //Sørens bug! skrev Potato med Stort
-        hungerView.setValues(potato.hunger, potato.MIN_HUNGER, potato.MAX_HUNGER);
-        happinessView.setValues(potato.happiness, potato.MIN_HAPPINESS, potato.MAX_HAPPINESS);
-        thirstView.setValues(potato.thirst, potato.MIN_THIRST, potato.MAX_THIRST);
+        energyView.setValues(potato.energy, Potato.MIN_ENERGY, Potato.MAX_ENERGY); //Sørens bug! skrev Potato med Stort
+        hungerView.setValues(potato.hunger, Potato.MIN_HUNGER, Potato.MAX_HUNGER);
+        happinessView.setValues(potato.happiness, Potato.MIN_HAPPINESS, Potato.MAX_HAPPINESS);
+        thirstView.setValues(potato.thirst, Potato.MIN_THIRST, Potato.MAX_THIRST);
     }
 
-    Potato potato = new Potato();
     public SharedPreferences preferences;
     public SharedPreferences.Editor editor;
 
@@ -39,8 +38,9 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         potato.load(preferences);
-        //PotatoService.setAlarm(getApplicationContext());
+        PotatoService.setAlarm(getApplicationContext());
 
 
 
@@ -56,10 +56,7 @@ public class MainActivity extends Activity {
         ImageView excited = (ImageView) findViewById(R.id.excited);
 
 
-        preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         potato.diePotato(getApplicationContext());
-        editor = preferences.edit();
-        potato.save(editor);
         potato.load(preferences);
 /**
  * Toys
@@ -93,6 +90,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 potato.eatfucapo();
+                System.out.println("Energy:" + potato.energy);
                 potato.clickcount++;
                 potato.Limits();
                 System.out.println("Click Count:" + potato.clickcount);
@@ -169,11 +167,11 @@ public class MainActivity extends Activity {
         ImageView body = (ImageView) findViewById(R.id.body);
         body.setVisibility(View.VISIBLE);
 
-        energyView = (ProgressbarView) findViewById(R.id.energyView);
-        energyView.setColor(Color.BLACK);
+        energyView = (ReverseProgressbarView) findViewById(R.id.energyView);
+        energyView.setColor(Color.YELLOW);
         hungerView = (ProgressbarView) findViewById(R.id.hungerView);
         hungerView.setColor(Color.RED);
-        happinessView = (ProgressbarView) findViewById(R.id.happinessView);
+        happinessView = (ReverseProgressbarView) findViewById(R.id.happinessView);
         happinessView.setColor(Color.GREEN);
         thirstView = (ProgressbarView) findViewById(R.id.thirstView);
         thirstView.setColor(Color.BLUE);
@@ -185,7 +183,7 @@ public class MainActivity extends Activity {
     protected void onPause() {
         super.onPause();
         potato.onPause();
-        potato.save(editor);
+        potato.save(preferences);
     }
 
     @Override

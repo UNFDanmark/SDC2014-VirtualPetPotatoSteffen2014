@@ -32,14 +32,13 @@ public class PotatoService extends IntentService {
     }
 /**
 * notificationer
-*
+*/
 
     NotificationManager notificationManager = (NotificationManager)
         getSystemService(NOTIFICATION_SERVICE);
 
     Intent intent = new Intent(this, NotificationReceiver.class);
     PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
-
 
 
     @Override
