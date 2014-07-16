@@ -41,31 +41,51 @@
             android:layout_height="400dip"
             android:layout_gravity="center" android:background="#ff000000">
         <ImageView
+                android:layout_width="51dp"
+                android:layout_height="100dp"
+                android:id="@+id/hoejre" android:visibility="visible" android:focusableInTouchMode="false"
+                android:background="@drawable/hoejrefod" android:layout_gravity="bottom|right"
+                android:layout_marginRight="80dp"/>
+        <ImageView android:layout_width="53dp" android:layout_height="101dp" android:id="@+id/venstre"
+                   android:visibility="visible" android:focusableInTouchMode="false"
+                   android:background="@drawable/venstrefod" android:layout_gravity="bottom"
+                   android:layout_marginLeft="80dp"/>
+        <ImageView
                 android:layout_width="239dp"
                 android:layout_height="267dp"
                 android:id="@+id/body"
                 android:layout_gravity="center|bottom"
                 android:background="@drawable/pet_potato"
-                android:visibility="visible"/>
+                android:visibility="visible" android:layout_marginBottom="20dp" android:layout_marginRight="5dp"/>
         <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="157dp"
+                android:layout_height="209dp"
                 android:id="@+id/normal"
-                android:layout_gravity="center_horizontal|top"/>
+                android:layout_gravity="center_horizontal|top" android:background="@drawable/normal"
+                android:clickable="false" android:cropToPadding="false" android:visibility="visible"
+                android:layout_marginRight="5dp"/>
+        <ImageView android:layout_width="148dp" android:layout_height="204dp" android:id="@+id/excited"
+                   android:layout_gravity="center_horizontal|top" android:background="@drawable/excited"
+                   android:visibility="invisible"/>
         <ImageView android:layout_width="138dp" android:layout_height="204dp" android:id="@+id/trist"
                    android:layout_gravity="center_horizontal|top" android:background="@drawable/trist"
-                   android:visibility="visible" android:layout_marginLeft="5dp" android:layout_marginTop="5dp"/>
+                   android:visibility="invisible" android:layout_marginLeft="5dp" android:layout_marginTop="5dp"/>
+        <ImageView android:layout_width="140dp" android:layout_height="208dp" android:id="@+id/glad"
+                   android:layout_gravity="center_horizontal|top" android:background="@drawable/glad"
+                   android:visibility="invisible"/>
         <ImageView android:layout_width="149dp" android:layout_height="200dp" android:id="@+id/traet"
                    android:layout_gravity="center_horizontal|top" android:background="@drawable/traet"
                    android:layout_marginLeft="10dp" android:visibility="invisible"/>
         <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/sulten"
-                   android:layout_gravity="center_horizontal|top"/>
-        <ImageView android:layout_width="148dp" android:layout_height="204dp" android:id="@+id/excited"
-                   android:layout_gravity="center_horizontal|top" android:background="@drawable/excited"
-                   android:visibility="invisible"/>
-        <ImageView android:layout_width="140dp" android:layout_height="208dp" android:id="@+id/glad"
-                   android:layout_gravity="center_horizontal|top" android:background="@drawable/glad"
-                   android:visibility="invisible"/>
+                   android:layout_gravity="center_horizontal|top" android:visibility="invisible"/>
+        <ImageView android:layout_width="149dp" android:layout_height="200dp" android:id="@+id/doeende"
+                   android:layout_gravity="center_horizontal|top" android:background="@drawable/doeende"
+                   android:visibility="invisible"
+                   android:focusableInTouchMode="false" android:focusable="false"
+                   android:layout_marginTop="20dp" android:layout_marginRight="15dp"/>
+        <ImageView android:layout_width="145dp" android:layout_height="211dp" android:id="@+id/head"
+                   android:layout_gravity="center_horizontal|top" android:visibility="invisible"
+                   android:focusableInTouchMode="false" android:background="@drawable/normal"/>
     </FrameLayout>
     <LinearLayout
             android:orientation="vertical"

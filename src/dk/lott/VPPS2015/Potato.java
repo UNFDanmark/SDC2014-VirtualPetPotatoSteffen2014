@@ -68,7 +68,10 @@ public class Potato {
         } else if (happiness <= MIN_HAPPINESS) {
             resetPotatoStats();
             Toast.makeText(context, "Your Potato Steffen died of depression! You suck!", Toast.LENGTH_LONG).show();
-        }
+        } //else if (clickcount >= 10) {
+            //resetPotatoStats();
+            //Toast.makeText(context, "Your Potato Steffen died of a Fucapo overdose! You monster!", Toast.LENGTH_LONG).show();
+        // Hilsen Svend/Sofie ~ Til en Fucapo Overdose evt.}
     }
 
     public void eat() {
