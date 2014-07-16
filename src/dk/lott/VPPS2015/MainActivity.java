@@ -3,6 +3,7 @@ package dk.lott.VPPS2015;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +13,8 @@ public class MainActivity extends Activity {
 
     Potato potato = new Potato();
     Time time = new Time();
-
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
     /**
      * Called when the activity is first created.
      */
@@ -20,11 +22,10 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        potato.load(preferences);
-        // Hvorfor load? -Casper
-
+        preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         potato.diePotato(getApplicationContext());
+        potato.save(editor);
+
 /**
  * Toys
  */
@@ -82,6 +83,9 @@ public class MainActivity extends Activity {
     protected void onPause() {
         super.onPause();
         time.onPause();
+        potato.onPause();
+        editor = preferences.edit();
+        potato.save(editor);
 
     }
 
@@ -90,6 +94,7 @@ public class MainActivity extends Activity {
         super.onResume();
         time.onResume();
         potato.onResume();
+        potato.load(preferences);
     }
 }
    

@@ -12,23 +12,23 @@ public class Potato {
     Time time = new Time();
 
     final static int MIN_HUNGER = 0;
-    long starthunger = 5;
+    long hunger=3;
     long hungern;
     final static int MAX_HUNGER = 10;
 
     final static int MIN_HAPPINESS = 0;
-    long starthappiness = 5;
+    long happiness=3;
     long happinessn;
     final static int MAX_HAPPINESS = 10;
     int clickcount=0;
 
     final static int MIN_THIRST = 0;
-    long startthirst = 5;
+    long thirst=3;
     long thirstn;
     final static int MAX_THIRST = 10;
 
     final static int MIN_ENERGY = 0;
-    long startenergy = 5;
+    long energy=3;
     long energyn;
     final static int MAX_ENERGY = 10;
 
@@ -37,10 +37,10 @@ public class Potato {
     boolean death = false;
 
     public void resetPotatoStats() {
-        hungern = 5;
-        happinessn = 5;
-        thirstn = 5;
-        energyn = 5;
+        hunger = 5;
+        happiness = 5;
+        thirst = 5;
+        energy = 5;
     }
 
     public void diePotato(Context context) {
@@ -87,16 +87,19 @@ public class Potato {
         }
     }
 
-    public void onResume() {
-        hungern = hungern - lose;
-        happinessn = happinessn - lose;
-        thirstn = thirstn - lose;
-        energyn = energyn - lose;
-        System.out.println("Hunger:" + hungern);
-        System.out.println("Thirst:" + thirstn);
-        System.out.println("Happiness:" + happinessn);
-        System.out.println("Energy:" + energyn);
+    public void onPause() {
+        hunger = hungern;
+        happiness  =happinessn;
+        thirst = thirstn;
+        energy = energyn;
+    }
 
+    public void onResume() {
+        hunger = hungern - lose;
+        System.out.println("Hunger:" + hunger);
+        System.out.println("Thirst:" + thirst);
+        System.out.println("Happiness:" + happiness);
+        System.out.println("Energy:" + energy);
     }
 
     public void save(SharedPreferences.Editor editorSave) {
@@ -109,10 +112,10 @@ public class Potato {
     }
 
     public void load(SharedPreferences preferences) {
-        hungern = preferences.getInt("hunger", 5);
-        thirstn = preferences.getInt("thirst", 5);
-        happinessn = preferences.getInt("happiness", 5);
-        energyn = preferences.getInt("energy", 5);
+        hungern = preferences.getLong("hunger", hunger);
+        thirstn = preferences.getLong("thirst", thirst);
+        happinessn = preferences.getLong("happiness", happiness);
+        energyn = preferences.getLong("energy", energy);
 
     }
 
