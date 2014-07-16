@@ -25,7 +25,6 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        potato.resetPotatoStats();
 
         /**
          * Faces Loading
@@ -51,6 +50,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 potato.play();
+                potato.Limits();
             }
         });
 /**
@@ -73,7 +73,9 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 potato.eatfucapo();
                 potato.clickcount++;
+                potato.Limits();
                 System.out.println("Click Count:" + potato.clickcount);
+
             }
         });
 /**
@@ -84,6 +86,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 potato.drink();
+                potato.Limits();
             }
         });
 /**

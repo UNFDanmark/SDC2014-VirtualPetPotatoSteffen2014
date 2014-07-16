@@ -14,20 +14,20 @@ public class Potato {
     Time time = new Time();
 
     final static int MIN_HUNGER = 0;
-    long hunger;
+    long hunger=250;
     final static int MAX_HUNGER = 1000;
 
     final static int MIN_HAPPINESS = 0;
-    long happiness;
+    long happiness=250;
     final static int MAX_HAPPINESS = 1000;
     long clickcount;
 
     final static int MIN_THIRST = 0;
-    long thirst;
+    long thirst=250;
     final static int MAX_THIRST = 1000;
 
     final static int MIN_ENERGY = 0;
-    long energy;
+    long energy=250;
     final static int MAX_ENERGY = 1000;
 
     public void Limits() {
@@ -52,6 +52,7 @@ public class Potato {
             happiness = 1000;
         }
     }
+
     public void resetPotatoStats() {
         hunger = 250;
         happiness = 250;
