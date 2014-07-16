@@ -13,9 +13,9 @@ public class Potato {
 
     Time time = new Time();
 
-    final static int MIN_HUNGER = 0; //mangler Limit
+    final static int MIN_HUNGER = 0;
     long hunger;
-    final static int MAX_HUNGER = 1000; //mangler limit
+    final static int MAX_HUNGER = 1000;
 
     final static int MIN_HAPPINESS = 0;
     long happiness;

@@ -145,24 +145,24 @@ public class MainActivity extends Activity {
         /**
          * Limits
          */
-        if (potato.hunger<= potato.MIN_HUNGER) {
+        if (potato.hunger<= 0) {
             potato.hunger=0;
-        } else if (potato.hunger>= potato.MAX_HUNGER) {
+        } else if (potato.hunger>= 1000) {
             potato.hunger= 1000;
         }
-        if (potato.thirst<= potato.MIN_THIRST) {
+        if (potato.thirst<= 0) {
             potato.thirst=0;
-        } else if (potato.thirst>= potato.MAX_THIRST) {
+        } else if (potato.thirst>= 1000) {
             potato.thirst = 1000;
         }
-        if (potato.energy<= potato.MIN_ENERGY) {
+        if (potato.energy<= 0) {
             potato.energy=0;
-        } else if (potato.energy>= potato.MAX_ENERGY) {
+        } else if (potato.energy>= 1000) {
             potato.energy= 1000;
         }
-        if (potato.happiness<= potato.MIN_HAPPINESS) {
+        if (potato.happiness<= 0) {
             potato.happiness=0;
-        } else if (potato.happiness>= potato.MAX_HAPPINESS) {
+        } else if (potato.happiness>= 1000) {
             potato.happiness= 1000;
         }
     }
