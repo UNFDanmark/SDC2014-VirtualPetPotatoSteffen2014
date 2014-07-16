@@ -26,7 +26,6 @@ public class MainActivity extends Activity {
     }
 
     public SharedPreferences preferences;
-    public SharedPreferences.Editor editor;
 
     boolean sultenBool = false;
     boolean tristBool = false;

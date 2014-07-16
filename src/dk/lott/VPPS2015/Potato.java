@@ -4,9 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.Toast;
 
-/**
- * Created by sdc on 7/15/14.
- */
 public class Potato {
 
     Time time = new Time();
@@ -129,10 +126,10 @@ public class Potato {
         thirst = preferences.getLong("thirst", thirst);
         happiness = preferences.getLong("happiness", happiness);
         energy = preferences.getLong("energy", energy);
-//        hunger = hunger - time.timeRes;
-//        thirst = thirst - time.timeRes;
-//        happiness = happiness - time.timeRes;
-//        energy = energy - time.timeRes;
+        hunger = hunger - time.timeRes;
+        thirst = thirst - time.timeRes;
+        happiness = happiness - time.timeRes;
+        energy = energy - time.timeRes;
         if (clickcount <= 0) {
             clickcount = 0;
         } else if (clickcount != 0) {
