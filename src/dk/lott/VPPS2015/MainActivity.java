@@ -40,7 +40,6 @@ public class MainActivity extends Activity {
         ImageView excited = (ImageView) findViewById(R.id.excited);
 
 
-
         preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         potato.diePotato(getApplicationContext());
         editor = preferences.edit();
