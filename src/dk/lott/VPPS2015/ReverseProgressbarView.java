@@ -5,10 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 
-/**
- * Created by sdc on 7/15/14.
- */
-
 public class ReverseProgressbarView extends ProgressbarView {
 
     Paint paint = new Paint();
