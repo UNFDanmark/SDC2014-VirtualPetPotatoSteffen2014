@@ -26,6 +26,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         potato.resetPotatoStats();
+
         /**
          * Faces Loading
          */
@@ -141,6 +142,29 @@ public class MainActivity extends Activity {
         }
         ImageView body = (ImageView) findViewById(R.id.body);
         body.setVisibility(View.VISIBLE);
+        /**
+         * Limits
+         */
+        if (potato.hunger<= potato.MIN_HUNGER) {
+            potato.hunger=0;
+        } else if (potato.hunger>= potato.MAX_HUNGER) {
+            potato.hunger= 1000;
+        }
+        if (potato.thirst<= potato.MIN_THIRST) {
+            potato.thirst=0;
+        } else if (potato.thirst>= potato.MAX_THIRST) {
+            potato.thirst = 1000;
+        }
+        if (potato.energy<= potato.MIN_ENERGY) {
+            potato.energy=0;
+        } else if (potato.energy>= potato.MAX_ENERGY) {
+            potato.energy= 1000;
+        }
+        if (potato.happiness<= potato.MIN_HAPPINESS) {
+            potato.happiness=0;
+        } else if (potato.happiness>= potato.MAX_HAPPINESS) {
+            potato.happiness= 1000;
+        }
     }
 
     @Override
