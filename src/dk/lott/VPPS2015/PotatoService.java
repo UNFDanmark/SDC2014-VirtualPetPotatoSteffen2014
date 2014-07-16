@@ -8,14 +8,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.preference.PreferenceManager;
 
-/**
- * Created by sdc on 7/15/14.
- */
 public class PotatoService extends IntentService {
 
     public PotatoService() {
         super("potato");
     }
+    public void NotificationReceiver;
 
     @Override
     protected void onHandleIntent(Intent intent) {
