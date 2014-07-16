@@ -19,5 +19,7 @@
 
         </activity>
 
+        <service android:name=".PotatoService"></service>
+
     </application>
 </manifest>
