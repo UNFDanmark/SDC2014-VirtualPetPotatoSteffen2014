@@ -30,6 +30,28 @@ public class Potato {
     long energy;
     final static int MAX_ENERGY = 1000;
 
+    public void Limits() {
+        if (hunger <= 0) {
+            hunger = 0;
+        } else if (hunger >= 1000) {
+            hunger = 1000;
+        }
+        if (thirst <= 0) {
+            thirst = 0;
+        } else if (thirst >= 1000) {
+            thirst = 1000;
+        }
+        if (energy <= 0) {
+            energy = 0;
+        } else if (energy >= 1000) {
+            energy = 1000;
+        }
+        if (happiness <= 0) {
+            happiness = 0;
+        } else if (happiness >= 1000) {
+            happiness = 1000;
+        }
+    }
     public void resetPotatoStats() {
         hunger = 250;
         happiness = 250;
@@ -119,6 +141,7 @@ public class Potato {
 
 
     }
+
 }
 
 

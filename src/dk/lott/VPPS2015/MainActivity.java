@@ -61,6 +61,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 potato.eat();
+                potato.Limits();
             }
         });
 /**
@@ -142,29 +143,6 @@ public class MainActivity extends Activity {
         }
         ImageView body = (ImageView) findViewById(R.id.body);
         body.setVisibility(View.VISIBLE);
-        /**
-         * Limits
-         */
-        if (potato.hunger<= 0) {
-            potato.hunger=0;
-        } else if (potato.hunger>= 1000) {
-            potato.hunger= 1000;
-        }
-        if (potato.thirst<= 0) {
-            potato.thirst=0;
-        } else if (potato.thirst>= 1000) {
-            potato.thirst = 1000;
-        }
-        if (potato.energy<= 0) {
-            potato.energy=0;
-        } else if (potato.energy>= 1000) {
-            potato.energy= 1000;
-        }
-        if (potato.happiness<= 0) {
-            potato.happiness=0;
-        } else if (potato.happiness>= 1000) {
-            potato.happiness= 1000;
-        }
     }
 
     @Override
