@@ -3,6 +3,8 @@ package dk.lott.VPPS2015;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.Toast;
+import android.view.View;
+import android.widget.ImageView;
 
 /**
  * Created by sdc on 7/15/14.
@@ -117,6 +119,5 @@ public class Potato {
     public class StatusEffect extends Potato {
         // Afgøre hvilket humør der skal vises. F.eks normal, sulten, trist, glad.
 
-    }
 }
 

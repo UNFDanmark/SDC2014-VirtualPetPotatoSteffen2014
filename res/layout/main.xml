@@ -56,9 +56,11 @@
                    android:layout_gravity="center_horizontal|top"/>
         <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/glad"
                    android:layout_gravity="center_horizontal|top"/>
-        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/deprimeret"
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/traet"
                    android:layout_gravity="center_horizontal|top"/>
         <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/sulten"
+                   android:layout_gravity="center_horizontal|top"/>
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/excited"
                    android:layout_gravity="center_horizontal|top"/>
     </FrameLayout>
     <LinearLayout
