@@ -39,6 +39,11 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        potato.load(preferences);
+        PotatoService.setAlarm(getApplicationContext());
+
+
+
 
         /**
          * Faces Loading
