@@ -73,6 +73,6 @@ public class PotatoService extends IntentService {
         Intent intent = new Intent(context, PotatoService.class);
         PendingIntent pintent = PendingIntent.getService(context, 0, intent, 0);
         AlarmManager alarm = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-        alarm.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 1000*60, pintent);
+        alarm.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 1000*60*60*60, pintent);
     }
 }
