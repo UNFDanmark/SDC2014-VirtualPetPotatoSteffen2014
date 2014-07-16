@@ -109,6 +109,7 @@ public class Potato {
         thirst = thirst - time.timeRes;
         happiness = happiness - time.timeRes;
         energy = energy - time.timeRes;
+        // if (clickcount !=0){ clickcount - time.timeRes; }
 
 
     }
