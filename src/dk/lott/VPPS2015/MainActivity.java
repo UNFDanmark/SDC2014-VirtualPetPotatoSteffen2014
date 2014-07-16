@@ -12,9 +12,9 @@ import android.widget.ImageView;
 public class MainActivity extends Activity {
 
     Potato potato = new Potato();
-    Time time = new Time();
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
+
     /**
      * Called when the activity is first created.
      */
@@ -56,7 +56,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 potato.eatfucapo();
                 potato.clickcount++;
-                System.out.println("Click Count:"+potato.clickcount);
+                System.out.println("Click Count:" + potato.clickcount);
             }
         });
 /**
@@ -74,27 +74,20 @@ public class MainActivity extends Activity {
  */
         ImageView body = (ImageView) findViewById(R.id.body);
         body.setVisibility(View.VISIBLE);
-/**
- * Die function
- */
-
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        time.onPause();
         potato.onPause();
         potato.save(editor);
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        time.onResume();
-        potato.onResume();
         potato.load(preferences);
+        potato.onResume();
     }
 }
    
