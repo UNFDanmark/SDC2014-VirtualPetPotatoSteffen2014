@@ -13,14 +13,14 @@ public class Potato {
 
     Time time = new Time();
 
-    final static int MIN_HUNGER = 0;
+    final static int MIN_HUNGER = 0; //mangler Limit
     long hunger;
-    final static int MAX_HUNGER = 1000;
+    final static int MAX_HUNGER = 1000; //mangler limit
 
     final static int MIN_HAPPINESS = 0;
     long happiness;
     final static int MAX_HAPPINESS = 1000;
-    long clickcount = 0;
+    long clickcount;
 
     final static int MIN_THIRST = 0;
     long thirst;
@@ -106,7 +106,6 @@ public class Potato {
         thirst = preferences.getLong("thirst", thirst);
         happiness = preferences.getLong("happiness", happiness);
         energy = preferences.getLong("energy", energy);
-        time.onResume();
         hunger = hunger - time.timeRes;
         thirst = thirst - time.timeRes;
         happiness = happiness - time.timeRes;
@@ -116,6 +115,7 @@ public class Potato {
         } else if (clickcount != 0) {
             clickcount = clickcount - time.timeRes;
         }
+        time.onResume();
 
 
     }

@@ -25,8 +25,7 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        potato.load(preferences);
-        // Hvorfor load? -Casper
+        potato.resetPotatoStats();
         /**
          * Faces Loading
          */
@@ -42,7 +41,7 @@ public class MainActivity extends Activity {
         potato.diePotato(getApplicationContext());
         editor = preferences.edit();
         potato.save(editor);
-
+        potato.load(preferences);
 /**
  * Toys
  */
