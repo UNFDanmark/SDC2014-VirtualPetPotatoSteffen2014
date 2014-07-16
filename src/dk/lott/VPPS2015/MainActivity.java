@@ -2,8 +2,6 @@ package dk.lott.VPPS2015;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -22,7 +20,7 @@ public class MainActivity extends Activity {
     Potato potato = new Potato();
 
     public void updateBars() {
-        energyView.setValues(potato.energy, Potato.MIN_ENERGY, Potato.MAX_ENERGY); //Sørens bug! skrev Potato med Stort
+        energyView.setValues(potato.energy, Potato.MIN_ENERGY, Potato.MAX_ENERGY);
         hungerView.setValues(potato.hunger, Potato.MIN_HUNGER, Potato.MAX_HUNGER);
         happinessView.setValues(potato.happiness, Potato.MIN_HAPPINESS, Potato.MAX_HAPPINESS);
         thirstView.setValues(potato.thirst, Potato.MIN_THIRST, Potato.MAX_THIRST);
@@ -46,6 +44,7 @@ public class MainActivity extends Activity {
     /**
      * Called when the activity is first created.
      */
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,9 +52,6 @@ public class MainActivity extends Activity {
         preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         potato.load(preferences);
         PotatoService.setAlarm(getApplicationContext());
-
-
-
 
         /**
          * Faces Loading
@@ -69,12 +65,13 @@ public class MainActivity extends Activity {
         excited = (ImageView) findViewById(R.id.excited);
         doeende = (ImageView) findViewById(R.id.doeende);
         head = (ImageView) findViewById(R.id.head);
-
         potato.diePotato(getApplicationContext());
         potato.load(preferences);
-/**
- * Toys
- */
+
+        /**
+        * Toys
+        */
+
         Button toys = (Button) findViewById(R.id.btoys);
         toys.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,9 +82,11 @@ public class MainActivity extends Activity {
                 updateBars();
             }
         });
-/**
- * Food
- */
+
+        /**
+         * Food
+        */
+
         Button food = (Button) findViewById(R.id.bfood);
         food.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,9 +97,11 @@ public class MainActivity extends Activity {
                 updateBars();
             }
         });
-/**
- * Fucapo
- */
+
+        /**
+         * Fucapo
+         */
+
         Button fucapo = (Button) findViewById(R.id.bfucapo);
         fucapo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,9 +116,10 @@ public class MainActivity extends Activity {
 
             }
         });
-/**
- * Drinks
- */
+        /**
+        * Drinks
+        */
+
         Button drinks = (Button) findViewById(R.id.bdrinks);
         drinks.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,17 +130,25 @@ public class MainActivity extends Activity {
                 updateBars();
             }
         });
-/**
- * Faces
- */
+        /**
+        * Faces
+        */
 
+        energyView = (ReverseProgressbarView) findViewById(R.id.energyView);
+        energyView.setColor(Color.YELLOW);
+        hungerView = (ProgressbarView) findViewById(R.id.hungerView);
+        hungerView.setColor(Color.RED);
+        happinessView = (ReverseProgressbarView) findViewById(R.id.happinessView);
+        happinessView.setColor(Color.GREEN);
+        thirstView = (ProgressbarView) findViewById(R.id.thirstView);
+        thirstView.setColor(Color.BLUE);
 
+        updateBars();
     }
 
     public void faces() {
         if (potato.clickcount >= 10 && potato.energy > 800 && !doeendeBool) {
             excited.setVisibility(View.VISIBLE);
-            Log.d("Hej", "hej2");
             normal.setVisibility(View.INVISIBLE);
             sulten.setVisibility(View.INVISIBLE);
             trist.setVisibility(View.INVISIBLE);
@@ -212,20 +222,9 @@ public class MainActivity extends Activity {
         } else doeendeBool = false;
         ImageView body = (ImageView) findViewById(R.id.body);
         body.setVisibility(View.VISIBLE);
-//body.setImageResource(R.drawable.trist);
-        
-        energyView = (ReverseProgressbarView) findViewById(R.id.energyView);
-        energyView.setColor(Color.YELLOW);
-        hungerView = (ProgressbarView) findViewById(R.id.hungerView);
-        hungerView.setColor(Color.RED);
-        happinessView = (ReverseProgressbarView) findViewById(R.id.happinessView);
-        happinessView.setColor(Color.GREEN);
-        thirstView = (ProgressbarView) findViewById(R.id.thirstView);
-        thirstView.setColor(Color.BLUE);
-
-        updateBars();
-        
+        //body.setImageResource(R.drawable.trist);
     }
+
 
     @Override
     protected void onPause() {
