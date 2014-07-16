@@ -24,6 +24,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main);
         preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         potato.diePotato(getApplicationContext());
+        editor = preferences.edit();
         potato.save(editor);
 
 /**
@@ -84,7 +85,6 @@ public class MainActivity extends Activity {
         super.onPause();
         time.onPause();
         potato.onPause();
-        editor = preferences.edit();
         potato.save(editor);
 
     }

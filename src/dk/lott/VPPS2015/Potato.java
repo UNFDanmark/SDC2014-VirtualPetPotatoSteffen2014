@@ -12,23 +12,23 @@ public class Potato {
     Time time = new Time();
 
     final static int MIN_HUNGER = 0;
-    long hunger=3;
+    long hunger = 3;
     long hungern;
     final static int MAX_HUNGER = 10;
 
     final static int MIN_HAPPINESS = 0;
-    long happiness=3;
+    long happiness = 3;
     long happinessn;
     final static int MAX_HAPPINESS = 10;
-    int clickcount=0;
+    int clickcount = 0;
 
     final static int MIN_THIRST = 0;
-    long thirst=3;
+    long thirst = 3;
     long thirstn;
     final static int MAX_THIRST = 10;
 
     final static int MIN_ENERGY = 0;
-    long energy=3;
+    long energy = 3;
     long energyn;
     final static int MAX_ENERGY = 10;
 
@@ -89,7 +89,7 @@ public class Potato {
 
     public void onPause() {
         hunger = hungern;
-        happiness  =happinessn;
+        happiness = happinessn;
         thirst = thirstn;
         energy = energyn;
     }
@@ -103,6 +103,10 @@ public class Potato {
     }
 
     public void save(SharedPreferences.Editor editorSave) {
+        hunger = hungern;
+        thirst = thirstn;
+        happiness = happinessn;
+        energy = energyn;
         editorSave.putLong("hunger", hungern);
         editorSave.putLong("thirst", thirstn);
         editorSave.putLong("happiness", happinessn);
