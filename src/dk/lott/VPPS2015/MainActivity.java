@@ -174,7 +174,7 @@ public class MainActivity extends Activity {
         hungerView = (ProgressbarView) findViewById(R.id.hungerView);
         hungerView.setColor(Color.RED);
         happinessView = (ProgressbarView) findViewById(R.id.happinessView);
-        happinessView.setColor(Color.BLACK);
+        happinessView.setColor(Color.GREEN);
         thirstView = (ProgressbarView) findViewById(R.id.thirstView);
         thirstView.setColor(Color.BLUE);
 

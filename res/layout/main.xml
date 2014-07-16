@@ -100,7 +100,7 @@
                 android:layout_height="wrap_content">
             <view class="dk.lott.VPPS2015.ProgressbarView" android:layout_width="0dp"
                   android:layout_height="12dp" android:layout_weight="0.45" android:id="@+id/happinessView"
-                  android:background="#ff00ff00"/>
+                  android:background="#ff000100"/>
             <Space
                     android:layout_width="20px"
                     android:layout_height="20px"
@@ -145,7 +145,7 @@
                   android:layout_height="12dp"
                   android:layout_weight="0.45"
                   class="dk.lott.VPPS2015.ProgressbarView"
-                  android:id="@+id/energyView" android:layout_gravity="right" android:background="#ff000000"/>
+                  android:id="@+id/energyView" android:layout_gravity="right" android:background="#ff000100"/>
             <Space android:layout_width="20px"
                    android:layout_height="20px"
                    android:layout_weight="0.1"
