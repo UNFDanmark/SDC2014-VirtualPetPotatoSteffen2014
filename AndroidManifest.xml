@@ -6,6 +6,7 @@
     <uses-sdk android:minSdkVersion="15"/>
     <application android:label="@string/app_name"
                  android:icon="@drawable/trist">
+                 android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         <activity android:name="MainActivity"
                   android:label="@string/app_name"
                   android:screenOrientation="portrait"
