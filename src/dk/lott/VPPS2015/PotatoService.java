@@ -13,7 +13,7 @@ public class PotatoService extends IntentService {
     public PotatoService() {
         super("potato");
     }
-    public void NotificationReceiver;
+    //public NotificationReceiver;
 
     @Override
     protected void onHandleIntent(Intent intent) {
