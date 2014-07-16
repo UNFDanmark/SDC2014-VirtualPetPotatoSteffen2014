@@ -2,6 +2,7 @@ package dk.lott.VPPS2015;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
@@ -10,6 +11,19 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class MainActivity extends Activity {
+
+    // Views
+    private ProgressbarView energyView;
+    private ProgressbarView hungerView;
+    private ProgressbarView happinessView;
+    private ProgressbarView thirstView;
+
+    public void updateBars() {
+        energyView.setValues(potato.energy, potato.MIN_ENERGY, potato.MAX_ENERGY); //Sørens bug! skrev Potato med Stort
+        hungerView.setValues(potato.hunger, potato.MIN_HUNGER, potato.MAX_HUNGER);
+        happinessView.setValues(potato.happiness, potato.MIN_HAPPINESS, potato.MAX_HAPPINESS);
+        thirstView.setValues(potato.thirst, potato.MIN_THIRST, potato.MAX_THIRST);
+    }
 
     Potato potato = new Potato();
     SharedPreferences preferences;
@@ -51,6 +65,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 potato.play();
                 potato.Limits();
+                updateBars();
             }
         });
 /**
@@ -62,6 +77,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 potato.eat();
                 potato.Limits();
+                updateBars();
             }
         });
 /**
@@ -75,7 +91,7 @@ public class MainActivity extends Activity {
                 potato.clickcount++;
                 potato.Limits();
                 System.out.println("Click Count:" + potato.clickcount);
-
+                updateBars();
             }
         });
 /**
@@ -87,6 +103,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 potato.drink();
                 potato.Limits();
+                updateBars();
             }
         });
 /**
@@ -146,6 +163,17 @@ public class MainActivity extends Activity {
         }
         ImageView body = (ImageView) findViewById(R.id.body);
         body.setVisibility(View.VISIBLE);
+
+        energyView = (ProgressbarView) findViewById(R.id.energyView);
+        energyView.setColor(Color.BLACK);
+        hungerView = (ProgressbarView) findViewById(R.id.hungerView);
+        hungerView.setColor(Color.RED);
+        happinessView = (ProgressbarView) findViewById(R.id.happinessView);
+        happinessView.setColor(Color.BLACK);
+        thirstView = (ProgressbarView) findViewById(R.id.thirstView);
+        thirstView.setColor(Color.BLUE);
+
+        updateBars();
     }
 
     @Override

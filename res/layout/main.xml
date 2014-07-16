@@ -3,7 +3,7 @@
               android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
-              android:gravity="center_vertical|center_horizontal">
+              android:gravity="center_vertical|center_horizontal" android:background="#ff000000">
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
@@ -39,7 +39,7 @@
     <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="400dip"
-            android:layout_gravity="center">
+            android:layout_gravity="center" android:background="#ff000000">
         <ImageView
                 android:layout_width="239dp"
                 android:layout_height="267dp"
@@ -98,23 +98,15 @@
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
-            <ProgressBar
-                    android:layout_width="0dp"
-                    android:layout_height="12dp"
-                    android:id="@+id/PBHappines"
-                    android:layout_weight="0.45"
-                    android:clickable="true"
-                    android:background="#ff00ff00"/>
+            <view class="dk.lott.VPPS2015.ProgressbarView" android:layout_width="0dp"
+                  android:layout_height="12dp" android:layout_weight="0.45" android:id="@+id/happinessView"
+                  android:background="#ff00ff00"/>
             <Space
                     android:layout_width="20px"
                     android:layout_height="20px"
                     android:layout_weight="0.1"/>
-            <ProgressBar
-                    android:layout_width="0dp"
-                    android:layout_height="12dp"
-                    android:id="@+id/PBHunger"
-                    android:layout_weight="0.45"
-                    android:background="#ffff0000"/>
+            <view class="dk.lott.VPPS2015.ProgressbarView" android:layout_width="0dp" android:layout_height="12dp"
+                  android:layout_weight="0.45" android:id="@+id/hungerView"/>
         </LinearLayout>
 
         <LinearLayout android:orientation="horizontal"
@@ -147,23 +139,20 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/linearLayout">
-            <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="12dp"
-                    android:id="@+id/energiBar"
-                    android:layout_weight="0.45"
-                    android:background="#ffff00ff"/>
 
+
+            <view android:layout_width="0dp"
+                  android:layout_height="12dp"
+                  android:layout_weight="0.45"
+                  class="dk.lott.VPPS2015.ProgressbarView"
+                  android:id="@+id/energyView" android:layout_gravity="right" android:background="#ff000000"/>
             <Space android:layout_width="20px"
                    android:layout_height="20px"
                    android:layout_weight="0.1"
                    android:id="@+id/space"/>
-            <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="12dp"
-                    android:id="@+id/thirstBar"
-                    android:layout_weight="0.45"
-                    android:background="#ff0000ff"/>
+            <view class="dk.lott.VPPS2015.ProgressbarView" android:layout_width="0dp"
+                  android:layout_height="12dp" android:layout_weight="0.45" android:id="@+id/thirstView"
+                  android:focusableInTouchMode="false"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
