@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.Toast;
 
-
 public class Potato {
 
     Time time = new Time();
@@ -99,7 +98,6 @@ public class Potato {
     public void eatfucapo() {
         if (energy != MAX_ENERGY) {
             energy = energy + 21;
-
         }
         System.out.println("Energy:" + energy);
     }
@@ -122,7 +120,6 @@ public class Potato {
         editorSave.putLong("happiness", happiness);
         editorSave.putLong("energy", energy);
         editorSave.commit();
-
     }
 
     public void load(SharedPreferences preferences) {
@@ -142,6 +139,3 @@ public class Potato {
         time.onResume();
     }
 }
-
-
-
