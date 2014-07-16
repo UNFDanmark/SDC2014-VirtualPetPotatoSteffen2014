@@ -13,6 +13,7 @@ public class PotatoService extends IntentService {
     public PotatoService() {
         super("potato");
     }
+    public void NotificationReceiver;
 
     @Override
     protected void onHandleIntent(Intent intent) {
@@ -32,6 +33,11 @@ public class PotatoService extends IntentService {
 * notificationer
 */
 
+    NotificationManager notificationManager = (NotificationManager)
+        getSystemService(NOTIFICATION_SERVICE);
+
+    Intent intent = new Intent(this, NotificationReceiver.class);
+    PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
 
 

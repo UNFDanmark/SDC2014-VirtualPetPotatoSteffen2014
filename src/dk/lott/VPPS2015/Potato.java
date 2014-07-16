@@ -77,7 +77,7 @@ public class Potato {
     public void eat() {
         if (hunger != MAX_HUNGER) {
             hunger = hunger + 37;
-        }
+            }
         System.out.println("Hunger:" + hunger);
     }
 
