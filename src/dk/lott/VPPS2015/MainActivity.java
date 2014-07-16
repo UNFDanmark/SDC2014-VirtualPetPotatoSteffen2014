@@ -112,7 +112,7 @@ public class MainActivity extends Activity {
 /**
  * Faces
  */
-        if (potato.happiness >= 7 && !sultenBool && potato.energy > 3) {
+        if (potato.happiness >= 700 && !sultenBool && potato.energy > 300) {
             glad.setVisibility(View.VISIBLE);
             normal.setVisibility(View.INVISIBLE);
             sulten.setVisibility(View.INVISIBLE);
@@ -120,7 +120,7 @@ public class MainActivity extends Activity {
             traet.setVisibility(View.INVISIBLE);
             excited.setVisibility(View.INVISIBLE);
         }
-        if (potato.clickcount >= 5 && potato.energy > 8) {
+        if (potato.clickcount >= 5 && potato.energy > 800) {
             excited.setVisibility(View.VISIBLE);
             normal.setVisibility(View.INVISIBLE);
             sulten.setVisibility(View.INVISIBLE);
@@ -129,7 +129,7 @@ public class MainActivity extends Activity {
             glad.setVisibility(View.INVISIBLE);
             potato.clickcount = 0;
         }
-        if (potato.hunger > 3 && potato.hunger < 7 && potato.happiness > 3 && potato.happiness < 7 && potato.energy > 3 && potato.energy < 7 && potato.thirst > 3 && potato.thirst < 7) {
+        if (potato.hunger > 300 && potato.hunger < 700 && potato.happiness > 300 && potato.happiness < 700 && potato.energy > 300 && potato.energy < 700 && potato.thirst > 300 && potato.thirst < 700) {
             normal.setVisibility(View.VISIBLE);
             sulten.setVisibility(View.INVISIBLE);
             trist.setVisibility(View.INVISIBLE);
@@ -137,7 +137,7 @@ public class MainActivity extends Activity {
             glad.setVisibility(View.INVISIBLE);
             excited.setVisibility(View.INVISIBLE);
         }
-        if (potato.thirst <= 3 || potato.hunger <= 3) {
+        if (potato.thirst <= 300 || potato.hunger <= 300) {
             sulten.setVisibility(View.VISIBLE);
             normal.setVisibility(View.INVISIBLE);
             trist.setVisibility(View.INVISIBLE);
@@ -146,7 +146,7 @@ public class MainActivity extends Activity {
             excited.setVisibility(View.INVISIBLE);
             sultenBool = true;
         } else sultenBool = false;
-        if (potato.happiness <= 3 && !sultenBool) {
+        if (potato.happiness <= 300 && !sultenBool) {
             trist.setVisibility(View.VISIBLE);
             normal.setVisibility(View.INVISIBLE);
             sulten.setVisibility(View.INVISIBLE);
@@ -156,7 +156,7 @@ public class MainActivity extends Activity {
 
             tristBool = true;
         } else tristBool = false;
-        if (potato.energy <= 3 && !sultenBool && !tristBool) {
+        if (potato.energy <= 300 && !sultenBool && !tristBool) {
             traet.setVisibility(View.VISIBLE);
             normal.setVisibility(View.INVISIBLE);
             sulten.setVisibility(View.INVISIBLE);
