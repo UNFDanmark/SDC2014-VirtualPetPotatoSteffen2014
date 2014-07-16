@@ -5,6 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.preference.PreferenceManager;
 
+/**
+ * Created by sdc on 7/15/14.
+ */
 public class PotatoService extends IntentService {
 
     public PotatoService() {
@@ -32,6 +35,7 @@ public class PotatoService extends IntentService {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
         Potato potato = new Potato();
         potato.load(PreferenceManager.getDefaultSharedPreferences(getApplicationContext()));
         if(potato.hunger <= 200){
