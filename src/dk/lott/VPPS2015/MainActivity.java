@@ -70,9 +70,13 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 potato.eatfucapo();
                 potato.clickcount++;
-                System.out.println("Click Count:"+potato.clickcount);
-            }
+                System.out.println("Click Count:" + potato.clickcount);
+
+                }
+
+
         });
+
 /**
  * Drinks
  */
@@ -94,13 +98,14 @@ public class MainActivity extends Activity {
             traet.setVisibility(View.INVISIBLE);
             excited.setVisibility(View.INVISIBLE);
         }
-        if(potato.clickcount == 5 && potato.energyn > 8){
+        if(potato.clickcount >= 5 && potato.energyn > 8){
             excited.setVisibility(View.VISIBLE);
             normal.setVisibility(View.INVISIBLE);
             sulten.setVisibility(View.INVISIBLE);
             trist.setVisibility(View.INVISIBLE);
             traet.setVisibility(View.INVISIBLE);
             glad.setVisibility(View.INVISIBLE);
+            potato.clickcount = 0;
         }
         if (potato.hungern > 3 && potato.hungern < 7 && potato.happinessn > 3 && potato.happinessn < 7 && potato.energyn > 3 && potato.energyn < 7 && potato.thirstn > 3 && potato.thirstn < 7) {
             normal.setVisibility(View.VISIBLE);
