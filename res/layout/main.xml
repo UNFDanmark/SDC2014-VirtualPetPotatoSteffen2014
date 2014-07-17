@@ -44,7 +44,8 @@
                 android:layout_width="736dp"
                 android:layout_height="547dp"
                 android:id="@+id/background" android:layout_gravity="center" android:visibility="visible"
-                android:background="@drawable/night" android:layout_marginBottom="27dp"/>
+                android:layout_marginBottom="27dp" android:baselineAlignBottom="false"
+                android:background="@drawable/midday_crop"/>
         <ImageView
                 android:layout_width="51dp"
                 android:layout_height="100dp"
