@@ -32,7 +32,6 @@ public class MainActivity extends Activity {
     private boolean setExcitedFace = true;
     boolean smerteBool = false;
 
-
     ImageView normal;
     ImageView doeende;
     ImageView head;
@@ -43,7 +42,6 @@ public class MainActivity extends Activity {
     ImageView excited;
     ImageView body;
     ImageView smerte;
-    ImageView excited_mirrored;
     ImageView sovende;
     ImageView sDhun;
     ImageView sDhap;
@@ -144,7 +142,6 @@ public class MainActivity extends Activity {
         traet = (ImageView) findViewById(R.id.traet);
         glad = (ImageView) findViewById(R.id.glad);
         excited = (ImageView) findViewById(R.id.excited);
-        excited_mirrored = (ImageView) findViewById(R.id.excited_mirrored);
         doeende = (ImageView) findViewById(R.id.doeende);
         smerte = (ImageView) findViewById(R.id.smerte);
         head = (ImageView) findViewById(R.id.head);
@@ -152,7 +149,6 @@ public class MainActivity extends Activity {
         sovende = (ImageView) findViewById(R.id.sovende);
         layoutBackground = (LinearLayout) findViewById(R.id.background);
         potato.load(preferences);
-        /**potato.diePotato(getApplicationContext());
 
          /**
          * Toys
@@ -258,6 +254,7 @@ public class MainActivity extends Activity {
         body.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
+                                        if (setExcitedFace) {
                                         potato.happiness = potato.happiness - 50;
 
                                         updateBars();
@@ -269,7 +266,6 @@ public class MainActivity extends Activity {
                                         new CountDownTimer(1000, 100) {
                                             public void onTick(long millisUntilFinish) {
                                                 excited.setVisibility(View.INVISIBLE);
-                                                excited_mirrored.setVisibility(View.INVISIBLE);
                                                 normal.setVisibility(View.INVISIBLE);
                                                 sulten.setVisibility(View.INVISIBLE);
                                                 trist.setVisibility(View.INVISIBLE);
@@ -290,7 +286,7 @@ public class MainActivity extends Activity {
                                             }
                                         }.start();
                                     }
-
+                                    }
 
                                 }
 
@@ -302,12 +298,8 @@ public class MainActivity extends Activity {
      * Død funktion. Now even better. 10/10 would use again
      */
 
-
-    //public void turnDemButtonsOn()
-
     public void deathmenu() {
 
-       // .setEnabled(false);
         final AlertDialog.Builder alertdialog = new AlertDialog.Builder(this)
                 .setTitle("You killed Potato Steffen")
                 .setMessage("You didn't take good enough care of him! Do you wish to clone your late Potato Steffen, you monster? ")
@@ -321,7 +313,7 @@ public class MainActivity extends Activity {
                 .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         potato.resetPotatoStats();
-                        Toast.makeText(getApplicationContext(), "You must clone him! FOR SCIENCE!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "You must clone him! FOR SCIENCE! Just please try to not kill this one. Please", Toast.LENGTH_LONG).show();
                         faces();
                         updateBars();
                     }
@@ -349,107 +341,99 @@ public class MainActivity extends Activity {
     public void faces() {
         if (potato.clickcount >= 10 && potato.energy > 800 && !doeendeBool && setExcitedFace && !smerteBool && !potato.sover) {
             setExcitedFace = false;
-            if (potato.clickcount >= 10 && potato.energy > 800 && !doeendeBool && !setExcitedFace && !potato.sover) {
-                setExcitedFace = true;
-                overdoseBool = true;
-                potato.sover = false;
-                Context context;
+            overdoseBool = true;
+            potato.sover = false;
 
-                new CountDownTimer(10000, 100) {
-                    public void onTick(long millisUntilFinish) {
-                        excited.setVisibility(View.VISIBLE);
-                        excited_mirrored.setVisibility(View.INVISIBLE);
-                        normal.setVisibility(View.INVISIBLE);
-                        sulten.setVisibility(View.INVISIBLE);
-                        trist.setVisibility(View.INVISIBLE);
-                        traet.setVisibility(View.INVISIBLE);
-                        glad.setVisibility(View.INVISIBLE);
-                        sovende.setVisibility((View.INVISIBLE));
-                        doeende.setVisibility(View.INVISIBLE);
-                        smerte.setVisibility(View.INVISIBLE);
-                        vibrate(1);
-                    }
+            new CountDownTimer(10000, 100) {
+                public void onTick(long millisUntilFinish) {
+                    excited.setVisibility(View.VISIBLE);
+                    normal.setVisibility(View.INVISIBLE);
+                    sulten.setVisibility(View.INVISIBLE);
+                    trist.setVisibility(View.INVISIBLE);
+                    traet.setVisibility(View.INVISIBLE);
+                    glad.setVisibility(View.INVISIBLE);
+                    sovende.setVisibility((View.INVISIBLE));
+                    doeende.setVisibility(View.INVISIBLE);
+                    smerte.setVisibility(View.INVISIBLE);
+                    vibrate(1);
 
-                    @Override
-                    public void onFinish() {
-                        potato.clickcount = 0;
-                        overdoseBool = false;
-                        faces();
-                        setExcitedFace = true;
-                    }
-                }.start();
-            }
-            if (potato.happiness >= 300 && potato.thirst >= 300 && potato.hunger >= 300 && !traetBool && !smerteBool) {
-                normal.setVisibility(View.VISIBLE);
-                sulten.setVisibility(View.INVISIBLE);
-                trist.setVisibility(View.INVISIBLE);
-                traet.setVisibility(View.INVISIBLE);
-                glad.setVisibility(View.INVISIBLE);
-                excited.setVisibility(View.INVISIBLE);
-                excited_mirrored.setVisibility(View.INVISIBLE);
-                sovende.setVisibility((View.INVISIBLE));
-                doeende.setVisibility(View.INVISIBLE);
-                smerte.setVisibility(View.INVISIBLE);
-            }
-            if (potato.happiness >= 700 && potato.thirst >= 700 && potato.hunger >= 700 && !smerteBool && !potato.sover && !overdoseBool) {
-                Log.d("Happiness", "");
-                glad.setVisibility(View.VISIBLE);
-                normal.setVisibility(View.INVISIBLE);
-                sulten.setVisibility(View.INVISIBLE);
-                trist.setVisibility(View.INVISIBLE);
-                traet.setVisibility(View.INVISIBLE);
-                excited.setVisibility(View.INVISIBLE);
-                sovende.setVisibility((View.INVISIBLE));
-                doeende.setVisibility(View.INVISIBLE);
-                smerte.setVisibility(View.INVISIBLE);
-            }
+                }
+                @Override
+                public void onFinish() {
+                    potato.clickcount = 0;
+                    overdoseBool = false;
+                    faces();
+                    setExcitedFace = true;
+                }
+            }.start();
+        }
+        if (potato.happiness >= 300 && potato.thirst >= 300 && potato.hunger >= 300 && !traetBool && !smerteBool) {
+            normal.setVisibility(View.VISIBLE);
+            sulten.setVisibility(View.INVISIBLE);
+            trist.setVisibility(View.INVISIBLE);
+            traet.setVisibility(View.INVISIBLE);
+            glad.setVisibility(View.INVISIBLE);
+            excited.setVisibility(View.INVISIBLE);
+            sovende.setVisibility((View.INVISIBLE));
+            doeende.setVisibility(View.INVISIBLE);
+            smerte.setVisibility(View.INVISIBLE);
+        }
+        if (potato.happiness >= 700 && potato.thirst >= 700 && potato.hunger >= 700 && !smerteBool && !potato.sover && !overdoseBool) {
+            Log.d("Happiness", "");
+            glad.setVisibility(View.VISIBLE);
+            normal.setVisibility(View.INVISIBLE);
+            sulten.setVisibility(View.INVISIBLE);
+            trist.setVisibility(View.INVISIBLE);
+            traet.setVisibility(View.INVISIBLE);
+            excited.setVisibility(View.INVISIBLE);
+            sovende.setVisibility((View.INVISIBLE));
+            doeende.setVisibility(View.INVISIBLE);
+            smerte.setVisibility(View.INVISIBLE);
+        }
 
 
-            if (potato.thirst <= 300 || potato.hunger <= 300 && !doeendeBool && !smerteBool && !potato.sover && !overdoseBool) {
-                sulten.setVisibility(View.VISIBLE);
-                normal.setVisibility(View.INVISIBLE);
-                trist.setVisibility(View.INVISIBLE);
-                traet.setVisibility(View.INVISIBLE);
-                glad.setVisibility(View.INVISIBLE);
-                excited.setVisibility(View.INVISIBLE);
-                excited_mirrored.setVisibility(View.INVISIBLE);
-                sovende.setVisibility((View.INVISIBLE));
-                doeende.setVisibility(View.INVISIBLE);
-                smerte.setVisibility(View.INVISIBLE);
+        if (potato.thirst <= 300 || potato.hunger <= 300 && !doeendeBool && !smerteBool && !potato.sover && !overdoseBool) {
+            sulten.setVisibility(View.VISIBLE);
+            normal.setVisibility(View.INVISIBLE);
+            trist.setVisibility(View.INVISIBLE);
+            traet.setVisibility(View.INVISIBLE);
+            glad.setVisibility(View.INVISIBLE);
+            excited.setVisibility(View.INVISIBLE);
+            sovende.setVisibility((View.INVISIBLE));
+            doeende.setVisibility(View.INVISIBLE);
+            smerte.setVisibility(View.INVISIBLE);
 
                 sultenBool = true;
             } else {
                 sultenBool = false;
             }
 
-            if (potato.happiness <= 300 && !sultenBool && !doeendeBool && !smerteBool && !potato.sover && !overdoseBool) {
-                trist.setVisibility(View.VISIBLE);
-                normal.setVisibility(View.INVISIBLE);
-                sulten.setVisibility(View.INVISIBLE);
-                traet.setVisibility(View.INVISIBLE);
-                glad.setVisibility(View.INVISIBLE);
-                excited.setVisibility(View.INVISIBLE);
-                excited_mirrored.setVisibility(View.INVISIBLE);
-                sovende.setVisibility((View.INVISIBLE));
-                doeende.setVisibility(View.INVISIBLE);
-                smerte.setVisibility(View.INVISIBLE);
+        if (potato.happiness <= 300 && !sultenBool && !doeendeBool && !smerteBool && !potato.sover && !overdoseBool) {
+            trist.setVisibility(View.VISIBLE);
+            normal.setVisibility(View.INVISIBLE);
+            sulten.setVisibility(View.INVISIBLE);
+            traet.setVisibility(View.INVISIBLE);
+            glad.setVisibility(View.INVISIBLE);
+            excited.setVisibility(View.INVISIBLE);
+            sovende.setVisibility((View.INVISIBLE));
+            doeende.setVisibility(View.INVISIBLE);
+            smerte.setVisibility(View.INVISIBLE);
 
                 tristBool = true;
             } else {
                 tristBool = false;
             }
 
-            if (potato.energy <= 300 && !sultenBool && !tristBool && !doeendeBool && !smerteBool && !potato.sover && !overdoseBool) {
-                traet.setVisibility(View.VISIBLE);
-                normal.setVisibility(View.INVISIBLE);
-                sulten.setVisibility(View.INVISIBLE);
-                trist.setVisibility(View.INVISIBLE);
-                glad.setVisibility(View.INVISIBLE);
-                excited.setVisibility(View.INVISIBLE);
-                excited_mirrored.setVisibility(View.INVISIBLE);
-                sovende.setVisibility((View.INVISIBLE));
-                doeende.setVisibility(View.INVISIBLE);
-                smerte.setVisibility(View.INVISIBLE);
+        if (potato.energy <= 300 && !sultenBool && !tristBool && !doeendeBool && !smerteBool && !potato.sover && !overdoseBool) {
+            traet.setVisibility(View.VISIBLE);
+            normal.setVisibility(View.INVISIBLE);
+            sulten.setVisibility(View.INVISIBLE);
+            trist.setVisibility(View.INVISIBLE);
+            glad.setVisibility(View.INVISIBLE);
+            excited.setVisibility(View.INVISIBLE);
+            sovende.setVisibility((View.INVISIBLE));
+            doeende.setVisibility(View.INVISIBLE);
+            smerte.setVisibility(View.INVISIBLE);
 
                 traetBool = true;
             } else {
@@ -464,7 +448,6 @@ public class MainActivity extends Activity {
                 trist.setVisibility(View.INVISIBLE);
                 glad.setVisibility(View.INVISIBLE);
                 excited.setVisibility(View.INVISIBLE);
-                excited_mirrored.setVisibility(View.INVISIBLE);
                 sovende.setVisibility((View.INVISIBLE));
                 smerte.setVisibility(View.INVISIBLE);
                 doeendeBool = true;
@@ -482,7 +465,6 @@ public class MainActivity extends Activity {
                 glad.setVisibility(View.INVISIBLE);
                 smerte.setVisibility(View.INVISIBLE);
                 excited.setVisibility(View.INVISIBLE);
-                excited_mirrored.setVisibility(View.INVISIBLE);
 
             }
 
@@ -491,7 +473,7 @@ public class MainActivity extends Activity {
             Log.d("Happiness: ", potato.happiness + "");
             Log.d("Thirst: ", potato.thirst + "");
 
-        }
+  
     }
 
     /**

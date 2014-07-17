@@ -85,11 +85,6 @@
                        android:visibility="invisible" android:layout_marginBottom="150dp"/>
             <ImageView android:layout_width="148dp"
                        android:layout_height="204dp"
-                       android:id="@+id/excited_mirrored"
-                       android:visibility="invisible"
-                       android:layout_marginBottom="150dp"/>
-            <ImageView android:layout_width="148dp"
-                       android:layout_height="204dp"
                        android:id="@+id/sovende"
                        android:visibility="invisible"
                        android:layout_marginBottom="150dp" android:background="@drawable/sovende"
