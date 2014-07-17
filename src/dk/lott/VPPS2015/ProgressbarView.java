@@ -38,7 +38,6 @@ public class ProgressbarView extends View{
 
         double percent = (double)getCurrentValue() / (double)span;
 
-
         paint.setColor(getColor());
 
         canvas.drawRect(0, 0, (float)(width*percent), height, paint);

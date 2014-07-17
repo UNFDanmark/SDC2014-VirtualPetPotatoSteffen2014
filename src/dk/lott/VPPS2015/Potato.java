@@ -3,6 +3,7 @@ package dk.lott.VPPS2015;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 public class Potato {
@@ -25,6 +26,7 @@ public class Potato {
     public final static long MIN_ENERGY = 0;
     long energy = 50;
     public final static long MAX_ENERGY = 1000;
+    long energyrest;
 
     public void Limits() {
         if (hunger <= 0) {
@@ -103,11 +105,39 @@ public class Potato {
         System.out.println("Energy:" + energy);
     }
 
+    public void restfirst(Context context) {
+        time.onPause();
+        Toast.makeText(context, "Potato Steffen Started Resting", Toast.LENGTH_LONG).show();
+        System.out.println("Potato Steffen Started Resting= Energy:" + energy);
+        energyrest=0;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("IS_RESTING", true);
+        editor.commit();
+    }
+
+    public void restthird(Context context) {
+        energyrest = time.timeRes+time.timeRes+time.timeRes+time.timeRes;
+        Toast.makeText(context, "Potato Steffen Rested : "+energyrest+""+" Energy", Toast.LENGTH_LONG).show();
+        System.out.println("Energy Rested : "+energyrest);
+        energy += energyrest;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("IS_RESTING", false);
+        editor.commit();
+    }
+
     public void onPause() {
         time.onPause();
     }
 
-    public void onResume() {
+    public void onResume(Context context) {
+        time.onResume();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        if (prefs.getBoolean("IS_RESTING", false))
+            restthird(context);
         System.out.println("Hunger:" + hunger);
         System.out.println("Thirst:" + thirst);
         System.out.println("Happiness:" + happiness);
