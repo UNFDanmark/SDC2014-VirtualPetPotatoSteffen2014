@@ -97,10 +97,12 @@ public class Potato {
     }
     //if (happiness != MAX_HAPPINESS) {
     public void play() {
+        if(energy >=25) {
             happiness = happiness + 31;
             energy = energy - 25;
 
-        System.out.println("Happiness:" + happiness);
+            System.out.println("Happiness:" + happiness);
+        }
     }
     //energy != MAX_ENERGY
     public void coffee() {

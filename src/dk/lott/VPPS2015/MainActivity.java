@@ -330,13 +330,13 @@ public class MainActivity extends Activity {
             excited.setVisibility(View.INVISIBLE);
             excited_mirrored.setVisibility(View.INVISIBLE);
 
-        } else {
+        }
 
             Log.d("Energy: ", potato.energy + "");
             Log.d("Hunger: ", potato.hunger + "");
             Log.d("Happiness: ", potato.happiness + "");
             Log.d("Thirst: ", potato.thirst + "");
-        }
+
     }
 
     /**
@@ -387,3 +387,10 @@ public class MainActivity extends Activity {
         updateBars();
     }
 }
+
+
+/**
+*    (\ /)
+     ( ..)
+    c(")(")
+*/
