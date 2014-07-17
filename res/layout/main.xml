@@ -207,10 +207,19 @@
                   android:layout_weight="0.45"
                   android:id="@+id/happinessView"
                   android:focusable="false"/>
+            <ImageView android:layout_width="0dp"
+                       android:layout_height="12dp"
+                       android:layout_weight="0.025"
+                       android:id="@+id/sDhap" android:background="@drawable/udraad" android:visibility="invisible"/>
             <Space
                     android:layout_width="20px"
                     android:layout_height="20px"
-                    android:layout_weight="0.1"/>
+                    android:layout_weight="0.05"/>
+            <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="12dp"
+                    android:id="@+id/sDhun" android:layout_weight="0.025" android:background="@drawable/udraad"
+                    android:visibility="invisible"/>
             <dk.lott.VPPS2015.ProgressbarView
                     android:layout_width="0dp"
                     android:layout_height="12dp"
@@ -257,10 +266,16 @@
                   android:id="@+id/energyView"
                   android:layout_gravity="right"
                     />
+            <ImageView android:layout_width="0dp" android:layout_height="12dp"
+                       android:id="@+id/sDene" android:layout_weight="0.025" android:background="@drawable/udraad"
+                       android:visibility="invisible"/>
             <Space android:layout_width="20px"
                    android:layout_height="20px"
-                   android:layout_weight="0.1"
+                   android:layout_weight="0.05"
                    android:id="@+id/space"/>
+            <ImageView android:layout_width="0dp" android:layout_height="12dp"
+                       android:id="@+id/sDthi" android:layout_weight="0.025" android:background="@drawable/udraad"
+                       android:visibility="invisible"/>
             <view class="dk.lott.VPPS2015.ProgressbarView"
                   android:layout_width="0dp"
                   android:layout_height="12dp"

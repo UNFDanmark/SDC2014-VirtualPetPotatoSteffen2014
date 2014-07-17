@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.os.Vibrator;
-
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -40,6 +39,10 @@ public class MainActivity extends Activity {
     ImageView excited;
     ImageView excited_mirrored;
     ImageView sovende;
+    ImageView sDhun;
+    ImageView sDhap;
+    ImageView sDene;
+    ImageView sDthi;
     LinearLayout layoutBackground;
 
     private ReverseProgressbarView energyView;
@@ -47,11 +50,59 @@ public class MainActivity extends Activity {
     private ReverseProgressbarView happinessView;
     private ProgressbarView thirstView;
 
+    /**
+     * indikator INDE I APPEN for om Potato Steffen er ved at dø (små røde udråbstegn)
+     */
+
+   /** public void soondead() { //VIRKER IKKE ENDNU!!!!
+
+        if (potato.hunger <= 200) {
+            sDhun = (ImageView) findViewById(R.id.sDhun);
+            sDhun.setVisibility(View.VISIBLE);
+            sDene.setVisibility(View.INVISIBLE);
+            sDthi.setVisibility(View.INVISIBLE);
+            sDhap.setVisibility(View.INVISIBLE);
+        } else {
+            sDhun.setVisibility(View.INVISIBLE);
+        }
+
+        if (potato.energy <= 200) {
+            sDene = (ImageView) findViewById(R.id.sDene);
+            sDene.setVisibility(View.VISIBLE);
+            sDhun.setVisibility(View.INVISIBLE);
+            sDthi.setVisibility(View.INVISIBLE);
+            sDhap.setVisibility(View.INVISIBLE);
+        } else {
+            sDene.setVisibility(View.INVISIBLE);
+        }
+
+        if (potato.thirst <= 200) {
+            sDthi = (ImageView) findViewById(R.id.sDthi);
+            sDthi.setVisibility(View.VISIBLE);
+            sDhun.setVisibility(View.INVISIBLE);
+            sDene.setVisibility(View.INVISIBLE);
+            sDhap.setVisibility(View.INVISIBLE);
+        } else {
+            sDthi.setVisibility(View.INVISIBLE);
+        }
+
+        if (potato.happiness <= 200) {
+            sDhap = (ImageView) findViewById(R.id.sDhap);
+            sDhap.setVisibility(View.VISIBLE);
+            sDhun.setVisibility(View.INVISIBLE);
+            sDene.setVisibility(View.INVISIBLE);
+            sDthi.setVisibility(View.INVISIBLE);
+        } else {
+            sDhap.setVisibility(View.INVISIBLE);
+        }
+    } */
+
     public void updateBars() {
         energyView.setValues(potato.energy, Potato.MIN_ENERGY, Potato.MAX_ENERGY); //Sørens bug! skrev Potato med Stort
         hungerView.setValues(potato.hunger, Potato.MIN_HUNGER, Potato.MAX_HUNGER);
         happinessView.setValues(potato.happiness, Potato.MIN_HAPPINESS, Potato.MAX_HAPPINESS);
         thirstView.setValues(potato.thirst, Potato.MIN_THIRST, Potato.MAX_THIRST);
+        //soondead();
     }
 
     public void vibrate(int vibSec) {
@@ -332,10 +383,10 @@ public class MainActivity extends Activity {
 
         }
 
-            Log.d("Energy: ", potato.energy + "");
-            Log.d("Hunger: ", potato.hunger + "");
-            Log.d("Happiness: ", potato.happiness + "");
-            Log.d("Thirst: ", potato.thirst + "");
+        Log.d("Energy: ", potato.energy + "");
+        Log.d("Hunger: ", potato.hunger + "");
+        Log.d("Happiness: ", potato.happiness + "");
+        Log.d("Thirst: ", potato.thirst + "");
 
     }
 
@@ -385,12 +436,14 @@ public class MainActivity extends Activity {
         faces();
         baggrund();
         updateBars();
-    }
+
+
+}
 }
 
 
 /**
-*    (\ /)
-     ( ..)
-    c(")(")
-*/
+ *    (\ /)
+ ( ..)
+ c(")(")
+ */

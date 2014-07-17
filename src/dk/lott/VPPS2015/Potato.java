@@ -2,10 +2,12 @@ package dk.lott.VPPS2015;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class Potato {
@@ -13,7 +15,7 @@ public class Potato {
     Time time = new Time();
 
     public final static long MIN_HUNGER = 0;
-    long hunger = 500;
+    long hunger = 150;
     public final static long MAX_HUNGER = 1000;
 
     public final static long MIN_HAPPINESS = 0;
