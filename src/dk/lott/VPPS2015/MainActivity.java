@@ -48,6 +48,7 @@ public class MainActivity extends Activity {
     ImageView glad;
     ImageView excited;
     ImageView background;
+    LinearLayout layoutBackground;
 
     /**
      * Called when the activity is first created.
@@ -60,7 +61,6 @@ public class MainActivity extends Activity {
         preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         potato.load(preferences);
         PotatoService.setAlarm(getApplicationContext());
-        baggrund();
 
         /**
          * Faces Loading
@@ -74,6 +74,7 @@ public class MainActivity extends Activity {
         excited = (ImageView) findViewById(R.id.excited);
         doeende = (ImageView) findViewById(R.id.doeende);
         head = (ImageView) findViewById(R.id.head);
+        layoutBackground = (LinearLayout) findViewById(R.id.background);
 
         potato.diePotato(getApplicationContext());
         potato.load(preferences);
@@ -268,30 +269,30 @@ public void baggrund(){
     int hour = calendar.get(Calendar.HOUR_OF_DAY);
 
     if(hour == 0){
-        background.setBackgroundResource(R.drawable.happyhour);
+        layoutBackground.setBackgroundResource(R.drawable.happyhour);
     }
     if(hour>0&&hour<6)
 
     {
-        background.setBackgroundResource(R.drawable.night);
+        layoutBackground.setBackgroundResource(R.drawable.night);
     }
 
     else if(hour>=6&&hour<12)
 
     {
-        background.setBackgroundResource(R.drawable.morning_crop);
+        layoutBackground.setBackgroundResource(R.drawable.morning_crop);
     }
 
     else if(hour>=12&&hour<18)
 
     {
-        background.setBackgroundResource(R.drawable.midday_crop);
+        layoutBackground.setBackgroundResource(R.drawable.midday_crop);
     }
 
     else if(hour>=18&&hour<24)
 
     {
-        background.setBackgroundResource(R.drawable.afternoon);
+        layoutBackground.setBackgroundResource(R.drawable.afternoon);
     }
 
 }
