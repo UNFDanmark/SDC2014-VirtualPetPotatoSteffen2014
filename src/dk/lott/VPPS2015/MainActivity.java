@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.os.Vibrator;
 import android.widget.Toast;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -61,12 +62,12 @@ public class MainActivity extends Activity {
      * indikator INDE I APPEN for om Potato Steffen er ved at dø (små røde udråbstegn)
      */
 
-   public void soondead() {
-       sDhun = (ImageView) findViewById(R.id.sDhun);
-       sDene = (ImageView) findViewById(R.id.sDene);
-       sDthi = (ImageView) findViewById(R.id.sDthi);
-       sDhap = (ImageView) findViewById(R.id.sDhap);
-       if (potato.hunger <= 200) {
+    public void soondead() {
+        sDhun = (ImageView) findViewById(R.id.sDhun);
+        sDene = (ImageView) findViewById(R.id.sDene);
+        sDthi = (ImageView) findViewById(R.id.sDthi);
+        sDhap = (ImageView) findViewById(R.id.sDhap);
+        if (potato.hunger <= 200) {
             sDhun.setVisibility(View.VISIBLE);
             sDene.setVisibility(View.INVISIBLE);
             sDthi.setVisibility(View.INVISIBLE);
@@ -305,10 +306,9 @@ public class MainActivity extends Activity {
 
 
     //public void turnDemButtonsOn()
-
     public void deathmenu() {
 
-       // .setEnabled(false);
+        // .setEnabled(false);
         final AlertDialog.Builder alertdialog = new AlertDialog.Builder(this)
                 .setTitle("You killed Potato Steffen")
                 .setMessage("You didn't take good enough care of him! Do you wish to clone your late Potato Steffen, you monster? ")
@@ -545,7 +545,7 @@ public class MainActivity extends Activity {
 
 
 /**
-*    (\ /)
-     ( ..)
-    c(")(")
-*/
+ *    (\ /)
+ ( ..)
+ c(")(")
+ */

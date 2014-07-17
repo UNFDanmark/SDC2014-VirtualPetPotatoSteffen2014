@@ -6,7 +6,7 @@ import android.media.MediaPlayer;
 import android.preference.PreferenceManager;
 import android.widget.Toast;
 
-public class Potato{
+public class Potato {
 
     Time time = new Time();
 
@@ -30,7 +30,7 @@ public class Potato{
 
     public Context contextmp;
     public MediaPlayer mediaPlayer;
-    boolean sover=false;
+    boolean sover = false;
 
     OnDeathLister onDeathLister;
 
@@ -64,9 +64,10 @@ public class Potato{
 
     public boolean dead = false;
 
-    public interface OnDeathLister{
+    public interface OnDeathLister {
         public void onDeath();
     }
+
     public void resetPotatoStats() {
         hunger = 500;
         happiness = 500;
@@ -74,10 +75,10 @@ public class Potato{
         energy = 500;
     }
 
-   // if (hunger != MAX_HUNGER) {
+    // if (hunger != MAX_HUNGER) {
     public void eat() {
-            hunger = hunger + 37;
-            energy = energy - 5;
+        hunger = hunger + 37;
+        energy = energy - 5;
 
         System.out.println("Hunger:" + hunger);
     }
@@ -103,9 +104,9 @@ public class Potato{
 
     //energy != MAX_ENERGY
     public void coffee() {
-            energy = energy + 21;
-            hunger = hunger - 5;
-            deathCheck();
+        energy = energy + 21;
+        hunger = hunger - 5;
+        deathCheck();
         System.out.println("Energy:" + energy);
     }
 
@@ -117,8 +118,7 @@ public class Potato{
         mediaPlayer = MediaPlayer.create(context, R.raw.snore);
         mediaPlayer.start();
         mediaPlayer.setLooping(true);
-        sover=true;
-
+        sover = true;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
@@ -131,7 +131,8 @@ public class Potato{
         Toast.makeText(context, "Potato Steffen Rested : " + energyrest + "" + " Energy", Toast.LENGTH_LONG).show();
         System.out.println("Energy Rested : " + energyrest);
         energy += energyrest;
-        sover=false;
+        sover = false;
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean("IS_RESTING", false);
@@ -144,7 +145,7 @@ public class Potato{
 
     public void onPause() {
         time.onPause();
-        if(sover)
+        if (sover)
             mediaplaystop();
     }
 
@@ -189,10 +190,10 @@ public class Potato{
         deathCheck();
         time.onResume();
     }
-    
-    public void deathCheck(){
 
-        if(hunger <= MIN_HUNGER || thirst<= MIN_THIRST || happiness <= MIN_HAPPINESS ){
+    public void deathCheck() {
+
+        if (hunger <= MIN_HUNGER || thirst <= MIN_THIRST || happiness <= MIN_HAPPINESS) {
             dead = true;
             onDeathLister.onDeath();
         }
