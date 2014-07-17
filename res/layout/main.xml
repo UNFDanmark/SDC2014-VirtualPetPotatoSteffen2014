@@ -4,8 +4,9 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:gravity="center_vertical|center_horizontal"
+              android:background="@drawable/morning_crop"
               android:id="@+id/background"
-              android:longClickable="false" android:background="@drawable/sovende">
+              android:longClickable="false">
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
@@ -71,30 +72,20 @@
                        android:background="@drawable/venstrefod"
                        android:layout_gravity="bottom|left"
                        android:layout_marginLeft="35dip"/>
-            <ImageView android:layout_width="245dp"
-                       android:layout_height="257dp"
-                       android:id="@+id/body"
-                       android:layout_gravity="center_horizontal|bottom"
-                       android:background="@drawable/pet_potato_arme"
-                       android:visibility="visible"
-                       android:layout_marginBottom="35dp"
-                       android:longClickable="false"/>
-            <ImageView android:layout_width="157dp"
-                       android:layout_height="209dp"
-                       android:id="@+id/normal"
-                       android:background="@drawable/normal"
-                       android:clickable="false"
-                       android:cropToPadding="false"
-                       android:visibility="visible"
-                       android:layout_marginRight="5dp"
-                       android:layout_gravity="center_horizontal"
-                       android:layout_marginBottom="150dp"/>
-            <ImageView android:layout_width="148dp"
-                       android:layout_height="204dp"
-                       android:id="@+id/excited"
-                       android:layout_gravity="center_horizontal"
-                       android:background="@drawable/excited"
-                       android:visibility="invisible"
+            <ImageView android:layout_width="245dp" android:layout_height="257dp" android:id="@+id/body"
+                       android:layout_gravity="center_horizontal|bottom" android:background="@drawable/pet_potato_arme"
+                       android:visibility="visible" android:layout_marginBottom="35dp"
+                       android:longClickable="false" android:clickable="true" android:onClick="clickImage"/>
+            <ImageView android:layout_width="157dp" android:layout_height="209dp" android:id="@+id/normal"
+                       android:background="@drawable/normal" android:clickable="false" android:cropToPadding="false"
+                       android:visibility="visible" android:layout_marginRight="5dp"
+                       android:layout_gravity="center_horizontal" android:layout_marginBottom="150dp"/>
+            <ImageView android:layout_width="148dp" android:layout_height="204dp" android:id="@+id/excited"
+                       android:layout_gravity="center_horizontal" android:background="@drawable/excited"
+                       android:visibility="invisible" android:layout_marginBottom="150dp"/>
+            <ImageView android:layout_width="138dp" android:layout_height="204dp" android:id="@+id/trist"
+                       android:layout_gravity="center_horizontal" android:background="@drawable/trist"
+                       android:visibility="invisible" android:layout_marginLeft="5dp" android:layout_marginTop="5dp"
                        android:layout_marginBottom="150dp"/>
             <ImageView android:layout_width="148dp"
                        android:layout_height="204dp"
@@ -134,9 +125,13 @@
                        android:layout_height="209dp"
                        android:id="@+id/sulten"
                        android:layout_gravity="center_horizontal"
-                       android:visibility="visible"
+                       android:visibility="invisible"
                        android:background="@drawable/sulten"
                        android:layout_marginRight="5dp"
+                       android:layout_marginBottom="200dp"/>
+            <ImageView android:layout_width="148dp" android:layout_height="209dp" android:id="@+id/smerte"
+                       android:layout_gravity="center_horizontal" android:visibility="invisible"
+                       android:background="@drawable/smerte" android:layout_marginRight="5dp"
                        android:layout_marginBottom="200dp"/>
             <ImageView android:layout_width="149dp"
                        android:layout_height="200dp"
