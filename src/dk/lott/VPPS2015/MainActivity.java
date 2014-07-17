@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.os.Vibrator;
 import android.widget.Toast;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -58,12 +59,12 @@ public class MainActivity extends Activity {
      * indikator INDE I APPEN for om Potato Steffen er ved at dø (små røde udråbstegn)
      */
 
-   public void soondead() {
-       sDhun = (ImageView) findViewById(R.id.sDhun);
-       sDene = (ImageView) findViewById(R.id.sDene);
-       sDthi = (ImageView) findViewById(R.id.sDthi);
-       sDhap = (ImageView) findViewById(R.id.sDhap);
-       if (potato.hunger <= 200) {
+    public void soondead() {
+        sDhun = (ImageView) findViewById(R.id.sDhun);
+        sDene = (ImageView) findViewById(R.id.sDene);
+        sDthi = (ImageView) findViewById(R.id.sDthi);
+        sDhap = (ImageView) findViewById(R.id.sDhap);
+        if (potato.hunger <= 200) {
             sDhun.setVisibility(View.VISIBLE);
             sDene.setVisibility(View.INVISIBLE);
             sDthi.setVisibility(View.INVISIBLE);
@@ -150,7 +151,7 @@ public class MainActivity extends Activity {
         layoutBackground = (LinearLayout) findViewById(R.id.background);
         potato.load(preferences);
 
-         /**
+        /**
          * Toys
          */
 
@@ -255,37 +256,37 @@ public class MainActivity extends Activity {
                                     @Override
                                     public void onClick(View v) {
                                         if (setExcitedFace) {
-                                        potato.happiness = potato.happiness - 50;
+                                            potato.happiness = potato.happiness - 50;
 
-                                        updateBars();
-                                        faces();
+                                            updateBars();
+                                            faces();
 
 
-                                        smerteBool = true;
-                                        vibrate(1);
-                                        new CountDownTimer(1000, 100) {
-                                            public void onTick(long millisUntilFinish) {
-                                                excited.setVisibility(View.INVISIBLE);
-                                                normal.setVisibility(View.INVISIBLE);
-                                                sulten.setVisibility(View.INVISIBLE);
-                                                trist.setVisibility(View.INVISIBLE);
-                                                traet.setVisibility(View.INVISIBLE);
-                                                glad.setVisibility(View.INVISIBLE);
-                                                doeende.setVisibility(View.INVISIBLE);
-                                                sovende.setVisibility(View.INVISIBLE);
+                                            smerteBool = true;
+                                            vibrate(1);
+                                            new CountDownTimer(1000, 100) {
+                                                public void onTick(long millisUntilFinish) {
+                                                    excited.setVisibility(View.INVISIBLE);
+                                                    normal.setVisibility(View.INVISIBLE);
+                                                    sulten.setVisibility(View.INVISIBLE);
+                                                    trist.setVisibility(View.INVISIBLE);
+                                                    traet.setVisibility(View.INVISIBLE);
+                                                    glad.setVisibility(View.INVISIBLE);
+                                                    doeende.setVisibility(View.INVISIBLE);
+                                                    sovende.setVisibility(View.INVISIBLE);
 
-                                                smerte.setVisibility(View.VISIBLE);
-                                            }
+                                                    smerte.setVisibility(View.VISIBLE);
+                                                }
 
-                                            @Override
-                                            public void onFinish() {
-                                                smerteBool = false;
-                                                faces();
-                                                updateBars();
-                                                potato.deathCheck();
-                                            }
-                                        }.start();
-                                    }
+                                                @Override
+                                                public void onFinish() {
+                                                    smerteBool = false;
+                                                    faces();
+                                                    updateBars();
+                                                    potato.deathCheck();
+                                                }
+                                            }.start();
+                                        }
                                     }
 
                                 }
@@ -358,6 +359,7 @@ public class MainActivity extends Activity {
                     vibrate(1);
 
                 }
+
                 @Override
                 public void onFinish() {
                     potato.clickcount = 0;
@@ -403,10 +405,10 @@ public class MainActivity extends Activity {
             doeende.setVisibility(View.INVISIBLE);
             smerte.setVisibility(View.INVISIBLE);
 
-                sultenBool = true;
-            } else {
-                sultenBool = false;
-            }
+            sultenBool = true;
+        } else {
+            sultenBool = false;
+        }
 
         if (potato.happiness <= 300 && !sultenBool && !doeendeBool && !smerteBool && !potato.sover && !overdoseBool) {
             trist.setVisibility(View.VISIBLE);
@@ -419,10 +421,10 @@ public class MainActivity extends Activity {
             doeende.setVisibility(View.INVISIBLE);
             smerte.setVisibility(View.INVISIBLE);
 
-                tristBool = true;
-            } else {
-                tristBool = false;
-            }
+            tristBool = true;
+        } else {
+            tristBool = false;
+        }
 
         if (potato.energy <= 300 && !sultenBool && !tristBool && !doeendeBool && !smerteBool && !potato.sover && !overdoseBool) {
             traet.setVisibility(View.VISIBLE);
@@ -435,45 +437,45 @@ public class MainActivity extends Activity {
             doeende.setVisibility(View.INVISIBLE);
             smerte.setVisibility(View.INVISIBLE);
 
-                traetBool = true;
-            } else {
-                traetBool = false;
-            }
+            traetBool = true;
+        } else {
+            traetBool = false;
+        }
 
-            if (potato.hunger <= 100 || potato.thirst <= 100 || potato.happiness <= 100 && !smerteBool && !potato.sover && !overdoseBool) {
-                doeende.setVisibility((View.VISIBLE));
-                traet.setVisibility(View.INVISIBLE);
-                normal.setVisibility(View.INVISIBLE);
-                sulten.setVisibility(View.INVISIBLE);
-                trist.setVisibility(View.INVISIBLE);
-                glad.setVisibility(View.INVISIBLE);
-                excited.setVisibility(View.INVISIBLE);
-                sovende.setVisibility((View.INVISIBLE));
-                smerte.setVisibility(View.INVISIBLE);
-                doeendeBool = true;
-            } else {
-                doeendeBool = false;
-            }
+        if (potato.hunger <= 100 || potato.thirst <= 100 || potato.happiness <= 100 && !smerteBool && !potato.sover && !overdoseBool) {
+            doeende.setVisibility((View.VISIBLE));
+            traet.setVisibility(View.INVISIBLE);
+            normal.setVisibility(View.INVISIBLE);
+            sulten.setVisibility(View.INVISIBLE);
+            trist.setVisibility(View.INVISIBLE);
+            glad.setVisibility(View.INVISIBLE);
+            excited.setVisibility(View.INVISIBLE);
+            sovende.setVisibility((View.INVISIBLE));
+            smerte.setVisibility(View.INVISIBLE);
+            doeendeBool = true;
+        } else {
+            doeendeBool = false;
+        }
 
-            if (potato.sover) {
-                sovende.setVisibility((View.VISIBLE));
-                doeende.setVisibility((View.INVISIBLE));
-                traet.setVisibility(View.INVISIBLE);
-                normal.setVisibility(View.INVISIBLE);
-                sulten.setVisibility(View.INVISIBLE);
-                trist.setVisibility(View.INVISIBLE);
-                glad.setVisibility(View.INVISIBLE);
-                smerte.setVisibility(View.INVISIBLE);
-                excited.setVisibility(View.INVISIBLE);
+        if (potato.sover) {
+            sovende.setVisibility((View.VISIBLE));
+            doeende.setVisibility((View.INVISIBLE));
+            traet.setVisibility(View.INVISIBLE);
+            normal.setVisibility(View.INVISIBLE);
+            sulten.setVisibility(View.INVISIBLE);
+            trist.setVisibility(View.INVISIBLE);
+            glad.setVisibility(View.INVISIBLE);
+            smerte.setVisibility(View.INVISIBLE);
+            excited.setVisibility(View.INVISIBLE);
 
-            }
+        }
 
-            Log.d("Energy: ", potato.energy + "");
-            Log.d("Hunger: ", potato.hunger + "");
-            Log.d("Happiness: ", potato.happiness + "");
-            Log.d("Thirst: ", potato.thirst + "");
+        Log.d("Energy: ", potato.energy + "");
+        Log.d("Hunger: ", potato.hunger + "");
+        Log.d("Happiness: ", potato.happiness + "");
+        Log.d("Thirst: ", potato.thirst + "");
 
-  
+
     }
 
     /**
@@ -510,7 +512,7 @@ public class MainActivity extends Activity {
     protected void onPause() {
         super.onPause();
         potato.onPause();
-        if (potato.mediaPlayer.isPlaying()){
+        if (potato.mediaPlayer.isPlaying()) {
             potato.mediaplaystop();
         }
         potato.save(preferences);
@@ -529,7 +531,7 @@ public class MainActivity extends Activity {
 
 
 /**
-*    (\ /)
-     ( ..)
-    c(")(")
-*/
+ *    (\ /)
+ ( ..)
+ c(")(")
+ */

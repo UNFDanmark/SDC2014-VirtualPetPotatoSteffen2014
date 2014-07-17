@@ -64,6 +64,7 @@ public class Potato {
 
     public boolean dead = false;
 
+
     public interface OnDeathLister {
         public void onDeath();
     }
@@ -118,7 +119,8 @@ public class Potato {
         mediaPlayer = MediaPlayer.create(context, R.raw.snore);
         mediaPlayer.start();
         mediaPlayer.setLooping(true);
-        sover = true;
+        sover=true;
+
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
@@ -131,7 +133,8 @@ public class Potato {
         Toast.makeText(context, "Potato Steffen Rested : " + energyrest + "" + " Energy", Toast.LENGTH_LONG).show();
         System.out.println("Energy Rested : " + energyrest);
         energy += energyrest;
-        sover = false;
+        sover=false;
+
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
