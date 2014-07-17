@@ -36,7 +36,12 @@ public class PotatoService extends IntentService {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-        Potato potato = new Potato();
+        Potato potato = new Potato(new Potato.OnDeathLister() {
+            @Override
+            public void onDeath() {
+                showNotification("Your Potato Steffen died. You monster.");
+            }
+        });
         potato.load(PreferenceManager.getDefaultSharedPreferences(getApplicationContext()));
         if(potato.hunger <= 200){
             showNotification("So hungry. Please feed me");

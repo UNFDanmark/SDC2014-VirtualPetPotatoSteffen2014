@@ -34,6 +34,13 @@ public class Potato {
     public MediaPlayer mediaPlayer;
     public boolean sover=false;
 
+    OnDeathLister onDeathLister;
+
+
+    public Potato(OnDeathLister onDeathLister) {
+        this.onDeathLister = onDeathLister;
+    }
+
     public void Limits() {
         if (hunger <= 0) {
             hunger = 0;
@@ -57,37 +64,25 @@ public class Potato {
         }
     }
 
+    public boolean dead = false;
+
+    public interface OnDeathLister{
+        public void onDeath();
+    }
     public void resetPotatoStats() {
-        hunger = 250;
-        happiness = 250;
-        thirst = 250;
-        energy = 250;
+        hunger = 500;
+        happiness = 500;
+        thirst = 500;
+        energy = 500;
     }
 
-    public void diePotato(Context context) {
-        if (hunger <= MIN_HUNGER) {
-            resetPotatoStats();
-            Toast.makeText(context, "Your Potato Steffen died of hunger! Shame on you!", Toast.LENGTH_LONG).show();
-        } else if (thirst <= MIN_THIRST) {
-            resetPotatoStats();
-            Toast.makeText(context, "You fool! Potato Steffen died of thirst!", Toast.LENGTH_LONG).show();
-        } else if (energy <= MIN_ENERGY) {
-            resetPotatoStats();
-            Toast.makeText(context, "You lily liver! Potato Steffen died of energy loss!", Toast.LENGTH_LONG).show();
-        } else if (happiness <= MIN_HAPPINESS) {
-            resetPotatoStats();
-            Toast.makeText(context, "Your Potato Steffen died of depression! You suck!", Toast.LENGTH_LONG).show();
-        } else if (clickcount >= 20) {
-        resetPotatoStats();
-        Toast.makeText(context, "Your Potato Steffen died of a Coffee overdose! You monster!", Toast.LENGTH_LONG).show();
-        // Hilsen Svend/Sofie ~ Til en Coffee Overdose evt.
-        }
-    }
    // if (hunger != MAX_HUNGER) {
     public void eat() {
+        if (hunger != MAX_HUNGER) {
             hunger = hunger + 37;
             energy = energy - 5;
-
+        }
+        deathCheck();
         System.out.println("Hunger:" + hunger);
     }
    // if (thirst != MAX_THIRST) {
@@ -95,6 +90,7 @@ public class Potato {
             thirst = thirst + 33;
             energy = energy - 5;
 
+        deathCheck();
         System.out.println("thirst:" + thirst);
     }
     //if (happiness != MAX_HAPPINESS) {
@@ -102,15 +98,15 @@ public class Potato {
         if(energy >=25) {
             happiness = happiness + 31;
             energy = energy - 25;
-            System.out.println("Happiness:" + happiness);
         }
+        deathCheck();
+        System.out.println("Happiness:" + happiness);
     }
     //energy != MAX_ENERGY
     public void coffee() {
             energy = energy + 21;
-            thirst = thirst - 15;
-            hunger = hunger - 10;
-
+            hunger = hunger - 5;
+            deathCheck();
         System.out.println("Energy:" + energy);
     }
 
@@ -123,7 +119,6 @@ public class Potato {
         mediaPlayer.start();
         mediaPlayer.setLooping(true);
         sover=true;
-
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
@@ -190,6 +185,16 @@ public class Potato {
         } else if (clickcount != 0) {
             clickcount = clickcount - time.timeRes;
         }
+        deathCheck();
         time.onResume();
     }
+    
+    public void deathCheck(){
+
+        if(hunger <= MIN_HUNGER || thirst<= MIN_THIRST || happiness <= MIN_HAPPINESS ){
+            dead = true;
+            onDeathLister.onDeath();
+        }
+    }
+
 }
