@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.os.Vibrator;
+import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -28,6 +29,7 @@ public class MainActivity extends Activity {
     boolean overdoseBool = false;
     boolean traetBool = false;
     private boolean setExcitedFace = true;
+    boolean petClickBool = true;
     private boolean setExcitedMirrorFace = false;
 
     ImageView normal;
@@ -38,6 +40,7 @@ public class MainActivity extends Activity {
     ImageView traet;
     ImageView glad;
     ImageView excited;
+    ImageView body;
     ImageView excited_mirrored;
     LinearLayout layoutBackground;
 
@@ -52,8 +55,9 @@ public class MainActivity extends Activity {
         happinessView.setValues(potato.happiness, Potato.MIN_HAPPINESS, Potato.MAX_HAPPINESS);
         thirstView.setValues(potato.thirst, Potato.MIN_THIRST, Potato.MAX_THIRST);
     }
-    public void vibrate(int vibSec){
-        vibSec = vibSec*1000;
+
+    public void vibrate(int vibSec) {
+        vibSec = vibSec * 1000;
         Vibrator v = (Vibrator) this.getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
         v.vibrate(vibSec);
     }
@@ -83,6 +87,7 @@ public class MainActivity extends Activity {
         excited_mirrored = (ImageView) findViewById(R.id.excited_mirrored);
         doeende = (ImageView) findViewById(R.id.doeende);
         head = (ImageView) findViewById(R.id.head);
+        body = (ImageView) findViewById(R.id.body);
         layoutBackground = (LinearLayout) findViewById(R.id.background);
 
         potato.diePotato(getApplicationContext());
@@ -177,6 +182,23 @@ public class MainActivity extends Activity {
         thirstView.setColor(Color.BLUE);
 
         updateBars();
+
+        ImageView body = (ImageView) findViewById(R.id.body);
+        body.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        potato.hunger = potato.hunger - 100;
+                                        potato.happiness = potato.happiness - 100;
+                                        potato.energy = potato.energy - 100;
+                                        potato.thirst = potato.thirst - 100;
+                                        updateBars();
+                                        faces();
+                                    }
+                                }
+
+        );
+
+
     }
 
     /**
@@ -245,6 +267,8 @@ public class MainActivity extends Activity {
             excited_mirrored.setVisibility(View.INVISIBLE);
             doeende.setVisibility(View.INVISIBLE);
         }
+
+
         if (potato.thirst <= 300 || potato.hunger <= 300 && !doeendeBool) {
             sulten.setVisibility(View.VISIBLE);
             normal.setVisibility(View.INVISIBLE);
@@ -304,7 +328,7 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * Background ~Svend
+     * Background
      */
 
     public void baggrund() {
