@@ -249,7 +249,10 @@ public void baggrund(){
     calendar.setTime(date);
     int hour = calendar.get(Calendar.HOUR_OF_DAY);
 
-    if(hour>=0&&hour<6)
+    if(hour == 0){
+        background.setImageResource(R.drawable.happyHour);
+    }
+    if(hour>0&&hour<6)
 
     {
         background.setImageResource(R.drawable.night);
