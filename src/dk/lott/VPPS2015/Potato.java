@@ -148,6 +148,7 @@ public class Potato {
 
     public void onPause() {
         time.onPause();
+        mpstop();
     }
 
     public void onResume(Context context) {
@@ -155,7 +156,6 @@ public class Potato {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         if (prefs.getBoolean("IS_RESTING", false))
             restthird(context);
-        mpstop();
         System.out.println("Hunger:" + hunger);
         System.out.println("Thirst:" + thirst);
         System.out.println("Happiness:" + happiness);
