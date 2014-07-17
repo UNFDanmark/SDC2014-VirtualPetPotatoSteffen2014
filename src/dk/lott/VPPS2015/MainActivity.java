@@ -3,12 +3,14 @@ package dk.lott.VPPS2015;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -70,7 +72,6 @@ public class MainActivity extends Activity {
         excited = (ImageView) findViewById(R.id.excited);
         doeende = (ImageView) findViewById(R.id.doeende);
         head = (ImageView) findViewById(R.id.head);
-        background = (ImageView) findViewById(R.id.background);
 
         potato.diePotato(getApplicationContext());
         potato.load(preferences);
@@ -250,30 +251,30 @@ public void baggrund(){
     int hour = calendar.get(Calendar.HOUR_OF_DAY);
 
     if(hour == 0){
-        background.setImageResource(R.drawable.happyHour);
+        background.setBackgroundResource(R.drawable.happyhour);
     }
     if(hour>0&&hour<6)
 
     {
-        background.setImageResource(R.drawable.night);
+        background.setBackgroundResource(R.drawable.night);
     }
 
     else if(hour>=6&&hour<12)
 
     {
-        background.setImageResource(R.drawable.morning_crop);
+        background.setBackgroundResource(R.drawable.morning_crop);
     }
 
     else if(hour>=12&&hour<18)
 
     {
-        background.setImageResource(R.drawable.midday_crop);
+        background.setBackgroundResource(R.drawable.midday_crop);
     }
 
     else if(hour>=18&&hour<24)
 
     {
-        background.setImageResource(R.drawable.afternoon);
+        background.setBackgroundResource(R.drawable.afternoon);
     }
 
 }
