@@ -24,8 +24,8 @@
         <Button
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
-                android:text="Fucapo"
-                android:id="@+id/bfucapo"
+                android:text="Coffee"
+                android:id="@+id/bcoffee"
                 android:layout_weight="0.3"
                 android:clickable="true"
                 android:layout_gravity="center"
@@ -71,6 +71,8 @@
                        android:layout_gravity="center_horizontal" android:layout_marginBottom="150dp"/>
             <ImageView android:layout_width="148dp" android:layout_height="204dp" android:id="@+id/excited"
                        android:layout_gravity="center_horizontal" android:background="@drawable/excited"
+                       android:visibility="invisible" android:layout_marginBottom="150dp"/>
+            <ImageView android:layout_width="148dp" android:layout_height="204dp" android:id="@+id/excited_mirrored"
                        android:visibility="invisible" android:layout_marginBottom="150dp"/>
             <ImageView android:layout_width="138dp" android:layout_height="204dp" android:id="@+id/trist"
                        android:layout_gravity="center_horizontal" android:background="@drawable/trist"

@@ -2,6 +2,7 @@ package dk.lott.VPPS2015;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
 import android.widget.Toast;
@@ -27,6 +28,7 @@ public class Potato {
     long energy = 500;
     public final static long MAX_ENERGY = 1000;
     long energyrest;
+    private MediaPlayer mediaPlayer;
 
     public void Limits() {
         if (hunger <= 0) {
@@ -71,10 +73,10 @@ public class Potato {
         } else if (happiness <= MIN_HAPPINESS) {
             resetPotatoStats();
             Toast.makeText(context, "Your Potato Steffen died of depression! You suck!", Toast.LENGTH_LONG).show();
-        } //else if (clickcount >= 10) {
-        //resetPotatoStats();
-        //Toast.makeText(context, "Your Potato Steffen died of a Fucapo overdose! You monster!", Toast.LENGTH_LONG).show();
-        // Hilsen Svend/Sofie ~ Til en Fucapo Overdose evt.}
+        } else if (clickcount >= 20) {
+        resetPotatoStats();
+        Toast.makeText(context, "Your Potato Steffen died of a Coffee overdose! You monster!", Toast.LENGTH_LONG).show();
+        // Hilsen Svend/Sofie ~ Til en Coffee Overdose evt.}
     }
    // if (hunger != MAX_HUNGER) {
     public void eat() {
@@ -101,11 +103,11 @@ public class Potato {
         System.out.println("Happiness:" + happiness);
     }
     //energy != MAX_ENERGY
-    public void eatfucapo() {
+    public void coffee() {
 
             energy = energy + 21;
-            thirst = thirst - 30;
-            hunger = hunger - 25;
+            thirst = thirst - 15;
+            hunger = hunger - 10;
 
         System.out.println("Energy:" + energy);
     }
@@ -115,6 +117,10 @@ public class Potato {
         Toast.makeText(context, "Potato Steffen Started Resting", Toast.LENGTH_LONG).show();
         System.out.println("Potato Steffen Started Resting= Energy:" + energy);
         energyrest=0;
+        mediaPlayer = MediaPlayer.create(context, R.raw.snore);
+        mediaPlayer.start();
+        mediaPlayer.setLooping(true);
+
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
@@ -132,6 +138,10 @@ public class Potato {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean("IS_RESTING", false);
         editor.commit();
+    }
+
+    public void mpstop() {
+        mediaPlayer.stop();
     }
 
     public void onPause() {
