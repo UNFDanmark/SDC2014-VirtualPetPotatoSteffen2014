@@ -10,7 +10,7 @@ public class Potato {
     Time time = new Time();
 
     public final static long MIN_HUNGER = 0;
-    long hunger = 50    ;
+    long hunger = 50;
     public final static long MAX_HUNGER = 1000;
 
     public final static long MIN_HAPPINESS = 0;
@@ -70,21 +70,23 @@ public class Potato {
             resetPotatoStats();
             Toast.makeText(context, "Your Potato Steffen died of depression! You suck!", Toast.LENGTH_LONG).show();
         } //else if (clickcount >= 10) {
-            //resetPotatoStats();
-            //Toast.makeText(context, "Your Potato Steffen died of a Fucapo overdose! You monster!", Toast.LENGTH_LONG).show();
+        //resetPotatoStats();
+        //Toast.makeText(context, "Your Potato Steffen died of a Fucapo overdose! You monster!", Toast.LENGTH_LONG).show();
         // Hilsen Svend/Sofie ~ Til en Fucapo Overdose evt.}
     }
 
     public void eat() {
         if (hunger != MAX_HUNGER) {
             hunger = hunger + 37;
-            }
+            energy = energy - 5;
+        }
         System.out.println("Hunger:" + hunger);
     }
 
     public void drink() {
         if (thirst != MAX_THIRST) {
             thirst = thirst + 29;
+            energy = energy - 5;
         }
         System.out.println("thirst:" + thirst);
     }
@@ -92,6 +94,7 @@ public class Potato {
     public void play() {
         if (happiness != MAX_HAPPINESS) {
             happiness = happiness + 31;
+            energy = energy - 25;
         }
         System.out.println("Happiness:" + happiness);
     }
@@ -99,6 +102,8 @@ public class Potato {
     public void eatfucapo() {
         if (energy != MAX_ENERGY) {
             energy = energy + 21;
+            thirst = thirst - 30;
+            hunger = hunger - 25;
         }
         System.out.println("Energy:" + energy);
     }
@@ -130,8 +135,12 @@ public class Potato {
         energy = preferences.getLong("energy", energy);
         hunger = hunger - time.timeRes;
         thirst = thirst - time.timeRes;
-        happiness = happiness - time.timeRes;
         energy = energy - time.timeRes;
+        if (energy > 300) {
+            happiness = happiness - time.timeRes;
+        } else if (energy <= 300) {
+            happiness = happiness - time.timeRes * 4;
+        }
         if (clickcount <= 0) {
             clickcount = 0;
         } else if (clickcount != 0) {
@@ -139,7 +148,6 @@ public class Potato {
         }
         time.onResume();
     }
-
 
 
 }
