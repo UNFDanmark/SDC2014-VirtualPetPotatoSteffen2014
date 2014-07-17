@@ -2,6 +2,7 @@ package dk.lott.VPPS2015;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.CountDownTimer;
 import android.widget.Toast;
 
 public class Potato {
@@ -138,4 +139,7 @@ public class Potato {
         }
         time.onResume();
     }
+
+
+
 }

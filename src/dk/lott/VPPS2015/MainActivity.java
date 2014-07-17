@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
@@ -137,6 +138,10 @@ public class MainActivity extends Activity {
                 updateBars();
             }
         });
+        /**
+        * Faces
+        */
+
         energyView = (ReverseProgressbarView) findViewById(R.id.energyView);
         energyView.setColor(Color.YELLOW);
         hungerView = (ProgressbarView) findViewById(R.id.hungerView);
@@ -155,6 +160,8 @@ public class MainActivity extends Activity {
 
     public void faces() {
         if (potato.clickcount >= 10 && potato.energy > 800 && !doeendeBool) {
+            new CountDownTimer(20000,100){
+                public void onTick(long millisUntilFinish){
             excited.setVisibility(View.VISIBLE);
             normal.setVisibility(View.INVISIBLE);
             sulten.setVisibility(View.INVISIBLE);
@@ -164,8 +171,15 @@ public class MainActivity extends Activity {
             doeende.setVisibility(View.INVISIBLE);
 
             overdoseBool = true;
-            potato.clickcount = 0;
-        } else {
+            }
+                @Override
+                public void onFinish(){
+                potato.clickcount = 0;
+                    faces();
+                }
+        }.start();
+        }
+        else {
             overdoseBool = false;
         }
 
