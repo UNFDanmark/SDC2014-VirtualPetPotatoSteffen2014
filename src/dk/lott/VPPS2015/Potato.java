@@ -188,7 +188,7 @@ public class Potato {
     
     public void deathCheck(){
 
-        if(hunger <= MIN_HUNGER || thirst<= MIN_THIRST || happiness <= MIN_HAPPINESS || energy <= MIN_ENERGY){
+        if(hunger <= MIN_HUNGER || thirst<= MIN_THIRST || happiness <= MIN_HAPPINESS ){
             onDeathLister.onDeath();
         }
     }
