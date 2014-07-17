@@ -44,7 +44,6 @@ public class MainActivity extends Activity {
     ImageView sDene;
     ImageView sDthi;
     LinearLayout layoutBackground;
-    //dette er en irrelevant kommentarK
 
     private ReverseProgressbarView energyView;
     private ProgressbarView hungerView;
@@ -55,10 +54,12 @@ public class MainActivity extends Activity {
      * indikator INDE I APPEN for om Potato Steffen er ved at dø (små røde udråbstegn)
      */
 
-   /** public void soondead() { //VIRKER IKKE ENDNU!!!!
-
-        if (potato.hunger <= 200) {
-            sDhun = (ImageView) findViewById(R.id.sDhun);
+   public void soondead() {
+       sDhun = (ImageView) findViewById(R.id.sDhun);
+       sDene = (ImageView) findViewById(R.id.sDene);
+       sDthi = (ImageView) findViewById(R.id.sDthi);
+       sDhap = (ImageView) findViewById(R.id.sDhap);
+       if (potato.hunger <= 200) {
             sDhun.setVisibility(View.VISIBLE);
             sDene.setVisibility(View.INVISIBLE);
             sDthi.setVisibility(View.INVISIBLE);
@@ -68,7 +69,6 @@ public class MainActivity extends Activity {
         }
 
         if (potato.energy <= 200) {
-            sDene = (ImageView) findViewById(R.id.sDene);
             sDene.setVisibility(View.VISIBLE);
             sDhun.setVisibility(View.INVISIBLE);
             sDthi.setVisibility(View.INVISIBLE);
@@ -78,7 +78,6 @@ public class MainActivity extends Activity {
         }
 
         if (potato.thirst <= 200) {
-            sDthi = (ImageView) findViewById(R.id.sDthi);
             sDthi.setVisibility(View.VISIBLE);
             sDhun.setVisibility(View.INVISIBLE);
             sDene.setVisibility(View.INVISIBLE);
@@ -88,7 +87,6 @@ public class MainActivity extends Activity {
         }
 
         if (potato.happiness <= 200) {
-            sDhap = (ImageView) findViewById(R.id.sDhap);
             sDhap.setVisibility(View.VISIBLE);
             sDhun.setVisibility(View.INVISIBLE);
             sDene.setVisibility(View.INVISIBLE);
@@ -96,14 +94,14 @@ public class MainActivity extends Activity {
         } else {
             sDhap.setVisibility(View.INVISIBLE);
         }
-    } */
+    }
 
     public void updateBars() {
         energyView.setValues(potato.energy, Potato.MIN_ENERGY, Potato.MAX_ENERGY); //Sørens bug! skrev Potato med Stort
         hungerView.setValues(potato.hunger, Potato.MIN_HUNGER, Potato.MAX_HUNGER);
         happinessView.setValues(potato.happiness, Potato.MIN_HAPPINESS, Potato.MAX_HAPPINESS);
         thirstView.setValues(potato.thirst, Potato.MIN_THIRST, Potato.MAX_THIRST);
-        //soondead();
+        soondead();
     }
 
     public void vibrate(int vibSec) {
