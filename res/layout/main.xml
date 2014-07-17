@@ -4,9 +4,8 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:gravity="center_vertical|center_horizontal"
-              android:background="@drawable/morning_crop"
               android:id="@+id/background"
-              android:longClickable="false">
+              android:longClickable="false" android:background="@drawable/sovende">
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
@@ -106,7 +105,7 @@
                        android:layout_height="204dp"
                        android:id="@+id/sovende"
                        android:visibility="invisible"
-                       android:layout_marginBottom="150dp"/>
+                       android:layout_marginBottom="150dp" android:background="@drawable/sovende"/>
             <ImageView android:layout_width="138dp"
                        android:layout_height="204dp"
                        android:id="@+id/trist"

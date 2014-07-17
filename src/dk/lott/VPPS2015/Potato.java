@@ -30,7 +30,7 @@ public class Potato {
     public final static long MAX_ENERGY = 1000;
     long energyrest;
     public MediaPlayer mediaPlayer;
-    public boolean sover;
+    public boolean sover=false;
 
     public void Limits() {
         if (hunger <= 0) {
