@@ -1,7 +1,9 @@
 package dk.lott.VPPS2015;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.os.Vibrator;
+import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -21,12 +24,11 @@ import java.util.GregorianCalendar;
 public class MainActivity extends Activity {
 
     public SharedPreferences preferences;
-    Potato potato = new Potato();
+    Potato potato;
     boolean sultenBool = false;
     boolean tristBool = false;
     boolean doeendeBool = false;
     boolean overdoseBool = false;
-    private boolean setExcitedFace = true;
     ImageView normal;
     ImageView doeende;
     ImageView head;
@@ -36,6 +38,7 @@ public class MainActivity extends Activity {
     ImageView glad;
     ImageView excited;
     LinearLayout layoutBackground;
+    private boolean setExcitedFace = true;
     private ReverseProgressbarView energyView;
     private ProgressbarView hungerView;
     private ReverseProgressbarView happinessView;
@@ -47,8 +50,9 @@ public class MainActivity extends Activity {
         happinessView.setValues(potato.happiness, Potato.MIN_HAPPINESS, Potato.MAX_HAPPINESS);
         thirstView.setValues(potato.thirst, Potato.MIN_THIRST, Potato.MAX_THIRST);
     }
-    public void vibrate(int vibSec){
-        vibSec = vibSec*1000;
+
+    public void vibrate(int vibSec) {
+        vibSec = vibSec * 1000;
         Vibrator v = (Vibrator) this.getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
         v.vibrate(vibSec);
     }
@@ -56,11 +60,16 @@ public class MainActivity extends Activity {
     /**
      * Called when the activity is first created.
      */
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        potato = new Potato(new Potato.OnDeathLister() {
+            @Override
+            public void onDeath() {
+                deathmenu();
+            }
+        });
         preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         potato.load(preferences);
         PotatoService.setAlarm(getApplicationContext());
@@ -78,104 +87,168 @@ public class MainActivity extends Activity {
         doeende = (ImageView) findViewById(R.id.doeende);
         head = (ImageView) findViewById(R.id.head);
         layoutBackground = (LinearLayout) findViewById(R.id.background);
-
-        potato.diePotato(getApplicationContext());
         potato.load(preferences);
+        /**potato.diePotato(getApplicationContext());
+
+         */
+
 
         /**
          * Toys
          */
 
         Button toys = (Button) findViewById(R.id.btoys);
-        toys.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                potato.play();
-                potato.Limits();
-                faces();
-                updateBars();
-            }
-        });
+        toys.setOnClickListener(new View.OnClickListener()
+
+                                {
+                                    @Override
+                                    public void onClick(View v) {
+                                        potato.play();
+                                        potato.Limits();
+                                        faces();
+                                        updateBars();
+                                    }
+                                }
+
+        );
 
         /**
          * Food
          */
 
         Button food = (Button) findViewById(R.id.bfood);
-        food.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                potato.eat();
-                potato.Limits();
-                faces();
-                updateBars();
-            }
-        });
+        food.setOnClickListener(new View.OnClickListener()
+
+                                {
+                                    @Override
+                                    public void onClick(View v) {
+                                        potato.eat();
+                                        potato.Limits();
+                                        faces();
+                                        updateBars();
+                                    }
+                                }
+
+        );
 
         /**
          * Fucapo
          */
 
         Button fucapo = (Button) findViewById(R.id.bfucapo);
-        fucapo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                potato.eatfucapo();
-                System.out.println("Energy:" + potato.energy);
-                potato.clickcount++;
-                potato.Limits();
-                System.out.println("Click Count:" + potato.clickcount);
-                updateBars();
-                faces();
-            }
-        });
+        fucapo.setOnClickListener(new View.OnClickListener()
+
+                                  {
+                                      @Override
+                                      public void onClick(View v) {
+                                          potato.eatfucapo();
+                                          System.out.println("Energy:" + potato.energy);
+                                          potato.clickcount++;
+                                          potato.Limits();
+                                          System.out.println("Click Count:" + potato.clickcount);
+                                          updateBars();
+                                          faces();
+                                      }
+                                  }
+
+        );
 
         /**
          * Rest
          */
 
         Button rest = (Button) findViewById(R.id.breast);
-        rest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                potato.restfirst(getApplicationContext());
-                System.out.println("Energy:" + potato.energy);
-                potato.Limits();
-                updateBars();
-                faces();
-            }
-        });
+        rest.setOnClickListener(new View.OnClickListener()
+
+                                {
+                                    @Override
+                                    public void onClick(View v) {
+                                        potato.restfirst(getApplicationContext());
+                                        System.out.println("Energy:" + potato.energy);
+                                        potato.Limits();
+                                        updateBars();
+                                        faces();
+                                    }
+                                }
+
+        );
 
         /**
          * Drinks
          */
 
         Button drinks = (Button) findViewById(R.id.bdrinks);
-        drinks.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                potato.drink();
-                potato.Limits();
-                faces();
-                updateBars();
-            }
-        });
+        drinks.setOnClickListener(new View.OnClickListener()
 
+                                  {
+                                      @Override
+                                      public void onClick(View v) {
+                                          potato.drink();
+                                          potato.Limits();
+                                          faces();
+                                          updateBars();
+                                      }
+                                  }
+
+        );
         /**
          * Faces
          */
 
-        energyView = (ReverseProgressbarView) findViewById(R.id.energyView);
+        energyView = (ReverseProgressbarView)
+
+                findViewById(R.id.energyView);
+
         energyView.setColor(Color.YELLOW);
-        hungerView = (ProgressbarView) findViewById(R.id.hungerView);
+        hungerView = (ProgressbarView)
+
+                findViewById(R.id.hungerView);
+
         hungerView.setColor(Color.RED);
-        happinessView = (ReverseProgressbarView) findViewById(R.id.happinessView);
+        happinessView = (ReverseProgressbarView)
+
+                findViewById(R.id.happinessView);
+
         happinessView.setColor(Color.GREEN);
-        thirstView = (ProgressbarView) findViewById(R.id.thirstView);
+        thirstView = (ProgressbarView)
+
+                findViewById(R.id.thirstView);
+
         thirstView.setColor(Color.BLUE);
 
         updateBars();
+
     }
+
+    /**
+     * Død funktion. Now even better. 10/10 would use again
+     */
+
+
+    public void deathmenu() {
+        AlertDialog alertdialog = new AlertDialog.Builder(this)
+                .setTitle("Revive entry")
+                .setMessage("Your Potato Steffen died! You didn't take good enough care of him! Do you wish to clone your late Potato Steffen, you monster? ")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        potato.resetPotatoStats();
+                        faces();
+                        updateBars();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        potato.resetPotatoStats();
+                        faces();
+                        updateBars();
+                        Toast.makeText(getApplicationContext(), "You must clone him! FOR SCIENCE!", Toast.LENGTH_LONG).show();
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
+    }
+
+
 
     /**
      * Faces
@@ -310,6 +383,7 @@ public class MainActivity extends Activity {
         {
             layoutBackground.setBackgroundResource(R.drawable.afternoon);
         }
+
 
     }
 

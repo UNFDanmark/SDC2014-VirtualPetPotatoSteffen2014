@@ -28,6 +28,13 @@ public class Potato {
     public final static long MAX_ENERGY = 1000;
     long energyrest;
 
+    OnDeathLister onDeathLister;
+
+
+    public Potato(OnDeathLister onDeathLister) {
+        this.onDeathLister = onDeathLister;
+    }
+
     public void Limits() {
         if (hunger <= 0) {
             hunger = 0;
@@ -58,7 +65,7 @@ public class Potato {
         energy = 250;
     }
 
-    public void diePotato(Context context) {
+    /**public void diePotato(Context context) {
         if (hunger <= MIN_HUNGER) {
             resetPotatoStats();
             Toast.makeText(context, "Your Potato Steffen died of hunger! Shame on you!", Toast.LENGTH_LONG).show();
@@ -77,11 +84,14 @@ public class Potato {
         // Hilsen Svend/Sofie ~ Til en Fucapo Overdose evt.}
     }
 
+    */
+
     public void eat() {
         if (hunger != MAX_HUNGER) {
             hunger = hunger + 37;
             energy = energy - 5;
         }
+        deathCheck();
         System.out.println("Hunger:" + hunger);
     }
 
@@ -90,6 +100,7 @@ public class Potato {
             thirst = thirst + 29;
             energy = energy - 5;
         }
+        deathCheck();
         System.out.println("thirst:" + thirst);
     }
 
@@ -98,6 +109,7 @@ public class Potato {
             happiness = happiness + 31;
             energy = energy - 25;
         }
+        deathCheck();
         System.out.println("Happiness:" + happiness);
     }
     //energy != MAX_ENERGY
@@ -107,6 +119,7 @@ public class Potato {
             thirst = thirst - 30;
             hunger = hunger - 25;
         }
+        deathCheck();
         System.out.println("Energy:" + energy);
     }
 
@@ -176,8 +189,18 @@ public class Potato {
         } else if (clickcount != 0) {
             clickcount = clickcount - time.timeRes;
         }
+        deathCheck();
         time.onResume();
     }
+    public void deathCheck(){
 
+        if(hunger <= MIN_HUNGER || thirst<= MIN_THIRST || happiness <= MIN_HAPPINESS || energy <= MIN_ENERGY){
+            onDeathLister.onDeath();
+        }
+    }
+
+    public interface OnDeathLister{
+        public void onDeath();
+    }
 
 }
