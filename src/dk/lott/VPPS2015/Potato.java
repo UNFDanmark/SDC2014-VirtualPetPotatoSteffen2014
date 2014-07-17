@@ -62,6 +62,9 @@ public class Potato {
         }
     }
 
+    public interface OnDeathLister{
+        public void onDeath();
+    }
     public void resetPotatoStats() {
         hunger = 250;
         happiness = 250;
@@ -82,7 +85,7 @@ public class Potato {
     public void drink() {
             thirst = thirst + 33;
             energy = energy - 5;
-        }
+
         deathCheck();
         System.out.println("thirst:" + thirst);
     }
@@ -188,10 +191,6 @@ public class Potato {
         if(hunger <= MIN_HUNGER || thirst<= MIN_THIRST || happiness <= MIN_HAPPINESS || energy <= MIN_ENERGY){
             onDeathLister.onDeath();
         }
-    }
-
-    public interface OnDeathLister{
-        public void onDeath();
     }
 
 }

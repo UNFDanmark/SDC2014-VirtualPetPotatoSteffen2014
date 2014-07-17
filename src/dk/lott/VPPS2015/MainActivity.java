@@ -61,7 +61,6 @@ public class MainActivity extends Activity {
         Vibrator v = (Vibrator) this.getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
         v.vibrate(vibSec);
     }
-
     /**
      * Called when the activity is first created.
      */
@@ -221,6 +220,7 @@ public class MainActivity extends Activity {
                 .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         potato.resetPotatoStats();
+                        Toast.makeText(getApplicationContext(), "You must clone him! FOR SCIENCE!", Toast.LENGTH_LONG).show();
                         faces();
                         updateBars();
                         Toast.makeText(getApplicationContext(), "You must clone him! FOR SCIENCE!", Toast.LENGTH_LONG).show();
@@ -237,7 +237,7 @@ public class MainActivity extends Activity {
      */
 
     public void faces() {
-        if (potato.clickcount >= 10 && potato.energy > 800 && !doeendeBool && setExcitedFace && setExcitedMirrorFace && !potato.sover) {
+        if (potato.clickcount >= 10 && potato.energy > 800 && !doeendeBool && setExcitedFace && !potato.sover) {
             setExcitedFace = false;
             setExcitedMirrorFace = false;
             overdoseBool = true;
