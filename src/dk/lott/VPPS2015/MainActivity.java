@@ -149,7 +149,6 @@ public class MainActivity extends Activity {
                 potato.Limits();
                 updateBars();
                 faces();
-
             }
         });
 
@@ -184,7 +183,6 @@ public class MainActivity extends Activity {
      * Faces
      */
 
-
     public void faces() {
         if (potato.clickcount >= 10 && potato.energy > 800 && !doeendeBool && setExcitedFace && setExcitedMirrorFace) {
             setExcitedFace = false;
@@ -208,7 +206,6 @@ public class MainActivity extends Activity {
                             excited_mirrored.setVisibility(View.VISIBLE);
                             setExcitedFace=true;
                             setExcitedMirrorFace=true;
-
                         }
                     }   if (setExcitedMirrorFace=true) {
                             excited.setVisibility(View.VISIBLE);
@@ -217,7 +214,6 @@ public class MainActivity extends Activity {
                             setExcitedFace=false;
                     }
                 }
-
                 @Override
                 public void onFinish() {
                     potato.clickcount = 0;
@@ -237,7 +233,6 @@ public class MainActivity extends Activity {
             excited.setVisibility(View.INVISIBLE);
             excited_mirrored.setVisibility(View.INVISIBLE);
             doeende.setVisibility(View.INVISIBLE);
-
         }
         if (potato.happiness >= 700 && potato.thirst >= 700 && potato.hunger >= 700) {
             Log.d("Happiness","");
@@ -250,9 +245,6 @@ public class MainActivity extends Activity {
             excited_mirrored.setVisibility(View.INVISIBLE);
             doeende.setVisibility(View.INVISIBLE);
         }
-
-
-
         if (potato.thirst <= 300 || potato.hunger <= 300 && !doeendeBool) {
             sulten.setVisibility(View.VISIBLE);
             normal.setVisibility(View.INVISIBLE);
@@ -325,7 +317,6 @@ public class MainActivity extends Activity {
             layoutBackground.setBackgroundResource(R.drawable.happyhour);
         }
         if (hour > 0 && hour < 6)
-
         {
             layoutBackground.setBackgroundResource(R.drawable.night);
         } else if (hour >= 6 && hour < 12)
@@ -341,7 +332,6 @@ public class MainActivity extends Activity {
         {
             layoutBackground.setBackgroundResource(R.drawable.afternoon);
         }
-
     }
 
     @Override

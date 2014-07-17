@@ -81,7 +81,6 @@ public class Potato {
     }
    // if (hunger != MAX_HUNGER) {
     public void eat() {
-
             hunger = hunger + 37;
             energy = energy - 5;
 
@@ -89,7 +88,6 @@ public class Potato {
     }
    // if (thirst != MAX_THIRST) {
     public void drink() {
-
             thirst = thirst + 33;
             energy = energy - 5;
 
@@ -97,7 +95,6 @@ public class Potato {
     }
     //if (happiness != MAX_HAPPINESS) {
     public void play() {
-
             happiness = happiness + 31;
             energy = energy - 25;
 
@@ -105,7 +102,6 @@ public class Potato {
     }
     //energy != MAX_ENERGY
     public void coffee() {
-
             energy = energy + 21;
             thirst = thirst - 15;
             hunger = hunger - 10;
@@ -189,6 +185,4 @@ public class Potato {
         }
         time.onResume();
     }
-
-
 }
