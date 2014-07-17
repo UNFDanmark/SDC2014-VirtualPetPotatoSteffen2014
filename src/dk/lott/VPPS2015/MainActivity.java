@@ -231,7 +231,9 @@ public class MainActivity extends Activity {
 
                                 }
 
+
         );
+    }
     /**
      * Død funktion. Now even better. 10/10 would use again
      */
