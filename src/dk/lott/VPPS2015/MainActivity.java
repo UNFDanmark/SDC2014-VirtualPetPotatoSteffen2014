@@ -65,6 +65,7 @@ public class MainActivity extends Activity {
         Vibrator v = (Vibrator) this.getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
         v.vibrate(vibSec);
     }
+
     /**
      * Called when the activity is first created.
      */
@@ -103,7 +104,7 @@ public class MainActivity extends Activity {
         potato.load(preferences);
         /**potato.diePotato(getApplicationContext());
 
-        /**
+         /**
          * Toys
          */
 
@@ -111,12 +112,12 @@ public class MainActivity extends Activity {
         toys.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(setExcitedFace){
-                potato.play();
-                potato.Limits();
-                faces();
-                updateBars();
-            }
+                if (setExcitedFace) {
+                    potato.play();
+                    potato.Limits();
+                    faces();
+                    updateBars();
+                }
             }
         });
 
@@ -128,12 +129,12 @@ public class MainActivity extends Activity {
         food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(setExcitedFace){
-                potato.eat();
-                potato.Limits();
-                faces();
-                updateBars();
-            }
+                if (setExcitedFace) {
+                    potato.eat();
+                    potato.Limits();
+                    faces();
+                    updateBars();
+                }
             }
         });
 
@@ -145,15 +146,15 @@ public class MainActivity extends Activity {
         coffee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(setExcitedFace){
-                potato.coffee();
-                System.out.println("Energy:" + potato.energy);
-                potato.clickcount++;
-                potato.Limits();
-                System.out.println("Click Count:" + potato.clickcount);
-                updateBars();
-                faces();
-            }
+                if (setExcitedFace) {
+                    potato.coffee();
+                    System.out.println("Energy:" + potato.energy);
+                    potato.clickcount++;
+                    potato.Limits();
+                    System.out.println("Click Count:" + potato.clickcount);
+                    updateBars();
+                    faces();
+                }
             }
         });
 
@@ -165,14 +166,14 @@ public class MainActivity extends Activity {
         rest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(setExcitedFace){
-                potato.restfirst(getApplicationContext());
-                System.out.println("Energy:" + potato.energy);
-                potato.Limits();
-                updateBars();
-                faces();
+                if (setExcitedFace) {
+                    potato.restfirst(getApplicationContext());
+                    System.out.println("Energy:" + potato.energy);
+                    potato.Limits();
+                    updateBars();
+                    faces();
+                }
             }
-        }
         });
 
         /**
@@ -183,12 +184,12 @@ public class MainActivity extends Activity {
         drinks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(setExcitedFace){
-                potato.drink();
-                potato.Limits();
-                faces();
-                updateBars();
-            }
+                if (setExcitedFace) {
+                    potato.drink();
+                    potato.Limits();
+                    faces();
+                    updateBars();
+                }
             }
         });
 
@@ -214,7 +215,7 @@ public class MainActivity extends Activity {
 
 
                                         smerteBool = true;
-
+                                        vibrate(1);
                                         new CountDownTimer(1000, 100) {
                                             public void onTick(long millisUntilFinish) {
                                                 excited.setVisibility(View.INVISIBLE);
@@ -225,7 +226,8 @@ public class MainActivity extends Activity {
                                                 traet.setVisibility(View.INVISIBLE);
                                                 glad.setVisibility(View.INVISIBLE);
                                                 doeende.setVisibility(View.INVISIBLE);
-                                                vibrate(1);
+                                                sovende.setVisibility(View.INVISIBLE);
+
                                                 smerte.setVisibility(View.VISIBLE);
                                             }
 
@@ -234,6 +236,7 @@ public class MainActivity extends Activity {
                                                 smerteBool = false;
                                                 faces();
                                                 updateBars();
+                                                potato.deathCheck();
                                             }
                                         }.start();
                                     }
@@ -244,6 +247,7 @@ public class MainActivity extends Activity {
 
         );
     }
+
     /**
      * Død funktion. Now even better. 10/10 would use again
      */
@@ -280,7 +284,7 @@ public class MainActivity extends Activity {
     public void faces() {
         if (potato.clickcount >= 10 && potato.energy > 800 && !doeendeBool && setExcitedFace && setExcitedMirrorFace && !smerteBool && !potato.sover) {
             setExcitedFace = false;
-           setExcitedMirrorFace = false;
+            setExcitedMirrorFace = false;
             overdoseBool = true;
             potato.sover = false;
             Context context;
@@ -288,7 +292,7 @@ public class MainActivity extends Activity {
             new CountDownTimer(10000, 100) {
                 public void onTick(long millisUntilFinish) {
                     excited.setVisibility(View.VISIBLE);
-                   excited_mirrored.setVisibility(View.INVISIBLE);
+                    excited_mirrored.setVisibility(View.INVISIBLE);
                     normal.setVisibility(View.INVISIBLE);
                     sulten.setVisibility(View.INVISIBLE);
                     trist.setVisibility(View.INVISIBLE);
@@ -305,11 +309,12 @@ public class MainActivity extends Activity {
                             setExcitedFace = true;
                             setExcitedMirrorFace = true;
                         }
-                    }   if (setExcitedMirrorFace=true) {
-                            excited.setVisibility(View.VISIBLE);
-                            excited_mirrored.setVisibility(View.INVISIBLE);
-                            setExcitedMirrorFace=false;
-                            setExcitedFace=false;
+                    }
+                    if (setExcitedMirrorFace = true) {
+                        excited.setVisibility(View.VISIBLE);
+                        excited_mirrored.setVisibility(View.INVISIBLE);
+                        setExcitedMirrorFace = false;
+                        setExcitedFace = false;
                     }
                 }
 
@@ -336,7 +341,7 @@ public class MainActivity extends Activity {
             smerte.setVisibility(View.INVISIBLE);
         }
         if (potato.happiness >= 700 && potato.thirst >= 700 && potato.hunger >= 700 && !smerteBool && !potato.sover && !overdoseBool) {
-            Log.d("Happiness","");
+            Log.d("Happiness", "");
             glad.setVisibility(View.VISIBLE);
             normal.setVisibility(View.INVISIBLE);
             sulten.setVisibility(View.INVISIBLE);
@@ -431,10 +436,10 @@ public class MainActivity extends Activity {
 
         }
 
-            Log.d("Energy: ", potato.energy + "");
-            Log.d("Hunger: ", potato.hunger + "");
-            Log.d("Happiness: ", potato.happiness + "");
-            Log.d("Thirst: ", potato.thirst + "");
+        Log.d("Energy: ", potato.energy + "");
+        Log.d("Hunger: ", potato.hunger + "");
+        Log.d("Happiness: ", potato.happiness + "");
+        Log.d("Thirst: ", potato.thirst + "");
 
     }
 

@@ -66,10 +66,10 @@ public class Potato {
         public void onDeath();
     }
     public void resetPotatoStats() {
-        hunger = 250;
-        happiness = 250;
-        thirst = 250;
-        energy = 250;
+        hunger = 500;
+        happiness = 500;
+        thirst = 500;
+        energy = 500;
     }
 
    // if (hunger != MAX_HUNGER) {
@@ -101,8 +101,7 @@ public class Potato {
     //energy != MAX_ENERGY
     public void coffee() {
             energy = energy + 21;
-            thirst = thirst - 15;
-            hunger = hunger - 10;
+            hunger = hunger - 5;
 
         System.out.println("Energy:" + energy);
     }
