@@ -74,6 +74,7 @@ public class Potato {
         happiness = 500;
         thirst = 500;
         energy = 500;
+        dead = false;
     }
 
     // if (hunger != MAX_HUNGER) {
