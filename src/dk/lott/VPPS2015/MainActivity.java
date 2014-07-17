@@ -253,8 +253,12 @@ public class MainActivity extends Activity {
      */
 
 
+    //public void turnDemButtonsOn()
+
     public void deathmenu() {
-        AlertDialog alertdialog = new AlertDialog.Builder(this)
+
+       // .setEnabled(false);
+        final AlertDialog.Builder alertdialog = new AlertDialog.Builder(this)
                 .setTitle("You killed Potato Steffen")
                 .setMessage("You didn't take good enough care of him! Do you wish to clone your late Potato Steffen, you monster? ")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
@@ -270,11 +274,22 @@ public class MainActivity extends Activity {
                         Toast.makeText(getApplicationContext(), "You must clone him! FOR SCIENCE!", Toast.LENGTH_LONG).show();
                         faces();
                         updateBars();
-                        Toast.makeText(getApplicationContext(), "You must clone him! FOR SCIENCE!", Toast.LENGTH_LONG).show();
                     }
                 })
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .show();
+                .setIcon(android.R.drawable.ic_dialog_alert);
+
+
+        alertdialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                alertdialog.show();
+            }
+        });
+
+
+        alertdialog.show();
+
+
     }
 
     /**

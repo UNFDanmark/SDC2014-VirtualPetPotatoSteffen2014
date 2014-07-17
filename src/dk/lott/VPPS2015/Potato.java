@@ -62,6 +62,8 @@ public class Potato {
         }
     }
 
+    public boolean dead = false;
+
     public interface OnDeathLister{
         public void onDeath();
     }
@@ -102,7 +104,7 @@ public class Potato {
     public void coffee() {
             energy = energy + 21;
             hunger = hunger - 5;
-
+            deathCheck();
         System.out.println("Energy:" + energy);
     }
 
@@ -188,6 +190,7 @@ public class Potato {
     public void deathCheck(){
 
         if(hunger <= MIN_HUNGER || thirst<= MIN_THIRST || happiness <= MIN_HAPPINESS ){
+            dead = true;
             onDeathLister.onDeath();
         }
     }
