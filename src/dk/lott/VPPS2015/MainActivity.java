@@ -26,6 +26,7 @@ public class MainActivity extends Activity {
     boolean tristBool = false;
     boolean doeendeBool = false;
     boolean overdoseBool = false;
+    boolean traetBool = false;
     private boolean setExcitedFace = true;
     ImageView normal;
     ImageView doeende;
@@ -161,10 +162,6 @@ public class MainActivity extends Activity {
             }
         });
 
-        /**
-         * Faces
-         */
-
         energyView = (ReverseProgressbarView) findViewById(R.id.energyView);
         energyView.setColor(Color.YELLOW);
         hungerView = (ProgressbarView) findViewById(R.id.hungerView);
@@ -208,8 +205,17 @@ public class MainActivity extends Activity {
                 }
             }.start();
         }
-
-        if (potato.happiness >= 700 && !sultenBool && potato.energy > 300 && !overdoseBool) {
+        if (potato.happiness >= 300 && potato.thirst >= 300 && potato.hunger >= 300 && !traetBool) {
+            normal.setVisibility(View.VISIBLE);
+            sulten.setVisibility(View.INVISIBLE);
+            trist.setVisibility(View.INVISIBLE);
+            traet.setVisibility(View.INVISIBLE);
+            glad.setVisibility(View.INVISIBLE);
+            excited.setVisibility(View.INVISIBLE);
+            doeende.setVisibility(View.INVISIBLE);
+        }
+        if (potato.happiness >= 700 && potato.thirst >= 700 && potato.hunger >= 700) {
+            Log.d("Happiness","");
             glad.setVisibility(View.VISIBLE);
             normal.setVisibility(View.INVISIBLE);
             sulten.setVisibility(View.INVISIBLE);
@@ -219,15 +225,7 @@ public class MainActivity extends Activity {
             doeende.setVisibility(View.INVISIBLE);
         }
 
-        if (potato.hunger > 300 && potato.hunger < 700 && potato.happiness > 300 && potato.happiness < 700 && potato.energy > 300 && potato.energy < 700 && potato.thirst > 300 && potato.thirst < 700) {
-            normal.setVisibility(View.VISIBLE);
-            sulten.setVisibility(View.INVISIBLE);
-            trist.setVisibility(View.INVISIBLE);
-            traet.setVisibility(View.INVISIBLE);
-            glad.setVisibility(View.INVISIBLE);
-            excited.setVisibility(View.INVISIBLE);
-            doeende.setVisibility(View.INVISIBLE);
-        }
+
 
         if (potato.thirst <= 300 || potato.hunger <= 300 && !doeendeBool) {
             sulten.setVisibility(View.VISIBLE);
@@ -258,10 +256,12 @@ public class MainActivity extends Activity {
             normal.setVisibility(View.INVISIBLE);
             sulten.setVisibility(View.INVISIBLE);
             trist.setVisibility(View.INVISIBLE);
-            traet.setVisibility(View.INVISIBLE);
+            glad.setVisibility(View.INVISIBLE);
             excited.setVisibility(View.INVISIBLE);
             doeende.setVisibility(View.INVISIBLE);
-        }
+
+            traetBool = true;
+        } else traetBool = false;
 
         if (potato.hunger <= 100 || potato.thirst <= 100 || potato.happiness <= 100) {
             doeende.setVisibility((View.VISIBLE));
@@ -269,7 +269,7 @@ public class MainActivity extends Activity {
             normal.setVisibility(View.INVISIBLE);
             sulten.setVisibility(View.INVISIBLE);
             trist.setVisibility(View.INVISIBLE);
-            traet.setVisibility(View.INVISIBLE);
+            glad.setVisibility(View.INVISIBLE);
             excited.setVisibility(View.INVISIBLE);
             doeendeBool = true;
         } else doeendeBool = false;

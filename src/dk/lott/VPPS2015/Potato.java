@@ -76,37 +76,37 @@ public class Potato {
         //Toast.makeText(context, "Your Potato Steffen died of a Fucapo overdose! You monster!", Toast.LENGTH_LONG).show();
         // Hilsen Svend/Sofie ~ Til en Fucapo Overdose evt.}
     }
-
+   // if (hunger != MAX_HUNGER) {
     public void eat() {
-        if (hunger != MAX_HUNGER) {
+
             hunger = hunger + 37;
             energy = energy - 5;
-        }
+
         System.out.println("Hunger:" + hunger);
     }
-
+   // if (thirst != MAX_THIRST) {
     public void drink() {
-        if (thirst != MAX_THIRST) {
-            thirst = thirst + 29;
+
+            thirst = thirst + 33;
             energy = energy - 5;
-        }
+
         System.out.println("thirst:" + thirst);
     }
-
+    //if (happiness != MAX_HAPPINESS) {
     public void play() {
-        if (happiness != MAX_HAPPINESS) {
+
             happiness = happiness + 31;
             energy = energy - 25;
-        }
+
         System.out.println("Happiness:" + happiness);
     }
     //energy != MAX_ENERGY
     public void eatfucapo() {
-        if (true) {
+
             energy = energy + 21;
             thirst = thirst - 30;
             hunger = hunger - 25;
-        }
+
         System.out.println("Energy:" + energy);
     }
 
