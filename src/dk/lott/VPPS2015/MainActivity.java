@@ -302,6 +302,7 @@ public class MainActivity extends Activity {
             excited.setVisibility(View.INVISIBLE);
             excited_mirrored.setVisibility(View.INVISIBLE);
             doeendeBool = true;
+            potato.resetPotatoStats();
         } else doeendeBool = false;
 
         Log.d("Energy: ", potato.energy + "");
