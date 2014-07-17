@@ -1,9 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
-              android:gravity="center_vertical|center_horizontal" android:background="#ff000000">
+              android:gravity="center_vertical|center_horizontal"
+              android:background="#ff000000" android:orientation="vertical">
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|top">
+        <Button
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:text="Food"
+                android:id="@+id/bfood"
+                android:layout_weight="0.3"
+                android:clickable="true"
+                android:layout_gravity="center" android:textSize="15dp"/>
+        <Button
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:text="Fucapo"
+                android:id="@+id/bfucapo"
+                android:layout_weight="0.3"
+                android:clickable="true"
+                android:layout_gravity="center" android:textSize="15dp"/>
+        <Button
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:text="Drinks"
+                android:id="@+id/bdrinks"
+                android:layout_weight="0.3"
+                android:layout_gravity="center" android:textSize="15dp"/>
+    </LinearLayout>
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
@@ -13,86 +42,67 @@
                 android:layout_height="wrap_content"
                 android:text="Toys"
                 android:id="@+id/btoys"
-                android:layout_weight="0.15"
+                android:layout_weight="0.3"
                 android:clickable="true"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center|top" android:textSize="15dp"/>
+        <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                     android:background="#ff000000" android:layout_gravity="center_vertical"
+                     android:id="@+id/frameLayout">
+            <ImageView android:layout_width="51dp" android:layout_height="100dp" android:id="@+id/hoejre"
+                       android:visibility="visible" android:focusableInTouchMode="false"
+                       android:background="@drawable/hoejrefod" android:layout_gravity="bottom|right"
+                       android:layout_marginRight="40dp"/>
+            <ImageView android:layout_width="53dp" android:layout_height="101dp" android:id="@+id/venstre"
+                       android:visibility="visible" android:focusableInTouchMode="false"
+                       android:background="@drawable/venstrefod" android:layout_gravity="bottom|left"
+                       android:layout_marginLeft="40dip"/>
+            <ImageView android:layout_width="229dp" android:layout_height="257dp" android:id="@+id/body"
+                       android:layout_gravity="center_horizontal|bottom" android:background="@drawable/pet_potato"
+                       android:visibility="visible" android:layout_marginBottom="35dp" android:layout_marginRight="5dp"
+                       android:longClickable="false"/>
+            <ImageView android:layout_width="157dp" android:layout_height="209dp" android:id="@+id/normal"
+                       android:background="@drawable/normal" android:clickable="false" android:cropToPadding="false"
+                       android:visibility="visible" android:layout_marginRight="5dp"
+                       android:layout_gravity="center_horizontal" android:layout_marginBottom="150dp"/>
+            <ImageView android:layout_width="148dp" android:layout_height="204dp" android:id="@+id/excited"
+                       android:layout_gravity="center_horizontal" android:background="@drawable/excited"
+                       android:visibility="invisible" android:layout_marginBottom="150dp"/>
+            <ImageView android:layout_width="138dp" android:layout_height="204dp" android:id="@+id/trist"
+                       android:layout_gravity="center_horizontal" android:background="@drawable/trist"
+                       android:visibility="invisible" android:layout_marginLeft="5dp" android:layout_marginTop="5dp"
+                       android:layout_marginBottom="150dp"/>
+            <ImageView android:layout_width="140dp" android:layout_height="208dp" android:id="@+id/glad"
+                       android:layout_gravity="center_horizontal" android:background="@drawable/glad"
+                       android:visibility="invisible" android:layout_marginBottom="150dp"/>
+            <ImageView android:layout_width="149dp" android:layout_height="200dp" android:id="@+id/traet"
+                       android:layout_gravity="center_horizontal" android:background="@drawable/traet"
+                       android:layout_marginLeft="10dp" android:visibility="invisible"
+                       android:layout_marginBottom="150dp"/>
+            <ImageView android:layout_width="148dp" android:layout_height="209dp" android:id="@+id/sulten"
+                       android:layout_gravity="center_horizontal" android:visibility="visible"
+                       android:background="@drawable/sulten" android:layout_marginRight="5dp"
+                       android:layout_marginBottom="200dp"/>
+            <ImageView android:layout_width="149dp" android:layout_height="200dp" android:id="@+id/doeende"
+                       android:layout_gravity="center_horizontal" android:background="@drawable/doeende"
+                       android:visibility="invisible" android:focusableInTouchMode="false" android:focusable="false"
+                       android:layout_marginTop="20dp" android:layout_marginRight="15dp"
+                       android:layout_marginBottom="150dp"/>
+            <ImageView android:layout_width="145dp" android:layout_height="211dp" android:id="@+id/head"
+                       android:layout_gravity="center_horizontal" android:visibility="invisible"
+                       android:focusableInTouchMode="false" android:background="@drawable/normal"/>
+        </FrameLayout>
         <Button
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
-                android:text="Food"
-                android:id="@+id/bfood"
-                android:layout_weight="0.15"
-                android:clickable="true" android:layout_gravity="center"/>
-        <Button
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:text="Fucapo"
-                android:id="@+id/bfucapo"
-                android:layout_weight="0.15"
-                android:clickable="true" android:layout_gravity="center"/>
-        <Button
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:text="Drinks"
-                android:id="@+id/bdrinks" android:layout_weight="0.15" android:layout_gravity="center"/>
+                android:text="Rest"
+                android:id="@+id/breast" android:layout_gravity="center|top" android:layout_weight="0.3"
+                android:textSize="15dp" android:clickable="true"/>
     </LinearLayout>
-    <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:background="#ff000000">
-        <ImageView
-                android:layout_width="51dp"
-                android:layout_height="100dp"
-                android:id="@+id/hoejre" android:visibility="visible" android:focusableInTouchMode="false"
-                android:background="@drawable/hoejrefod" android:layout_gravity="bottom|right"
-                android:layout_marginRight="80dp"/>
-        <ImageView android:layout_width="53dp" android:layout_height="101dp" android:id="@+id/venstre"
-                   android:visibility="visible" android:focusableInTouchMode="false"
-                   android:background="@drawable/venstrefod" android:layout_gravity="bottom|left"
-                   android:layout_marginLeft="80dp"/>
-        <ImageView
-                android:layout_width="239dp"
-                android:layout_height="267dp"
-                android:id="@+id/body"
-                android:layout_gravity="center_horizontal|bottom"
-                android:background="@drawable/pet_potato"
-                android:visibility="visible" android:layout_marginBottom="20dp" android:layout_marginRight="5dp"/>
-        <ImageView
-                android:layout_width="157dp"
-                android:layout_height="209dp"
-                android:id="@+id/normal"
-                android:background="@drawable/normal"
-                android:clickable="false" android:cropToPadding="false" android:visibility="visible"
-                android:layout_marginRight="5dp" android:layout_gravity="center_horizontal"/>
-        <ImageView android:layout_width="148dp" android:layout_height="204dp" android:id="@+id/excited"
-                   android:layout_gravity="center_horizontal" android:background="@drawable/excited"
-                   android:visibility="invisible"/>
-        <ImageView android:layout_width="138dp" android:layout_height="204dp" android:id="@+id/trist"
-                   android:layout_gravity="center_horizontal" android:background="@drawable/trist"
-                   android:visibility="invisible" android:layout_marginLeft="5dp" android:layout_marginTop="5dp"/>
-        <ImageView android:layout_width="140dp" android:layout_height="208dp" android:id="@+id/glad"
-                   android:layout_gravity="center_horizontal" android:background="@drawable/glad"
-                   android:visibility="invisible"/>
-        <ImageView android:layout_width="149dp" android:layout_height="200dp" android:id="@+id/traet"
-                   android:layout_gravity="center_horizontal" android:background="@drawable/traet"
-                   android:layout_marginLeft="10dp" android:visibility="invisible"/>
-        <ImageView android:layout_width="148dp" android:layout_height="209dp" android:id="@+id/sulten"
-                   android:layout_gravity="center_horizontal" android:visibility="visible"
-                   android:background="@drawable/sulten" android:layout_marginRight="5dp"/>
-        <ImageView android:layout_width="149dp" android:layout_height="200dp" android:id="@+id/doeende"
-                   android:layout_gravity="center_horizontal" android:background="@drawable/doeende"
-                   android:visibility="invisible"
-                   android:focusableInTouchMode="false" android:focusable="false"
-                   android:layout_marginTop="20dp" android:layout_marginRight="15dp"/>
-        <ImageView android:layout_width="145dp" android:layout_height="211dp" android:id="@+id/head"
-                   android:layout_gravity="center_horizontal" android:visibility="invisible"
-                   android:focusableInTouchMode="false" android:background="@drawable/normal"
-                />
-    </FrameLayout>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|bottom">
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
@@ -105,7 +115,9 @@
                     android:layout_weight="0.4"
                     android:textColor="#ffffffff"
                     android:textSize="18dip"/>
-            <Space android:layout_width="20px" android:layout_height="20px" android:layout_weight="0.1"
+            <Space android:layout_width="20px"
+                   android:layout_height="20px"
+                   android:layout_weight="0.1"
                    android:id="@+id/space2"/>
             <TextView
                     android:layout_width="0dp"
@@ -125,13 +137,16 @@
                   android:layout_height="12dp"
                   android:layout_weight="0.45"
                   android:id="@+id/happinessView"
-                  android:background="#ff000100"/>
+                  android:focusable="false"/>
             <Space
                     android:layout_width="20px"
                     android:layout_height="20px"
                     android:layout_weight="0.1"/>
-            <dk.lott.VPPS2015.ProgressbarView android:layout_width="0dp" android:layout_height="12dp"
-                  android:layout_weight="0.45" android:id="@+id/hungerView"/>
+            <dk.lott.VPPS2015.ProgressbarView
+                    android:layout_width="0dp"
+                    android:layout_height="12dp"
+                  android:layout_weight="0.45"
+                  android:id="@+id/hungerView"/>
         </LinearLayout>
 
         <LinearLayout android:orientation="horizontal"
@@ -170,13 +185,18 @@
                   android:layout_height="12dp"
                   android:layout_weight="0.45"
                   class="dk.lott.VPPS2015.ReverseProgressbarView"
-                  android:id="@+id/energyView" android:layout_gravity="right" android:background="#ff000100"/>
+                  android:id="@+id/energyView"
+                  android:layout_gravity="right"
+                    />
             <Space android:layout_width="20px"
                    android:layout_height="20px"
                    android:layout_weight="0.1"
                    android:id="@+id/space"/>
-            <view class="dk.lott.VPPS2015.ProgressbarView" android:layout_width="0dp"
-                  android:layout_height="12dp" android:layout_weight="0.45" android:id="@+id/thirstView"
+            <view class="dk.lott.VPPS2015.ProgressbarView"
+                  android:layout_width="0dp"
+                  android:layout_height="12dp"
+                  android:layout_weight="0.45"
+                  android:id="@+id/thirstView"
                   android:focusableInTouchMode="false"/>
         </LinearLayout>
     </LinearLayout>
