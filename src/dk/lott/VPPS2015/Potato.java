@@ -2,12 +2,8 @@ package dk.lott.VPPS2015;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.media.Image;
 import android.media.MediaPlayer;
-import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 public class Potato {
@@ -32,8 +28,9 @@ public class Potato {
     public final static long MAX_ENERGY = 1000;
     long energyrest;
 
+    public Context contextmp;
     public MediaPlayer mediaPlayer;
-    public boolean sover = false;
+    boolean sover = false;
 
     OnDeathLister onDeathLister;
 
@@ -67,9 +64,10 @@ public class Potato {
 
     public boolean dead = false;
 
-    public interface OnDeathLister{
+    public interface OnDeathLister {
         public void onDeath();
     }
+
     public void resetPotatoStats() {
         hunger = 500;
         happiness = 500;
@@ -77,10 +75,10 @@ public class Potato {
         energy = 500;
     }
 
-   // if (hunger != MAX_HUNGER) {
+    // if (hunger != MAX_HUNGER) {
     public void eat() {
-            hunger = hunger + 37;
-            energy = energy - 5;
+        hunger = hunger + 37;
+        energy = energy - 5;
 
         System.out.println("Hunger:" + hunger);
     }
@@ -106,9 +104,9 @@ public class Potato {
 
     //energy != MAX_ENERGY
     public void coffee() {
-            energy = energy + 21;
-            hunger = hunger - 5;
-            deathCheck();
+        energy = energy + 21;
+        hunger = hunger - 5;
+        deathCheck();
         System.out.println("Energy:" + energy);
     }
 
@@ -121,7 +119,6 @@ public class Potato {
         mediaPlayer.start();
         mediaPlayer.setLooping(true);
         sover = true;
-
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
@@ -142,13 +139,14 @@ public class Potato {
         editor.commit();
     }
 
-    public void mpstop() {
+    public void mediaplaystop() {
         mediaPlayer.stop();
     }
 
     public void onPause() {
         time.onPause();
-        mpstop();
+        if (sover)
+            mediaplaystop();
     }
 
     public void onResume(Context context) {
@@ -192,10 +190,10 @@ public class Potato {
         deathCheck();
         time.onResume();
     }
-    
-    public void deathCheck(){
 
-        if(hunger <= MIN_HUNGER || thirst<= MIN_THIRST || happiness <= MIN_HAPPINESS ){
+    public void deathCheck() {
+
+        if (hunger <= MIN_HUNGER || thirst <= MIN_THIRST || happiness <= MIN_HAPPINESS) {
             dead = true;
             onDeathLister.onDeath();
         }
