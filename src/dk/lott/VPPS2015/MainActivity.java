@@ -528,7 +528,9 @@ public class MainActivity extends Activity {
     protected void onPause() {
         super.onPause();
         potato.onPause();
-        potato.mpstop();
+        if (potato.mediaPlayer.isPlaying()){
+            potato.mpstop();
+        }
         potato.save(preferences);
     }
 
