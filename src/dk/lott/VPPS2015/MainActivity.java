@@ -259,6 +259,7 @@ public class MainActivity extends Activity {
     /**
      * Background ~Svend
      */
+
 public void baggrund(){
     Date date = new Date();
     Calendar calendar = GregorianCalendar.getInstance();
