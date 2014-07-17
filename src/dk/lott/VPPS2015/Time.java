@@ -21,7 +21,5 @@ public class Time {
         timeRes = ((getTimeDiffrence(timePause) / 1000) / 10);
         System.out.println("Progressbarloses:" + timeRes);
     }
-
-    public void o
 }
 
