@@ -30,7 +30,7 @@ public class Potato {
     public final static long MAX_ENERGY = 1000;
     long energyrest;
     public MediaPlayer mediaPlayer;
-    public boolean sover;
+    public boolean sover=false;
 
     OnDeathLister onDeathLister;
 
@@ -88,7 +88,7 @@ public class Potato {
     }
     //if (happiness != MAX_HAPPINESS) {
     public void play() {
-        if (happiness != MAX_HAPPINESS) {
+        if(energy >=25) {
             happiness = happiness + 31;
             energy = energy - 25;
         }
