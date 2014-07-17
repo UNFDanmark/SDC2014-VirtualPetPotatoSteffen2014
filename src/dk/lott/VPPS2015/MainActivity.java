@@ -10,6 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 public class MainActivity extends Activity {
 
     private ReverseProgressbarView energyView;
@@ -20,7 +24,7 @@ public class MainActivity extends Activity {
     Potato potato = new Potato();
 
     public void updateBars() {
-        energyView.setValues(potato.energy, Potato.MIN_ENERGY, Potato.MAX_ENERGY);
+        energyView.setValues(potato.energy, Potato.MIN_ENERGY, Potato.MAX_ENERGY); //Sørens bug! skrev Potato med Stort
         hungerView.setValues(potato.hunger, Potato.MIN_HUNGER, Potato.MAX_HUNGER);
         happinessView.setValues(potato.happiness, Potato.MIN_HAPPINESS, Potato.MAX_HAPPINESS);
         thirstView.setValues(potato.thirst, Potato.MIN_THIRST, Potato.MAX_THIRST);
@@ -40,6 +44,7 @@ public class MainActivity extends Activity {
     ImageView traet;
     ImageView glad;
     ImageView excited;
+    ImageView background;
 
     /**
      * Called when the activity is first created.
@@ -65,12 +70,14 @@ public class MainActivity extends Activity {
         excited = (ImageView) findViewById(R.id.excited);
         doeende = (ImageView) findViewById(R.id.doeende);
         head = (ImageView) findViewById(R.id.head);
+        background = (ImageView) findViewById(R.id.background);
+
         potato.diePotato(getApplicationContext());
         potato.load(preferences);
 
         /**
-        * Toys
-        */
+         * Toys
+         */
 
         Button toys = (Button) findViewById(R.id.btoys);
         toys.setOnClickListener(new View.OnClickListener() {
@@ -85,7 +92,7 @@ public class MainActivity extends Activity {
 
         /**
          * Food
-        */
+         */
 
         Button food = (Button) findViewById(R.id.bfood);
         food.setOnClickListener(new View.OnClickListener() {
@@ -115,9 +122,10 @@ public class MainActivity extends Activity {
                 faces();
             }
         });
+
         /**
-        * Drinks
-        */
+         * Drinks
+         */
 
         Button drinks = (Button) findViewById(R.id.bdrinks);
         drinks.setOnClickListener(new View.OnClickListener() {
@@ -129,10 +137,6 @@ public class MainActivity extends Activity {
                 updateBars();
             }
         });
-        /**
-        * Faces
-        */
-
         energyView = (ReverseProgressbarView) findViewById(R.id.energyView);
         energyView.setColor(Color.YELLOW);
         hungerView = (ProgressbarView) findViewById(R.id.hungerView);
@@ -144,6 +148,10 @@ public class MainActivity extends Activity {
 
         updateBars();
     }
+
+    /**
+     * Faces
+     */
 
     public void faces() {
         if (potato.clickcount >= 10 && potato.energy > 800 && !doeendeBool) {
@@ -230,11 +238,46 @@ public class MainActivity extends Activity {
         ImageView body = (ImageView) findViewById(R.id.body);
         body.setVisibility(View.VISIBLE);
         //body.setImageResource(R.drawable.trist);
-        Log.d("Energy: ", potato.energy+"");
-        Log.d("Hunger: ", potato.hunger+"");
-        Log.d("Happiness: ", potato.happiness+"");
-        Log.d("Thirst: ", potato.thirst+"");
+        Log.d("Energy: ", potato.energy + "");
+        Log.d("Hunger: ", potato.hunger + "");
+        Log.d("Happiness: ", potato.happiness + "");
+        Log.d("Thirst: ", potato.thirst + "");
     }
+
+    /**
+     * Background ~Svend
+     */
+public void baggrund(){
+    Date date = new Date();
+    Calendar calendar = GregorianCalendar.getInstance();
+    calendar.setTime(date);
+    int hour = calendar.get(Calendar.HOUR_OF_DAY);
+
+    if(hour>=0&&hour<6)
+
+    {
+        background.setImageResource(R.drawable.night);
+    }
+
+    else if(hour>=6&&hour<12)
+
+    {
+        background.setImageResource(R.drawable.morning_crop);
+    }
+
+    else if(hour>=12&&hour<18)
+
+    {
+        background.setImageResource(R.drawable.midday_crop);
+    }
+
+    else if(hour>=18&&hour<24)
+
+    {
+        background.setImageResource(R.drawable.afternoon);
+    }
+
+}
 
     @Override
     protected void onPause() {
@@ -248,5 +291,7 @@ public class MainActivity extends Activity {
         super.onResume();
         potato.load(preferences);
         potato.onResume();
+        faces();
+        baggrund();
     }
 }
