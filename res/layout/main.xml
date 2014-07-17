@@ -72,20 +72,23 @@
                        android:background="@drawable/venstrefod"
                        android:layout_gravity="bottom|left"
                        android:layout_marginLeft="35dip"/>
-            <ImageView android:layout_width="245dp" android:layout_height="257dp" android:id="@+id/body"
-                       android:layout_gravity="center_horizontal|bottom" android:background="@drawable/pet_potato_arme"
-                       android:visibility="visible" android:layout_marginBottom="35dp"
-                       android:longClickable="false" android:clickable="true" android:onClick="clickImage"/>
-            <ImageView android:layout_width="157dp" android:layout_height="209dp" android:id="@+id/normal"
-                       android:background="@drawable/normal" android:clickable="false" android:cropToPadding="false"
-                       android:visibility="visible" android:layout_marginRight="5dp"
-                       android:layout_gravity="center_horizontal" android:layout_marginBottom="150dp"/>
-            <ImageView android:layout_width="148dp" android:layout_height="204dp" android:id="@+id/excited"
-                       android:layout_gravity="center_horizontal" android:background="@drawable/excited"
-                       android:visibility="invisible" android:layout_marginBottom="150dp"/>
-            <ImageView android:layout_width="138dp" android:layout_height="204dp" android:id="@+id/trist"
-                       android:layout_gravity="center_horizontal" android:background="@drawable/trist"
-                       android:visibility="invisible" android:layout_marginLeft="5dp" android:layout_marginTop="5dp"
+            <ImageView android:layout_width="245dp"
+                       android:layout_height="257dp"
+                       android:id="@+id/body"
+                       android:layout_gravity="center_horizontal|bottom"
+                       android:background="@drawable/pet_potato_arme"
+                       android:visibility="visible"
+                       android:layout_marginBottom="35dp"
+                       android:longClickable="false"/>
+            <ImageView android:layout_width="157dp"
+                       android:layout_height="209dp"
+                       android:id="@+id/normal"
+                       android:background="@drawable/normal"
+                       android:clickable="false"
+                       android:cropToPadding="false"
+                       android:visibility="visible"
+                       android:layout_marginRight="5dp"
+                       android:layout_gravity="center_horizontal"
                        android:layout_marginBottom="150dp"/>
             <ImageView android:layout_width="148dp"
                        android:layout_height="204dp"
@@ -97,6 +100,11 @@
             <ImageView android:layout_width="148dp"
                        android:layout_height="204dp"
                        android:id="@+id/excited_mirrored"
+                       android:visibility="invisible"
+                       android:layout_marginBottom="150dp"/>
+            <ImageView android:layout_width="148dp"
+                       android:layout_height="204dp"
+                       android:id="@+id/sovende"
                        android:visibility="invisible"
                        android:layout_marginBottom="150dp"/>
             <ImageView android:layout_width="138dp"
@@ -195,11 +203,11 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
             <dk.lott.VPPS2015.ReverseProgressbarView
-                    android:layout_width="0dp"
-                    android:layout_height="12dp"
-                    android:layout_weight="0.45"
-                    android:id="@+id/happinessView"
-                    android:focusable="false"/>
+                  android:layout_width="0dp"
+                  android:layout_height="12dp"
+                  android:layout_weight="0.45"
+                  android:id="@+id/happinessView"
+                  android:focusable="false"/>
             <Space
                     android:layout_width="20px"
                     android:layout_height="20px"
@@ -207,8 +215,8 @@
             <dk.lott.VPPS2015.ProgressbarView
                     android:layout_width="0dp"
                     android:layout_height="12dp"
-                    android:layout_weight="0.45"
-                    android:id="@+id/hungerView"/>
+                  android:layout_weight="0.45"
+                  android:id="@+id/hungerView"/>
         </LinearLayout>
 
         <LinearLayout android:orientation="horizontal"

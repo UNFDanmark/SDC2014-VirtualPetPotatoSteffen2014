@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
+import android.view.View;
 import android.widget.Toast;
 
 public class Potato {
@@ -29,6 +30,7 @@ public class Potato {
     public final static long MAX_ENERGY = 1000;
     long energyrest;
     public MediaPlayer mediaPlayer;
+    public boolean sover;
 
     public void Limits() {
         if (hunger <= 0) {
@@ -117,6 +119,7 @@ public class Potato {
         mediaPlayer = MediaPlayer.create(context, R.raw.snore);
         mediaPlayer.start();
         mediaPlayer.setLooping(true);
+        sover=true;
 
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -130,6 +133,7 @@ public class Potato {
         Toast.makeText(context, "Potato Steffen Rested : "+energyrest+""+" Energy", Toast.LENGTH_LONG).show();
         System.out.println("Energy Rested : "+energyrest);
         energy += energyrest;
+        sover=false;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
