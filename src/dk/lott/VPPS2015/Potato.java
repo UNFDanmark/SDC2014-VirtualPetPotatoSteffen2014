@@ -15,13 +15,13 @@ public class Potato {
     Time time = new Time();
 
     public final static long MIN_HUNGER = 0;
-    long hunger = 150;
+    long hunger = 500;
     public final static long MAX_HUNGER = 1000;
 
     public final static long MIN_HAPPINESS = 0;
     long happiness = 500;
     public final static long MAX_HAPPINESS = 1000;
-    long clickcount;
+    long clickcount = 0;
 
     public final static long MIN_THIRST = 0;
     long thirst = 500;
@@ -31,8 +31,9 @@ public class Potato {
     long energy = 500;
     public final static long MAX_ENERGY = 1000;
     long energyrest;
+
     public MediaPlayer mediaPlayer;
-    public boolean sover=false;
+    public boolean sover = false;
 
     OnDeathLister onDeathLister;
 
@@ -78,30 +79,31 @@ public class Potato {
 
    // if (hunger != MAX_HUNGER) {
     public void eat() {
-        if (hunger != MAX_HUNGER) {
             hunger = hunger + 37;
             energy = energy - 5;
-        }
-        deathCheck();
+
         System.out.println("Hunger:" + hunger);
     }
-   // if (thirst != MAX_THIRST) {
+
+    // if (thirst != MAX_THIRST) {
     public void drink() {
-            thirst = thirst + 33;
-            energy = energy - 5;
+        thirst = thirst + 33;
+        energy = energy - 5;
 
         deathCheck();
         System.out.println("thirst:" + thirst);
     }
+
     //if (happiness != MAX_HAPPINESS) {
     public void play() {
-        if(energy >=25) {
+        if (energy >= 25) {
             happiness = happiness + 31;
             energy = energy - 25;
         }
         deathCheck();
         System.out.println("Happiness:" + happiness);
     }
+
     //energy != MAX_ENERGY
     public void coffee() {
             energy = energy + 21;
@@ -114,11 +116,12 @@ public class Potato {
         time.onPause();
         Toast.makeText(context, "Potato Steffen Started Resting", Toast.LENGTH_LONG).show();
         System.out.println("Potato Steffen Started Resting= Energy:" + energy);
-        energyrest=0;
+        energyrest = 0;
         mediaPlayer = MediaPlayer.create(context, R.raw.snore);
         mediaPlayer.start();
         mediaPlayer.setLooping(true);
-        sover=true;
+        sover = true;
+
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
@@ -127,11 +130,11 @@ public class Potato {
     }
 
     public void restthird(Context context) {
-        energyrest = time.timeRes+time.timeRes+time.timeRes+time.timeRes;
-        Toast.makeText(context, "Potato Steffen Rested : "+energyrest+""+" Energy", Toast.LENGTH_LONG).show();
-        System.out.println("Energy Rested : "+energyrest);
+        energyrest = time.timeRes + time.timeRes + time.timeRes + time.timeRes;
+        Toast.makeText(context, "Potato Steffen Rested : " + energyrest + "" + " Energy", Toast.LENGTH_LONG).show();
+        System.out.println("Energy Rested : " + energyrest);
         energy += energyrest;
-        sover=false;
+        sover = false;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
