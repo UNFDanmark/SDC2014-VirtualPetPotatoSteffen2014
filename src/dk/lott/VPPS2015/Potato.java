@@ -28,7 +28,7 @@ public class Potato {
     long energy = 500;
     public final static long MAX_ENERGY = 1000;
     long energyrest;
-    private MediaPlayer mediaPlayer;
+    public MediaPlayer mediaPlayer;
 
     public void Limits() {
         if (hunger <= 0) {
@@ -76,7 +76,8 @@ public class Potato {
         } else if (clickcount >= 20) {
         resetPotatoStats();
         Toast.makeText(context, "Your Potato Steffen died of a Coffee overdose! You monster!", Toast.LENGTH_LONG).show();
-        // Hilsen Svend/Sofie ~ Til en Coffee Overdose evt.}
+        // Hilsen Svend/Sofie ~ Til en Coffee Overdose evt.
+        }
     }
    // if (hunger != MAX_HUNGER) {
     public void eat() {
