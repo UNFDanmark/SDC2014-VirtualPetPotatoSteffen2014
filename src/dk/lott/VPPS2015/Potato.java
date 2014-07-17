@@ -11,20 +11,20 @@ public class Potato {
     Time time = new Time();
 
     public final static long MIN_HUNGER = 0;
-    long hunger = 50;
+    long hunger = 500;
     public final static long MAX_HUNGER = 1000;
 
     public final static long MIN_HAPPINESS = 0;
-    long happiness = 50;
+    long happiness = 500;
     public final static long MAX_HAPPINESS = 1000;
     long clickcount;
 
     public final static long MIN_THIRST = 0;
-    long thirst = 50;
+    long thirst = 500;
     public final static long MAX_THIRST = 1000;
 
     public final static long MIN_ENERGY = 0;
-    long energy = 50;
+    long energy = 500;
     public final static long MAX_ENERGY = 1000;
     long energyrest;
 
@@ -100,9 +100,9 @@ public class Potato {
         }
         System.out.println("Happiness:" + happiness);
     }
-
+    //energy != MAX_ENERGY
     public void eatfucapo() {
-        if (energy != MAX_ENERGY) {
+        if (true) {
             energy = energy + 21;
             thirst = thirst - 30;
             hunger = hunger - 25;
