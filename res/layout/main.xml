@@ -83,10 +83,6 @@
             <ImageView android:layout_width="148dp" android:layout_height="204dp" android:id="@+id/excited"
                        android:layout_gravity="center_horizontal" android:background="@drawable/excited"
                        android:visibility="invisible" android:layout_marginBottom="150dp"/>
-            <ImageView android:layout_width="138dp" android:layout_height="204dp" android:id="@+id/trist"
-                       android:layout_gravity="center_horizontal" android:background="@drawable/trist"
-                       android:visibility="invisible" android:layout_marginLeft="5dp" android:layout_marginTop="5dp"
-                       android:layout_marginBottom="150dp"/>
             <ImageView android:layout_width="148dp"
                        android:layout_height="204dp"
                        android:id="@+id/excited_mirrored"

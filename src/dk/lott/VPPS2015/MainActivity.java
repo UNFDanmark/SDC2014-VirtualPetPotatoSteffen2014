@@ -111,10 +111,12 @@ public class MainActivity extends Activity {
         toys.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(setExcitedFace){
                 potato.play();
                 potato.Limits();
                 faces();
                 updateBars();
+            }
             }
         });
 
@@ -126,10 +128,12 @@ public class MainActivity extends Activity {
         food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(setExcitedFace){
                 potato.eat();
                 potato.Limits();
                 faces();
                 updateBars();
+            }
             }
         });
 
@@ -141,6 +145,7 @@ public class MainActivity extends Activity {
         coffee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(setExcitedFace){
                 potato.coffee();
                 System.out.println("Energy:" + potato.energy);
                 potato.clickcount++;
@@ -148,6 +153,7 @@ public class MainActivity extends Activity {
                 System.out.println("Click Count:" + potato.clickcount);
                 updateBars();
                 faces();
+            }
             }
         });
 
@@ -159,12 +165,14 @@ public class MainActivity extends Activity {
         rest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(setExcitedFace){
                 potato.restfirst(getApplicationContext());
                 System.out.println("Energy:" + potato.energy);
                 potato.Limits();
                 updateBars();
                 faces();
             }
+        }
         });
 
         /**
@@ -175,10 +183,12 @@ public class MainActivity extends Activity {
         drinks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(setExcitedFace){
                 potato.drink();
                 potato.Limits();
                 faces();
                 updateBars();
+            }
             }
         });
 
@@ -270,7 +280,7 @@ public class MainActivity extends Activity {
     public void faces() {
         if (potato.clickcount >= 10 && potato.energy > 800 && !doeendeBool && setExcitedFace && setExcitedMirrorFace && !smerteBool && !potato.sover) {
             setExcitedFace = false;
-            setExcitedMirrorFace = false;
+           setExcitedMirrorFace = false;
             overdoseBool = true;
             potato.sover = false;
             Context context;
@@ -278,7 +288,7 @@ public class MainActivity extends Activity {
             new CountDownTimer(10000, 100) {
                 public void onTick(long millisUntilFinish) {
                     excited.setVisibility(View.VISIBLE);
-                    excited_mirrored.setVisibility(View.INVISIBLE);
+                   excited_mirrored.setVisibility(View.INVISIBLE);
                     normal.setVisibility(View.INVISIBLE);
                     sulten.setVisibility(View.INVISIBLE);
                     trist.setVisibility(View.INVISIBLE);
