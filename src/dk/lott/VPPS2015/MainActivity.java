@@ -304,9 +304,11 @@ public class MainActivity extends Activity {
         final AlertDialog.Builder alertdialog = new AlertDialog.Builder(this)
                 .setTitle("You killed Potato Steffen")
                 .setMessage("You didn't take good enough care of him! Do you wish to clone your late Potato Steffen, you monster? ")
+                .setCancelable(false)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         potato.resetPotatoStats();
+                        Toast.makeText(getApplicationContext(), "Fine. Just try not to kill him. Yes, we know what you did.", Toast.LENGTH_LONG).show();
                         faces();
                         updateBars();
                     }
@@ -314,21 +316,12 @@ public class MainActivity extends Activity {
                 .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         potato.resetPotatoStats();
-                        Toast.makeText(getApplicationContext(), "You must clone him! FOR SCIENCE! Just please try to not kill this one. Please", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "You must clone him! FOR SCIENCE! Just please try to not kill this one. Please.", Toast.LENGTH_LONG).show();
                         faces();
                         updateBars();
                     }
                 })
                 .setIcon(android.R.drawable.ic_dialog_alert);
-
-
-        alertdialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialog) {
-                alertdialog.show();
-            }
-        });
-
 
         alertdialog.show();
 
