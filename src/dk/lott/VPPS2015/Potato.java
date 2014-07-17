@@ -3,6 +3,7 @@ package dk.lott.VPPS2015;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 public class Potato {
@@ -10,21 +11,22 @@ public class Potato {
     Time time = new Time();
 
     public final static long MIN_HUNGER = 0;
-    long hunger = 50    ;
+    long hunger = 500;
     public final static long MAX_HUNGER = 1000;
 
     public final static long MIN_HAPPINESS = 0;
-    long happiness = 50;
+    long happiness = 500;
     public final static long MAX_HAPPINESS = 1000;
     long clickcount;
 
     public final static long MIN_THIRST = 0;
-    long thirst = 50;
+    long thirst = 500;
     public final static long MAX_THIRST = 1000;
 
     public final static long MIN_ENERGY = 0;
-    long energy = 50;
+    long energy = 500;
     public final static long MAX_ENERGY = 1000;
+    long energyrest;
 
     public void Limits() {
         if (hunger <= 0) {
@@ -70,21 +72,23 @@ public class Potato {
             resetPotatoStats();
             Toast.makeText(context, "Your Potato Steffen died of depression! You suck!", Toast.LENGTH_LONG).show();
         } //else if (clickcount >= 10) {
-            //resetPotatoStats();
-            //Toast.makeText(context, "Your Potato Steffen died of a Fucapo overdose! You monster!", Toast.LENGTH_LONG).show();
+        //resetPotatoStats();
+        //Toast.makeText(context, "Your Potato Steffen died of a Fucapo overdose! You monster!", Toast.LENGTH_LONG).show();
         // Hilsen Svend/Sofie ~ Til en Fucapo Overdose evt.}
     }
 
     public void eat() {
         if (hunger != MAX_HUNGER) {
             hunger = hunger + 37;
-            }
+            energy = energy - 5;
+        }
         System.out.println("Hunger:" + hunger);
     }
 
     public void drink() {
         if (thirst != MAX_THIRST) {
             thirst = thirst + 29;
+            energy = energy - 5;
         }
         System.out.println("thirst:" + thirst);
     }
@@ -92,22 +96,53 @@ public class Potato {
     public void play() {
         if (happiness != MAX_HAPPINESS) {
             happiness = happiness + 31;
+            energy = energy - 25;
         }
         System.out.println("Happiness:" + happiness);
     }
-
+    //energy != MAX_ENERGY
     public void eatfucapo() {
-        if (energy != MAX_ENERGY) {
+        if (true) {
             energy = energy + 21;
+            thirst = thirst - 30;
+            hunger = hunger - 25;
         }
         System.out.println("Energy:" + energy);
+    }
+
+    public void restfirst(Context context) {
+        time.onPause();
+        Toast.makeText(context, "Potato Steffen Started Resting", Toast.LENGTH_LONG).show();
+        System.out.println("Potato Steffen Started Resting= Energy:" + energy);
+        energyrest=0;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("IS_RESTING", true);
+        editor.commit();
+    }
+
+    public void restthird(Context context) {
+        energyrest = time.timeRes+time.timeRes+time.timeRes+time.timeRes;
+        Toast.makeText(context, "Potato Steffen Rested : "+energyrest+""+" Energy", Toast.LENGTH_LONG).show();
+        System.out.println("Energy Rested : "+energyrest);
+        energy += energyrest;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("IS_RESTING", false);
+        editor.commit();
     }
 
     public void onPause() {
         time.onPause();
     }
 
-    public void onResume() {
+    public void onResume(Context context) {
+        time.onResume();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        if (prefs.getBoolean("IS_RESTING", false))
+            restthird(context);
         System.out.println("Hunger:" + hunger);
         System.out.println("Thirst:" + thirst);
         System.out.println("Happiness:" + happiness);
@@ -130,8 +165,12 @@ public class Potato {
         energy = preferences.getLong("energy", energy);
         hunger = hunger - time.timeRes;
         thirst = thirst - time.timeRes;
-        happiness = happiness - time.timeRes;
         energy = energy - time.timeRes;
+        if (energy > 300) {
+            happiness = happiness - time.timeRes;
+        } else if (energy <= 300) {
+            happiness = happiness - time.timeRes * 4;
+        }
         if (clickcount <= 0) {
             clickcount = 0;
         } else if (clickcount != 0) {
@@ -139,7 +178,6 @@ public class Potato {
         }
         time.onResume();
     }
-
 
 
 }

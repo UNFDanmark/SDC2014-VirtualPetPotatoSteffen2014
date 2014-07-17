@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
@@ -36,7 +35,6 @@ public class MainActivity extends Activity {
     ImageView traet;
     ImageView glad;
     ImageView excited;
-    ImageView background;
     LinearLayout layoutBackground;
     private ReverseProgressbarView energyView;
     private ProgressbarView hungerView;
@@ -133,6 +131,22 @@ public class MainActivity extends Activity {
         });
 
         /**
+         * Rest
+         */
+
+        Button rest = (Button) findViewById(R.id.breast);
+        rest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                potato.restfirst(getApplicationContext());
+                System.out.println("Energy:" + potato.energy);
+                potato.Limits();
+                updateBars();
+                faces();
+            }
+        });
+
+        /**
          * Drinks
          */
 
@@ -146,6 +160,7 @@ public class MainActivity extends Activity {
                 updateBars();
             }
         });
+
         /**
          * Faces
          */
@@ -309,8 +324,9 @@ public class MainActivity extends Activity {
     protected void onResume() {
         super.onResume();
         potato.load(preferences);
-        potato.onResume();
+        potato.onResume(getApplicationContext());
         faces();
         baggrund();
+        updateBars();
     }
 }
