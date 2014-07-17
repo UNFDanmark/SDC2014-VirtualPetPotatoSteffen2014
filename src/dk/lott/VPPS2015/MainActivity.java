@@ -170,7 +170,6 @@ public class MainActivity extends Activity {
         }
 
         if (potato.happiness >= 700 && !sultenBool && potato.energy > 300 && !overdoseBool) {
-            //body.setImageResource(R.drawable.trist);
             glad.setVisibility(View.VISIBLE);
             normal.setVisibility(View.INVISIBLE);
             sulten.setVisibility(View.INVISIBLE);
@@ -235,9 +234,6 @@ public class MainActivity extends Activity {
             doeendeBool = true;
         } else doeendeBool = false;
 
-        ImageView body = (ImageView) findViewById(R.id.body);
-        body.setVisibility(View.VISIBLE);
-        //body.setImageResource(R.drawable.trist);
         Log.d("Energy: ", potato.energy + "");
         Log.d("Hunger: ", potato.hunger + "");
         Log.d("Happiness: ", potato.happiness + "");
