@@ -60,6 +60,7 @@ public class MainActivity extends Activity {
         preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         potato.load(preferences);
         PotatoService.setAlarm(getApplicationContext());
+        baggrund();
 
         /**
          * Faces Loading
