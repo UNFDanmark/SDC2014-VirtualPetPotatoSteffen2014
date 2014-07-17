@@ -32,6 +32,7 @@ public class MainActivity extends Activity {
     boolean traetBool = false;
     private boolean setExcitedFace = true;
     boolean smerteBool = false;
+    boolean aeBool = false;
 
     ImageView normal;
     ImageView doeende;
@@ -48,6 +49,7 @@ public class MainActivity extends Activity {
     ImageView sDhap;
     ImageView sDene;
     ImageView sDthi;
+    ImageView ae;
     LinearLayout layoutBackground;
 
     private ReverseProgressbarView energyView;
@@ -148,6 +150,7 @@ public class MainActivity extends Activity {
         head = (ImageView) findViewById(R.id.head);
         body = (ImageView) findViewById(R.id.body);
         sovende = (ImageView) findViewById(R.id.sovende);
+        ae = (ImageView) findViewById(R.id.ae);
         layoutBackground = (LinearLayout) findViewById(R.id.background);
         potato.load(preferences);
 
@@ -251,20 +254,23 @@ public class MainActivity extends Activity {
 
         updateBars();
 
-        ImageView body = (ImageView) findViewById(R.id.body);
-        body.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        if (setExcitedFace) {
-                                            potato.happiness = potato.happiness - 50;
 
+        //AE OG SMERTE
+        //SMERTE FØRST
+
+        ImageView body = (ImageView) findViewById(R.id.body);
+
+        body.setOnLongClickListener(new View.OnLongClickListener() {
+
+                                        @Override
+                                        public boolean onLongClick(View v) {
+                                            potato.happiness = potato.happiness + 150;
+                                            aeBool = true;
                                             updateBars();
                                             faces();
 
 
-                                            smerteBool = true;
-                                            vibrate(1);
-                                            new CountDownTimer(1000, 100) {
+                                            new CountDownTimer(3000, 100) {
                                                 public void onTick(long millisUntilFinish) {
                                                     excited.setVisibility(View.INVISIBLE);
                                                     normal.setVisibility(View.INVISIBLE);
@@ -274,9 +280,49 @@ public class MainActivity extends Activity {
                                                     glad.setVisibility(View.INVISIBLE);
                                                     doeende.setVisibility(View.INVISIBLE);
                                                     sovende.setVisibility(View.INVISIBLE);
-
-                                                    smerte.setVisibility(View.VISIBLE);
+                                                    smerte.setVisibility(View.INVISIBLE);
+                                                    ae.setVisibility(View.VISIBLE);
                                                 }
+
+                                                @Override
+                                                public void onFinish() {
+                                                    aeBool = false;
+                                                    faces();
+                                                    updateBars();
+                                                }
+                                            }.start();
+                                            aeBool = false;
+                                            return true;
+
+                                        }
+
+
+                                    }
+
+
+        );
+
+        body.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        potato.happiness = potato.happiness - 50;
+                                        updateBars();
+                                        faces();
+                                        smerteBool = true;
+                                        vibrate(1);
+                                        new CountDownTimer(1000, 100) {
+                                            public void onTick(long millisUntilFinish) {
+                                                excited.setVisibility(View.INVISIBLE);
+                                                normal.setVisibility(View.INVISIBLE);
+                                                sulten.setVisibility(View.INVISIBLE);
+                                                trist.setVisibility(View.INVISIBLE);
+                                                traet.setVisibility(View.INVISIBLE);
+                                                glad.setVisibility(View.INVISIBLE);
+                                                doeende.setVisibility(View.INVISIBLE);
+                                                sovende.setVisibility(View.INVISIBLE);
+                                                ae.setVisibility(View.INVISIBLE);
+                                                smerte.setVisibility(View.VISIBLE);
+                                            }
 
                                                 @Override
                                                 public void onFinish() {
@@ -287,13 +333,14 @@ public class MainActivity extends Activity {
                                                 }
                                             }.start();
                                         }
-                                    }
+
 
                                 }
 
 
         );
     }
+
 
     /**
      * Død funktion. Now even better. 10/10 would use again
@@ -349,6 +396,8 @@ public class MainActivity extends Activity {
                     sovende.setVisibility((View.INVISIBLE));
                     doeende.setVisibility(View.INVISIBLE);
                     smerte.setVisibility(View.INVISIBLE);
+                    ae.setVisibility(View.INVISIBLE);
+
                     vibrate(1);
 
                 }
@@ -372,6 +421,7 @@ public class MainActivity extends Activity {
             sovende.setVisibility((View.INVISIBLE));
             doeende.setVisibility(View.INVISIBLE);
             smerte.setVisibility(View.INVISIBLE);
+            ae.setVisibility(View.INVISIBLE);
         }
         if (potato.happiness >= 700 && potato.thirst >= 700 && potato.hunger >= 700 && !smerteBool && !potato.sover && !overdoseBool) {
             Log.d("Happiness", "");
@@ -384,6 +434,7 @@ public class MainActivity extends Activity {
             sovende.setVisibility((View.INVISIBLE));
             doeende.setVisibility(View.INVISIBLE);
             smerte.setVisibility(View.INVISIBLE);
+            ae.setVisibility(View.INVISIBLE);
         }
 
 
@@ -397,6 +448,7 @@ public class MainActivity extends Activity {
             sovende.setVisibility((View.INVISIBLE));
             doeende.setVisibility(View.INVISIBLE);
             smerte.setVisibility(View.INVISIBLE);
+            ae.setVisibility(View.INVISIBLE);
 
             sultenBool = true;
         } else {
@@ -413,6 +465,7 @@ public class MainActivity extends Activity {
             sovende.setVisibility((View.INVISIBLE));
             doeende.setVisibility(View.INVISIBLE);
             smerte.setVisibility(View.INVISIBLE);
+            ae.setVisibility(View.INVISIBLE);
 
             tristBool = true;
         } else {
@@ -429,37 +482,40 @@ public class MainActivity extends Activity {
             sovende.setVisibility((View.INVISIBLE));
             doeende.setVisibility(View.INVISIBLE);
             smerte.setVisibility(View.INVISIBLE);
+            ae.setVisibility(View.INVISIBLE);
 
             traetBool = true;
         } else {
             traetBool = false;
         }
 
-        if (potato.hunger <= 100 || potato.thirst <= 100 || potato.happiness <= 100 && !smerteBool && !potato.sover && !overdoseBool) {
-            doeende.setVisibility((View.VISIBLE));
-            traet.setVisibility(View.INVISIBLE);
-            normal.setVisibility(View.INVISIBLE);
-            sulten.setVisibility(View.INVISIBLE);
-            trist.setVisibility(View.INVISIBLE);
-            glad.setVisibility(View.INVISIBLE);
-            excited.setVisibility(View.INVISIBLE);
-            sovende.setVisibility((View.INVISIBLE));
-            smerte.setVisibility(View.INVISIBLE);
-            doeendeBool = true;
-        } else {
-            doeendeBool = false;
-        }
+            if (potato.hunger <= 100 || potato.thirst <= 100 || potato.happiness <= 100 && !smerteBool && !potato.sover && !overdoseBool) {
+                doeende.setVisibility((View.VISIBLE));
+                traet.setVisibility(View.INVISIBLE);
+                normal.setVisibility(View.INVISIBLE);
+                sulten.setVisibility(View.INVISIBLE);
+                trist.setVisibility(View.INVISIBLE);
+                glad.setVisibility(View.INVISIBLE);
+                excited.setVisibility(View.INVISIBLE);
+                sovende.setVisibility((View.INVISIBLE));
+                smerte.setVisibility(View.INVISIBLE);
+                ae.setVisibility(View.INVISIBLE);
+                doeendeBool = true;
+            } else {
+                doeendeBool = false;
+            }
 
-        if (potato.sover) {
-            sovende.setVisibility((View.VISIBLE));
-            doeende.setVisibility((View.INVISIBLE));
-            traet.setVisibility(View.INVISIBLE);
-            normal.setVisibility(View.INVISIBLE);
-            sulten.setVisibility(View.INVISIBLE);
-            trist.setVisibility(View.INVISIBLE);
-            glad.setVisibility(View.INVISIBLE);
-            smerte.setVisibility(View.INVISIBLE);
-            excited.setVisibility(View.INVISIBLE);
+            if (potato.sover) {
+                sovende.setVisibility((View.VISIBLE));
+                doeende.setVisibility((View.INVISIBLE));
+                traet.setVisibility(View.INVISIBLE);
+                normal.setVisibility(View.INVISIBLE);
+                sulten.setVisibility(View.INVISIBLE);
+                trist.setVisibility(View.INVISIBLE);
+                glad.setVisibility(View.INVISIBLE);
+                smerte.setVisibility(View.INVISIBLE);
+                excited.setVisibility(View.INVISIBLE);
+                ae.setVisibility(View.INVISIBLE);
 
         }
 
@@ -524,7 +580,7 @@ public class MainActivity extends Activity {
 
 
 /**
- *    (\ /)
- ( ..)
- c(")(")
- */
+*    (\ /)
+     ( ..)
+    c(")(")
+*/

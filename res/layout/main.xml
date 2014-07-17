@@ -105,6 +105,9 @@
                        android:background="@drawable/glad"
                        android:visibility="invisible"
                        android:layout_marginBottom="150dp"/>
+            <ImageView android:layout_width="140dp" android:layout_height="208dp" android:id="@+id/ae"
+                       android:layout_gravity="center_horizontal" android:background="@drawable/ae"
+                       android:visibility="invisible" android:layout_marginBottom="150dp"/>
             <ImageView android:layout_width="149dp"
                        android:layout_height="200dp"
                        android:id="@+id/traet"
@@ -121,6 +124,10 @@
                        android:background="@drawable/sulten"
                        android:layout_marginRight="5dp"
                        android:layout_marginBottom="200dp"/>
+            <ImageView android:layout_width="148dp" android:layout_height="209dp"
+                       android:layout_gravity="center_horizontal" android:visibility="invisible"
+                       android:background="@drawable/kvalme" android:layout_marginRight="5dp"
+                       android:layout_marginBottom="200dp" android:id="@+id/kvalme"/>
             <ImageView android:layout_width="148dp" android:layout_height="209dp" android:id="@+id/smerte"
                        android:layout_gravity="center_horizontal" android:visibility="invisible"
                        android:background="@drawable/smerte" android:layout_marginRight="5dp"

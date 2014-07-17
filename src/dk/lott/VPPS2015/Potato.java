@@ -186,11 +186,14 @@ public class Potato {
         } else if (energy <= 300) {
             happiness = happiness - time.timeRes * 4;
         }
+
         if (clickcount <= 0) {
             clickcount = 0;
         } else if (clickcount != 0) {
             clickcount = clickcount - time.timeRes;
         }
+
+
         deathCheck();
         time.onResume();
     }

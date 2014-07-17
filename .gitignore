@@ -33,3 +33,6 @@ proguard/
 .gradle
 build/
 *.log
+
+# Pictures
+pictures/
