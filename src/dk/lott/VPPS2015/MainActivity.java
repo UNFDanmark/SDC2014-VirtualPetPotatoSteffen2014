@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
@@ -31,7 +32,7 @@ public class MainActivity extends Activity {
     boolean traetBool = false;
     private boolean setExcitedFace = true;
     boolean smerteBool = false;
-
+    public Context contextmp;
 
     ImageView normal;
     ImageView doeende;
@@ -528,9 +529,6 @@ public class MainActivity extends Activity {
     protected void onPause() {
         super.onPause();
         potato.onPause();
-        if (potato.mediaPlayer.isPlaying()){
-            potato.mpstop();
-        }
         potato.save(preferences);
     }
 

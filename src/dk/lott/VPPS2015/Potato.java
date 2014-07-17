@@ -2,15 +2,11 @@ package dk.lott.VPPS2015;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.media.Image;
 import android.media.MediaPlayer;
-import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-public class Potato {
+public class Potato{
 
     Time time = new Time();
 
@@ -32,8 +28,9 @@ public class Potato {
     public final static long MAX_ENERGY = 1000;
     long energyrest;
 
+    public Context contextmp;
     public MediaPlayer mediaPlayer;
-    public boolean sover = false;
+    boolean sover=false;
 
     OnDeathLister onDeathLister;
 
@@ -120,7 +117,7 @@ public class Potato {
         mediaPlayer = MediaPlayer.create(context, R.raw.snore);
         mediaPlayer.start();
         mediaPlayer.setLooping(true);
-        sover = true;
+        sover=true;
 
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -134,21 +131,21 @@ public class Potato {
         Toast.makeText(context, "Potato Steffen Rested : " + energyrest + "" + " Energy", Toast.LENGTH_LONG).show();
         System.out.println("Energy Rested : " + energyrest);
         energy += energyrest;
-        sover = false;
-
+        sover=false;
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean("IS_RESTING", false);
         editor.commit();
     }
 
-    public void mpstop() {
+    public void mediaplaystop() {
         mediaPlayer.stop();
     }
 
     public void onPause() {
         time.onPause();
-        mpstop();
+        if(sover)
+            mediaplaystop();
     }
 
     public void onResume(Context context) {
