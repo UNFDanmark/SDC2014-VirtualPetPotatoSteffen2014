@@ -44,6 +44,7 @@ public class MainActivity extends Activity {
     ImageView sDene;
     ImageView sDthi;
     LinearLayout layoutBackground;
+    //dette er en irrelevant kommentarK
 
     private ReverseProgressbarView energyView;
     private ProgressbarView hungerView;
