@@ -1,6 +1,7 @@
 package dk.lott.VPPS2015;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.os.Vibrator;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -46,6 +48,11 @@ public class MainActivity extends Activity {
         hungerView.setValues(potato.hunger, Potato.MIN_HUNGER, Potato.MAX_HUNGER);
         happinessView.setValues(potato.happiness, Potato.MIN_HAPPINESS, Potato.MAX_HAPPINESS);
         thirstView.setValues(potato.thirst, Potato.MIN_THIRST, Potato.MAX_THIRST);
+    }
+    public void vibrate(int vibSec){
+        vibSec = vibSec*1000;
+        Vibrator v = (Vibrator) this.getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(vibSec);
     }
 
     /**
@@ -174,6 +181,7 @@ public class MainActivity extends Activity {
                     traet.setVisibility(View.INVISIBLE);
                     glad.setVisibility(View.INVISIBLE);
                     doeende.setVisibility(View.INVISIBLE);
+                    vibrate(1);
                 }
 
                 @Override
