@@ -2,8 +2,10 @@ package dk.lott.VPPS2015;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
+import android.view.View;
 import android.widget.Toast;
 
 public class Potato {
@@ -27,6 +29,8 @@ public class Potato {
     long energy = 500;
     public final static long MAX_ENERGY = 1000;
     long energyrest;
+    public MediaPlayer mediaPlayer;
+    public boolean sover;
 
     OnDeathLister onDeathLister;
 
@@ -65,27 +69,7 @@ public class Potato {
         energy = 250;
     }
 
-    /**public void diePotato(Context context) {
-        if (hunger <= MIN_HUNGER) {
-            resetPotatoStats();
-            Toast.makeText(context, "Your Potato Steffen died of hunger! Shame on you!", Toast.LENGTH_LONG).show();
-        } else if (thirst <= MIN_THIRST) {
-            resetPotatoStats();
-            Toast.makeText(context, "You fool! Potato Steffen died of thirst!", Toast.LENGTH_LONG).show();
-        } else if (energy <= MIN_ENERGY) {
-            resetPotatoStats();
-            Toast.makeText(context, "You lily liver! Potato Steffen died of energy loss!", Toast.LENGTH_LONG).show();
-        } else if (happiness <= MIN_HAPPINESS) {
-            resetPotatoStats();
-            Toast.makeText(context, "Your Potato Steffen died of depression! You suck!", Toast.LENGTH_LONG).show();
-        } //else if (clickcount >= 10) {
-        //resetPotatoStats();
-        //Toast.makeText(context, "Your Potato Steffen died of a Fucapo overdose! You monster!", Toast.LENGTH_LONG).show();
-        // Hilsen Svend/Sofie ~ Til en Fucapo Overdose evt.}
-    }
-
-    */
-
+   // if (hunger != MAX_HUNGER) {
     public void eat() {
         if (hunger != MAX_HUNGER) {
             hunger = hunger + 37;
@@ -94,16 +78,15 @@ public class Potato {
         deathCheck();
         System.out.println("Hunger:" + hunger);
     }
-
+   // if (thirst != MAX_THIRST) {
     public void drink() {
-        if (thirst != MAX_THIRST) {
-            thirst = thirst + 29;
+            thirst = thirst + 33;
             energy = energy - 5;
         }
         deathCheck();
         System.out.println("thirst:" + thirst);
     }
-
+    //if (happiness != MAX_HAPPINESS) {
     public void play() {
         if (happiness != MAX_HAPPINESS) {
             happiness = happiness + 31;
@@ -113,13 +96,11 @@ public class Potato {
         System.out.println("Happiness:" + happiness);
     }
     //energy != MAX_ENERGY
-    public void eatfucapo() {
-        if (true) {
+    public void coffee() {
             energy = energy + 21;
-            thirst = thirst - 30;
-            hunger = hunger - 25;
-        }
-        deathCheck();
+            thirst = thirst - 15;
+            hunger = hunger - 10;
+
         System.out.println("Energy:" + energy);
     }
 
@@ -128,6 +109,10 @@ public class Potato {
         Toast.makeText(context, "Potato Steffen Started Resting", Toast.LENGTH_LONG).show();
         System.out.println("Potato Steffen Started Resting= Energy:" + energy);
         energyrest=0;
+        mediaPlayer = MediaPlayer.create(context, R.raw.snore);
+        mediaPlayer.start();
+        mediaPlayer.setLooping(true);
+        sover=true;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
@@ -140,11 +125,16 @@ public class Potato {
         Toast.makeText(context, "Potato Steffen Rested : "+energyrest+""+" Energy", Toast.LENGTH_LONG).show();
         System.out.println("Energy Rested : "+energyrest);
         energy += energyrest;
+        sover=false;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean("IS_RESTING", false);
         editor.commit();
+    }
+
+    public void mpstop() {
+        mediaPlayer.stop();
     }
 
     public void onPause() {
@@ -192,6 +182,7 @@ public class Potato {
         deathCheck();
         time.onResume();
     }
+    
     public void deathCheck(){
 
         if(hunger <= MIN_HUNGER || thirst<= MIN_THIRST || happiness <= MIN_HAPPINESS || energy <= MIN_ENERGY){

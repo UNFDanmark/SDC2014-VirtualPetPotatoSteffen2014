@@ -10,8 +10,7 @@
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
         <Button
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
@@ -24,8 +23,8 @@
         <Button
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
-                android:text="Fucapo"
-                android:id="@+id/bfucapo"
+                android:text="Coffee"
+                android:id="@+id/bcoffee"
                 android:layout_weight="0.3"
                 android:clickable="true"
                 android:layout_gravity="center"
@@ -36,7 +35,8 @@
                 android:text="Drinks"
                 android:id="@+id/bdrinks"
                 android:layout_weight="0.3"
-                android:layout_gravity="center" android:textSize="15dp"/>
+                android:layout_gravity="center"
+                android:textSize="15dp"/>
     </LinearLayout>
     <LinearLayout
             android:orientation="horizontal"
@@ -49,59 +49,124 @@
                 android:id="@+id/btoys"
                 android:layout_weight="0.3"
                 android:clickable="true"
-                android:layout_gravity="center|top" android:textSize="15dp" android:visibility="visible"/>
-        <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:textSize="15dp"
+                android:visibility="visible"/>
+        <FrameLayout android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
                      android:layout_gravity="center_vertical"
                      android:id="@+id/frameLayout">
-            <ImageView android:layout_width="51dp" android:layout_height="100dp" android:id="@+id/hoejre"
-                       android:visibility="visible" android:focusableInTouchMode="false"
-                       android:background="@drawable/hoejrefod" android:layout_gravity="bottom|right"
+            <ImageView android:layout_width="51dp"
+                       android:layout_height="100dp"
+                       android:id="@+id/hoejre"
+                       android:visibility="visible"
+                       android:focusableInTouchMode="false"
+                       android:background="@drawable/hoejrefod"
+                       android:layout_gravity="bottom|right"
                        android:layout_marginRight="35dp"/>
-            <ImageView android:layout_width="53dp" android:layout_height="101dp" android:id="@+id/venstre"
-                       android:visibility="visible" android:focusableInTouchMode="false"
-                       android:background="@drawable/venstrefod" android:layout_gravity="bottom|left"
+            <ImageView android:layout_width="53dp"
+                       android:layout_height="101dp"
+                       android:id="@+id/venstre"
+                       android:visibility="visible"
+                       android:focusableInTouchMode="false"
+                       android:background="@drawable/venstrefod"
+                       android:layout_gravity="bottom|left"
                        android:layout_marginLeft="35dip"/>
-            <ImageView android:layout_width="245dp" android:layout_height="257dp" android:id="@+id/body"
-                       android:layout_gravity="center_horizontal|bottom" android:background="@drawable/pet_potato_arme"
-                       android:visibility="visible" android:layout_marginBottom="35dp"
+            <ImageView android:layout_width="245dp"
+                       android:layout_height="257dp"
+                       android:id="@+id/body"
+                       android:layout_gravity="center_horizontal|bottom"
+                       android:background="@drawable/pet_potato_arme"
+                       android:visibility="visible"
+                       android:layout_marginBottom="35dp"
                        android:longClickable="false"/>
-            <ImageView android:layout_width="157dp" android:layout_height="209dp" android:id="@+id/normal"
-                       android:background="@drawable/normal" android:clickable="false" android:cropToPadding="false"
-                       android:visibility="visible" android:layout_marginRight="5dp"
-                       android:layout_gravity="center_horizontal" android:layout_marginBottom="150dp"/>
-            <ImageView android:layout_width="148dp" android:layout_height="204dp" android:id="@+id/excited"
-                       android:layout_gravity="center_horizontal" android:background="@drawable/excited"
-                       android:visibility="invisible" android:layout_marginBottom="150dp"/>
-            <ImageView android:layout_width="138dp" android:layout_height="204dp" android:id="@+id/trist"
-                       android:layout_gravity="center_horizontal" android:background="@drawable/trist"
-                       android:visibility="invisible" android:layout_marginLeft="5dp" android:layout_marginTop="5dp"
+            <ImageView android:layout_width="157dp"
+                       android:layout_height="209dp"
+                       android:id="@+id/normal"
+                       android:background="@drawable/normal"
+                       android:clickable="false"
+                       android:cropToPadding="false"
+                       android:visibility="visible"
+                       android:layout_marginRight="5dp"
+                       android:layout_gravity="center_horizontal"
                        android:layout_marginBottom="150dp"/>
-            <ImageView android:layout_width="140dp" android:layout_height="208dp" android:id="@+id/glad"
-                       android:layout_gravity="center_horizontal" android:background="@drawable/glad"
-                       android:visibility="invisible" android:layout_marginBottom="150dp"/>
-            <ImageView android:layout_width="149dp" android:layout_height="200dp" android:id="@+id/traet"
-                       android:layout_gravity="center_horizontal" android:background="@drawable/traet"
-                       android:layout_marginLeft="10dp" android:visibility="invisible"
+            <ImageView android:layout_width="148dp"
+                       android:layout_height="204dp"
+                       android:id="@+id/excited"
+                       android:layout_gravity="center_horizontal"
+                       android:background="@drawable/excited"
+                       android:visibility="invisible"
                        android:layout_marginBottom="150dp"/>
-            <ImageView android:layout_width="148dp" android:layout_height="209dp" android:id="@+id/sulten"
-                       android:layout_gravity="center_horizontal" android:visibility="visible"
-                       android:background="@drawable/sulten" android:layout_marginRight="5dp"
+            <ImageView android:layout_width="148dp"
+                       android:layout_height="204dp"
+                       android:id="@+id/excited_mirrored"
+                       android:visibility="invisible"
+                       android:layout_marginBottom="150dp"/>
+            <ImageView android:layout_width="148dp"
+                       android:layout_height="204dp"
+                       android:id="@+id/sovende"
+                       android:visibility="invisible"
+                       android:layout_marginBottom="150dp"/>
+            <ImageView android:layout_width="138dp"
+                       android:layout_height="204dp"
+                       android:id="@+id/trist"
+                       android:layout_gravity="center_horizontal"
+                       android:background="@drawable/trist"
+                       android:visibility="invisible"
+                       android:layout_marginLeft="5dp"
+                       android:layout_marginTop="5dp"
+                       android:layout_marginBottom="150dp"/>
+            <ImageView android:layout_width="140dp"
+                       android:layout_height="208dp"
+                       android:id="@+id/glad"
+                       android:layout_gravity="center_horizontal"
+                       android:background="@drawable/glad"
+                       android:visibility="invisible"
+                       android:layout_marginBottom="150dp"/>
+            <ImageView android:layout_width="149dp"
+                       android:layout_height="200dp"
+                       android:id="@+id/traet"
+                       android:layout_gravity="center_horizontal"
+                       android:background="@drawable/traet"
+                       android:layout_marginLeft="10dp"
+                       android:visibility="invisible"
+                       android:layout_marginBottom="150dp"/>
+            <ImageView android:layout_width="148dp"
+                       android:layout_height="209dp"
+                       android:id="@+id/sulten"
+                       android:layout_gravity="center_horizontal"
+                       android:visibility="visible"
+                       android:background="@drawable/sulten"
+                       android:layout_marginRight="5dp"
                        android:layout_marginBottom="200dp"/>
-            <ImageView android:layout_width="149dp" android:layout_height="200dp" android:id="@+id/doeende"
-                       android:layout_gravity="center_horizontal" android:background="@drawable/doeende"
-                       android:visibility="invisible" android:focusableInTouchMode="false" android:focusable="false"
-                       android:layout_marginTop="20dp" android:layout_marginRight="15dp"
+            <ImageView android:layout_width="149dp"
+                       android:layout_height="200dp"
+                       android:id="@+id/doeende"
+                       android:layout_gravity="center_horizontal"
+                       android:background="@drawable/doeende"
+                       android:visibility="invisible"
+                       android:focusableInTouchMode="false"
+                       android:focusable="false"
+                       android:layout_marginTop="20dp"
+                       android:layout_marginRight="15dp"
                        android:layout_marginBottom="150dp"/>
-            <ImageView android:layout_width="145dp" android:layout_height="211dp" android:id="@+id/head"
-                       android:layout_gravity="center_horizontal" android:visibility="invisible"
-                       android:focusableInTouchMode="false" android:background="@drawable/normal"/>
+            <ImageView android:layout_width="145dp"
+                       android:layout_height="211dp"
+                       android:id="@+id/head"
+                       android:layout_gravity="center_horizontal"
+                       android:visibility="invisible"
+                       android:focusableInTouchMode="false"
+                       android:background="@drawable/normal"/>
         </FrameLayout>
         <Button
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:text="Rest"
-                android:id="@+id/breast" android:layout_gravity="center|top" android:layout_weight="0.3"
-                android:textSize="15dp" android:clickable="true"/>
+                android:id="@+id/breast"
+                android:layout_gravity="center|top"
+                android:layout_weight="0.3"
+                android:textSize="15dp"
+                android:clickable="true"/>
     </LinearLayout>
     <LinearLayout
             android:orientation="vertical"

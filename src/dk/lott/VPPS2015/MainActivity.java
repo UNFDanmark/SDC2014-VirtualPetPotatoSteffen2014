@@ -29,6 +29,10 @@ public class MainActivity extends Activity {
     boolean tristBool = false;
     boolean doeendeBool = false;
     boolean overdoseBool = false;
+    boolean traetBool = false;
+    private boolean setExcitedFace = true;
+    private boolean setExcitedMirrorFace = false;
+
     ImageView normal;
     ImageView doeende;
     ImageView head;
@@ -37,8 +41,9 @@ public class MainActivity extends Activity {
     ImageView traet;
     ImageView glad;
     ImageView excited;
+    ImageView excited_mirrored;
+    ImageView sovende;
     LinearLayout layoutBackground;
-    private boolean setExcitedFace = true;
     private ReverseProgressbarView energyView;
     private ProgressbarView hungerView;
     private ReverseProgressbarView happinessView;
@@ -84,14 +89,13 @@ public class MainActivity extends Activity {
         traet = (ImageView) findViewById(R.id.traet);
         glad = (ImageView) findViewById(R.id.glad);
         excited = (ImageView) findViewById(R.id.excited);
+        excited_mirrored = (ImageView) findViewById(R.id.excited_mirrored);
         doeende = (ImageView) findViewById(R.id.doeende);
         head = (ImageView) findViewById(R.id.head);
+        sovende = (ImageView) findViewById(R.id.sovende)
         layoutBackground = (LinearLayout) findViewById(R.id.background);
         potato.load(preferences);
         /**potato.diePotato(getApplicationContext());
-
-         */
-
 
         /**
          * Toys
@@ -132,26 +136,22 @@ public class MainActivity extends Activity {
         );
 
         /**
-         * Fucapo
+         * Coffee
          */
 
-        Button fucapo = (Button) findViewById(R.id.bfucapo);
-        fucapo.setOnClickListener(new View.OnClickListener()
-
-                                  {
-                                      @Override
-                                      public void onClick(View v) {
-                                          potato.eatfucapo();
-                                          System.out.println("Energy:" + potato.energy);
-                                          potato.clickcount++;
-                                          potato.Limits();
-                                          System.out.println("Click Count:" + potato.clickcount);
-                                          updateBars();
-                                          faces();
-                                      }
-                                  }
-
-        );
+        Button coffee = (Button) findViewById(R.id.bcoffee);
+        coffee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                potato.coffee();
+                System.out.println("Energy:" + potato.energy);
+                potato.clickcount++;
+                potato.Limits();
+                System.out.println("Click Count:" + potato.clickcount);
+                updateBars();
+                faces();
+            }
+        });
 
         /**
          * Rest
@@ -195,25 +195,13 @@ public class MainActivity extends Activity {
          * Faces
          */
 
-        energyView = (ReverseProgressbarView)
-
-                findViewById(R.id.energyView);
-
+        energyView = (ReverseProgressbarView) findViewById(R.id.energyView);
         energyView.setColor(Color.YELLOW);
-        hungerView = (ProgressbarView)
-
-                findViewById(R.id.hungerView);
-
+        hungerView = (ProgressbarView) findViewById(R.id.hungerView);
         hungerView.setColor(Color.RED);
-        happinessView = (ReverseProgressbarView)
-
-                findViewById(R.id.happinessView);
-
+        happinessView = (ReverseProgressbarView) findViewById(R.id.happinessView);
         happinessView.setColor(Color.GREEN);
-        thirstView = (ProgressbarView)
-
-                findViewById(R.id.thirstView);
-
+        thirstView = (ProgressbarView) findViewById(R.id.thirstView);
         thirstView.setColor(Color.BLUE);
 
         updateBars();
@@ -254,15 +242,16 @@ public class MainActivity extends Activity {
      * Faces
      */
 
-
     public void faces() {
-        if (potato.clickcount >= 10 && potato.energy > 800 && !doeendeBool && setExcitedFace) {
+        if (potato.clickcount >= 10 && potato.energy > 800 && !doeendeBool && setExcitedFace && setExcitedMirrorFace) {
             setExcitedFace = false;
+            setExcitedMirrorFace = false;
             overdoseBool = true;
 
             new CountDownTimer(10000, 100) {
                 public void onTick(long millisUntilFinish) {
                     excited.setVisibility(View.VISIBLE);
+                    excited_mirrored.setVisibility(View.INVISIBLE);
                     normal.setVisibility(View.INVISIBLE);
                     sulten.setVisibility(View.INVISIBLE);
                     trist.setVisibility(View.INVISIBLE);
@@ -270,6 +259,19 @@ public class MainActivity extends Activity {
                     glad.setVisibility(View.INVISIBLE);
                     doeende.setVisibility(View.INVISIBLE);
                     vibrate(1);
+                    for (int i=0; i>10; i++) {
+                        if  (setExcitedFace=false){
+                            excited.setVisibility(View.INVISIBLE);
+                            excited_mirrored.setVisibility(View.VISIBLE);
+                            setExcitedFace=true;
+                            setExcitedMirrorFace=true;
+                        }
+                    }   if (setExcitedMirrorFace=true) {
+                            excited.setVisibility(View.VISIBLE);
+                            excited_mirrored.setVisibility(View.INVISIBLE);
+                            setExcitedMirrorFace=false;
+                            setExcitedFace=false;
+                    }
                 }
 
                 @Override
@@ -278,27 +280,29 @@ public class MainActivity extends Activity {
                     overdoseBool = false;
                     faces();
                     setExcitedFace = true;
+                    setExcitedMirrorFace = false;
                 }
             }.start();
         }
-
-        if (potato.happiness >= 700 && !sultenBool && potato.energy > 300 && !overdoseBool) {
-            glad.setVisibility(View.VISIBLE);
-            normal.setVisibility(View.INVISIBLE);
-            sulten.setVisibility(View.INVISIBLE);
-            trist.setVisibility(View.INVISIBLE);
-            traet.setVisibility(View.INVISIBLE);
-            excited.setVisibility(View.INVISIBLE);
-            doeende.setVisibility(View.INVISIBLE);
-        }
-
-        if (potato.hunger > 300 && potato.hunger < 700 && potato.happiness > 300 && potato.happiness < 700 && potato.energy > 300 && potato.energy < 700 && potato.thirst > 300 && potato.thirst < 700) {
+        if (potato.happiness >= 300 && potato.thirst >= 300 && potato.hunger >= 300 && !traetBool) {
             normal.setVisibility(View.VISIBLE);
             sulten.setVisibility(View.INVISIBLE);
             trist.setVisibility(View.INVISIBLE);
             traet.setVisibility(View.INVISIBLE);
             glad.setVisibility(View.INVISIBLE);
             excited.setVisibility(View.INVISIBLE);
+            excited_mirrored.setVisibility(View.INVISIBLE);
+            doeende.setVisibility(View.INVISIBLE);
+        }
+        if (potato.happiness >= 700 && potato.thirst >= 700 && potato.hunger >= 700) {
+            Log.d("Happiness","");
+            glad.setVisibility(View.VISIBLE);
+            normal.setVisibility(View.INVISIBLE);
+            sulten.setVisibility(View.INVISIBLE);
+            trist.setVisibility(View.INVISIBLE);
+            traet.setVisibility(View.INVISIBLE);
+            excited.setVisibility(View.INVISIBLE);
+            excited_mirrored.setVisibility(View.INVISIBLE);
             doeende.setVisibility(View.INVISIBLE);
         }
 
@@ -309,6 +313,7 @@ public class MainActivity extends Activity {
             traet.setVisibility(View.INVISIBLE);
             glad.setVisibility(View.INVISIBLE);
             excited.setVisibility(View.INVISIBLE);
+            excited_mirrored.setVisibility(View.INVISIBLE);
             doeende.setVisibility(View.INVISIBLE);
 
             sultenBool = true;
@@ -321,6 +326,7 @@ public class MainActivity extends Activity {
             traet.setVisibility(View.INVISIBLE);
             glad.setVisibility(View.INVISIBLE);
             excited.setVisibility(View.INVISIBLE);
+            excited_mirrored.setVisibility(View.INVISIBLE);
             doeende.setVisibility(View.INVISIBLE);
 
             tristBool = true;
@@ -331,10 +337,14 @@ public class MainActivity extends Activity {
             normal.setVisibility(View.INVISIBLE);
             sulten.setVisibility(View.INVISIBLE);
             trist.setVisibility(View.INVISIBLE);
-            traet.setVisibility(View.INVISIBLE);
+            glad.setVisibility(View.INVISIBLE);
             excited.setVisibility(View.INVISIBLE);
+            excited_mirrored.setVisibility(View.INVISIBLE);
             doeende.setVisibility(View.INVISIBLE);
-        }
+        
+
+            traetBool = true;
+        } else traetBool = false;
 
         if (potato.hunger <= 100 || potato.thirst <= 100 || potato.happiness <= 100) {
             doeende.setVisibility((View.VISIBLE));
@@ -342,10 +352,25 @@ public class MainActivity extends Activity {
             normal.setVisibility(View.INVISIBLE);
             sulten.setVisibility(View.INVISIBLE);
             trist.setVisibility(View.INVISIBLE);
-            traet.setVisibility(View.INVISIBLE);
+            glad.setVisibility(View.INVISIBLE);
             excited.setVisibility(View.INVISIBLE);
+            excited_mirrored.setVisibility(View.INVISIBLE);
             doeendeBool = true;
+            potato.resetPotatoStats();
         } else doeendeBool = false;
+
+        if (potato.sover=true) {
+            sovende.setVisibility((View.VISIBLE));
+            doeende.setVisibility((View.INVISIBLE));
+            traet.setVisibility(View.INVISIBLE);
+            normal.setVisibility(View.INVISIBLE);
+            sulten.setVisibility(View.INVISIBLE);
+            trist.setVisibility(View.INVISIBLE);
+            glad.setVisibility(View.INVISIBLE);
+            excited.setVisibility(View.INVISIBLE);
+            excited_mirrored.setVisibility(View.INVISIBLE);
+
+        }
 
         Log.d("Energy: ", potato.energy + "");
         Log.d("Hunger: ", potato.hunger + "");
@@ -367,7 +392,6 @@ public class MainActivity extends Activity {
             layoutBackground.setBackgroundResource(R.drawable.happyhour);
         }
         if (hour > 0 && hour < 6)
-
         {
             layoutBackground.setBackgroundResource(R.drawable.night);
         } else if (hour >= 6 && hour < 12)
@@ -391,6 +415,7 @@ public class MainActivity extends Activity {
     protected void onPause() {
         super.onPause();
         potato.onPause();
+        potato.mpstop();
         potato.save(preferences);
     }
 
