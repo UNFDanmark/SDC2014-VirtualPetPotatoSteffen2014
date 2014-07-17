@@ -9,20 +9,20 @@ public class Potato {
     Time time = new Time();
 
     public final static long MIN_HUNGER = 0;
-    long hunger = 250;
+    long hunger = 50    ;
     public final static long MAX_HUNGER = 1000;
 
     public final static long MIN_HAPPINESS = 0;
-    long happiness = 250;
+    long happiness = 50;
     public final static long MAX_HAPPINESS = 1000;
     long clickcount;
 
     public final static long MIN_THIRST = 0;
-    long thirst = 250;
+    long thirst = 50;
     public final static long MAX_THIRST = 1000;
 
     public final static long MIN_ENERGY = 0;
-    long energy = 250;
+    long energy = 50;
     public final static long MAX_ENERGY = 1000;
 
     public void Limits() {

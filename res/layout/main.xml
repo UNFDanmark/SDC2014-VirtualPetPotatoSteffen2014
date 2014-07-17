@@ -83,7 +83,7 @@
                    android:layout_gravity="center_horizontal" android:background="@drawable/traet"
                    android:layout_marginLeft="10dp" android:visibility="invisible"/>
         <ImageView android:layout_width="148dp" android:layout_height="209dp" android:id="@+id/sulten"
-                   android:layout_gravity="center_horizontal" android:visibility="visible"
+                   android:layout_gravity="center_horizontal" android:visibility="invisible"
                    android:background="@drawable/sulten" android:layout_marginRight="5dp"/>
         <ImageView android:layout_width="149dp" android:layout_height="200dp" android:id="@+id/doeende"
                    android:layout_gravity="center_horizontal" android:background="@drawable/doeende"
