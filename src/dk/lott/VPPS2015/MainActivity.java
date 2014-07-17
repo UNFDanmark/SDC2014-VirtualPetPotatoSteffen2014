@@ -19,26 +19,13 @@ import java.util.GregorianCalendar;
 
 public class MainActivity extends Activity {
 
-    private ReverseProgressbarView energyView;
-    private ProgressbarView hungerView;
-    private ReverseProgressbarView happinessView;
-    private ProgressbarView thirstView;
-
-    Potato potato = new Potato();
-
-    public void updateBars() {
-        energyView.setValues(potato.energy, Potato.MIN_ENERGY, Potato.MAX_ENERGY); //Sørens bug! skrev Potato med Stort
-        hungerView.setValues(potato.hunger, Potato.MIN_HUNGER, Potato.MAX_HUNGER);
-        happinessView.setValues(potato.happiness, Potato.MIN_HAPPINESS, Potato.MAX_HAPPINESS);
-        thirstView.setValues(potato.thirst, Potato.MIN_THIRST, Potato.MAX_THIRST);
-    }
-
     public SharedPreferences preferences;
-
+    Potato potato = new Potato();
     boolean sultenBool = false;
     boolean tristBool = false;
     boolean doeendeBool = false;
     boolean overdoseBool = false;
+    private boolean setExcitedFace = true;
     ImageView normal;
     ImageView doeende;
     ImageView head;
@@ -49,6 +36,17 @@ public class MainActivity extends Activity {
     ImageView excited;
     ImageView background;
     LinearLayout layoutBackground;
+    private ReverseProgressbarView energyView;
+    private ProgressbarView hungerView;
+    private ReverseProgressbarView happinessView;
+    private ProgressbarView thirstView;
+
+    public void updateBars() {
+        energyView.setValues(potato.energy, Potato.MIN_ENERGY, Potato.MAX_ENERGY); //Sørens bug! skrev Potato med Stort
+        hungerView.setValues(potato.hunger, Potato.MIN_HUNGER, Potato.MAX_HUNGER);
+        happinessView.setValues(potato.happiness, Potato.MIN_HAPPINESS, Potato.MAX_HAPPINESS);
+        thirstView.setValues(potato.thirst, Potato.MIN_THIRST, Potato.MAX_THIRST);
+    }
 
     /**
      * Called when the activity is first created.
@@ -142,8 +140,8 @@ public class MainActivity extends Activity {
             }
         });
         /**
-        * Faces
-        */
+         * Faces
+         */
 
         energyView = (ReverseProgressbarView) findViewById(R.id.energyView);
         energyView.setColor(Color.YELLOW);
@@ -163,28 +161,29 @@ public class MainActivity extends Activity {
 
 
     public void faces() {
-        if (potato.clickcount >= 10 && potato.energy > 800 && !doeendeBool) {
-            new CountDownTimer(20000,100){
-                public void onTick(long millisUntilFinish){
-            excited.setVisibility(View.VISIBLE);
-            normal.setVisibility(View.INVISIBLE);
-            sulten.setVisibility(View.INVISIBLE);
-            trist.setVisibility(View.INVISIBLE);
-            traet.setVisibility(View.INVISIBLE);
-            glad.setVisibility(View.INVISIBLE);
-            doeende.setVisibility(View.INVISIBLE);
-
+        if (potato.clickcount >= 10 && potato.energy > 800 && !doeendeBool && setExcitedFace) {
+            setExcitedFace = false;
             overdoseBool = true;
-            }
-                @Override
-                public void onFinish(){
-                potato.clickcount = 0;
-                    faces();
+
+            new CountDownTimer(10000, 100) {
+                public void onTick(long millisUntilFinish) {
+                    excited.setVisibility(View.VISIBLE);
+                    normal.setVisibility(View.INVISIBLE);
+                    sulten.setVisibility(View.INVISIBLE);
+                    trist.setVisibility(View.INVISIBLE);
+                    traet.setVisibility(View.INVISIBLE);
+                    glad.setVisibility(View.INVISIBLE);
+                    doeende.setVisibility(View.INVISIBLE);
                 }
-        }.start();
-        }
-        else {
-            overdoseBool = false;
+
+                @Override
+                public void onFinish() {
+                    potato.clickcount = 0;
+                    overdoseBool = false;
+                    faces();
+                    setExcitedFace = true;
+                }
+            }.start();
         }
 
         if (potato.happiness >= 700 && !sultenBool && potato.energy > 300 && !overdoseBool) {
@@ -262,40 +261,34 @@ public class MainActivity extends Activity {
      * Background ~Svend
      */
 
-public void baggrund(){
-    Date date = new Date();
-    Calendar calendar = GregorianCalendar.getInstance();
-    calendar.setTime(date);
-    int hour = calendar.get(Calendar.HOUR_OF_DAY);
+    public void baggrund() {
+        Date date = new Date();
+        Calendar calendar = GregorianCalendar.getInstance();
+        calendar.setTime(date);
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
 
-    if(hour == 0){
-        layoutBackground.setBackgroundResource(R.drawable.happyhour);
+        if (hour == 0) {
+            layoutBackground.setBackgroundResource(R.drawable.happyhour);
+        }
+        if (hour > 0 && hour < 6)
+
+        {
+            layoutBackground.setBackgroundResource(R.drawable.night);
+        } else if (hour >= 6 && hour < 12)
+
+        {
+            layoutBackground.setBackgroundResource(R.drawable.morning_crop);
+        } else if (hour >= 12 && hour < 18)
+
+        {
+            layoutBackground.setBackgroundResource(R.drawable.midday_crop);
+        } else if (hour >= 18 && hour < 24)
+
+        {
+            layoutBackground.setBackgroundResource(R.drawable.afternoon);
+        }
+
     }
-    if(hour>0&&hour<6)
-
-    {
-        layoutBackground.setBackgroundResource(R.drawable.night);
-    }
-
-    else if(hour>=6&&hour<12)
-
-    {
-        layoutBackground.setBackgroundResource(R.drawable.morning_crop);
-    }
-
-    else if(hour>=12&&hour<18)
-
-    {
-        layoutBackground.setBackgroundResource(R.drawable.midday_crop);
-    }
-
-    else if(hour>=18&&hour<24)
-
-    {
-        layoutBackground.setBackgroundResource(R.drawable.afternoon);
-    }
-
-}
 
     @Override
     protected void onPause() {
