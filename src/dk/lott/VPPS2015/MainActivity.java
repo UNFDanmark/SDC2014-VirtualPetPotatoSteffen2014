@@ -158,6 +158,7 @@ public class MainActivity extends Activity {
      * Faces
      */
 
+
     public void faces() {
         if (potato.clickcount >= 10 && potato.energy > 800 && !doeendeBool) {
             new CountDownTimer(20000,100){
