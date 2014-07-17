@@ -79,7 +79,7 @@
             <ImageView android:layout_width="157dp" android:layout_height="209dp" android:id="@+id/normal"
                        android:background="@drawable/normal" android:clickable="false" android:cropToPadding="false"
                        android:visibility="visible" android:layout_marginRight="5dp"
-                       android:layout_gravity="center_horizontal" android:layout_marginBottom="150dp"/>
+                       android:layout_gravity="center_horizontal" android:layout_marginTop="-8dp"/>
             <ImageView android:layout_width="148dp" android:layout_height="204dp" android:id="@+id/excited"
                        android:layout_gravity="center_horizontal" android:background="@drawable/excited"
                        android:visibility="invisible" android:layout_marginBottom="150dp"/>

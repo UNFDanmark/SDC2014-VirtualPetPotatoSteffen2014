@@ -255,8 +255,8 @@ public class MainActivity extends Activity {
 
     public void deathmenu() {
         AlertDialog alertdialog = new AlertDialog.Builder(this)
-                .setTitle("Revive entry")
-                .setMessage("Your Potato Steffen died! You didn't take good enough care of him! Do you wish to clone your late Potato Steffen, you monster? ")
+                .setTitle("You killed Potato Steffen")
+                .setMessage("You didn't take good enough care of him! Do you wish to clone your late Potato Steffen, you monster? ")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         potato.resetPotatoStats();
