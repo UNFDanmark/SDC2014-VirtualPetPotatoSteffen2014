@@ -153,7 +153,6 @@ public class Potato {
     }
 
     public void onResume(Context context) {
-        time.onResume();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         if (prefs.getBoolean("IS_RESTING", false))
             restthird(context);
@@ -169,6 +168,7 @@ public class Potato {
         editorSave.putLong("thirst", thirst);
         editorSave.putLong("happiness", happiness);
         editorSave.putLong("energy", energy);
+        editorSave.putLong("time", time.timePause);
         editorSave.commit();
     }
 
@@ -177,6 +177,7 @@ public class Potato {
         thirst = preferences.getLong("thirst", thirst);
         happiness = preferences.getLong("happiness", happiness);
         energy = preferences.getLong("energy", energy);
+        time.timePause= preferences.getLong("time",  time.timePause);
         hunger = hunger - time.timeRes;
         thirst = thirst - time.timeRes;
         energy = energy - time.timeRes;
@@ -191,8 +192,6 @@ public class Potato {
         } else if (clickcount != 0) {
             clickcount = clickcount - time.timeRes;
         }
-
-
         deathCheck();
         time.onResume();
     }
