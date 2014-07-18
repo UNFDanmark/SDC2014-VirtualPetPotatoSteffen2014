@@ -28,7 +28,6 @@ public class Potato {
     public final static long MAX_ENERGY = 1000;
     long energyrest;
 
-    public Context contextmp;
     public MediaPlayer mediaPlayer;
     boolean sover = false;
 
@@ -211,4 +210,4 @@ public class Potato {
  ( ..)
  c(")(")
  ::;;
- */ */
+ */
