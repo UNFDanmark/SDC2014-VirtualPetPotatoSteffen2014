@@ -266,7 +266,9 @@ public class MainActivity extends Activity {
 
                                         @Override
                                         public boolean onLongClick(View v) {
-                                            potato.happiness = potato.happiness + 150;
+                                            if(potato.happiness < 1000) {
+                                                potato.happiness = potato.happiness + 150;
+                                            }
                                             aeBool = true;
                                             updateBars();
                                             faces();
@@ -307,7 +309,9 @@ public class MainActivity extends Activity {
         body.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
-                                        potato.happiness = potato.happiness - 50;
+                                        if (potato.happiness >0) {
+                                            potato.happiness = potato.happiness - 50;
+                                        }
                                         updateBars();
                                         faces();
                                         smerteBool = true;
