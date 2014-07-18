@@ -266,6 +266,7 @@ public class MainActivity extends Activity {
 
                                         @Override
                                         public boolean onLongClick(View v) {
+                                            if(setExcitedFace){
                                             if(potato.happiness < 1000) {
                                                 potato.happiness = potato.happiness + 150;
                                             }
@@ -293,8 +294,10 @@ public class MainActivity extends Activity {
                                                     aeBool = false;
                                                     faces();
                                                     updateBars();
+                                                    potato.deathCheck();
                                                 }
                                             }.start();
+                                            }
                                             aeBool = false;
                                             return true;
 
@@ -307,44 +310,44 @@ public class MainActivity extends Activity {
         );
 
         body.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        if (potato.happiness >0) {
-                                            potato.happiness = potato.happiness - 50;
-                                        }
-                                        updateBars();
-                                        faces();
-                                        smerteBool = true;
-                                        vibrate(1);
-                                        new CountDownTimer(1000, 100) {
-                                            public void onTick(long millisUntilFinish) {
-                                                excited.setVisibility(View.INVISIBLE);
-                                                normal.setVisibility(View.INVISIBLE);
-                                                sulten.setVisibility(View.INVISIBLE);
-                                                trist.setVisibility(View.INVISIBLE);
-                                                traet.setVisibility(View.INVISIBLE);
-                                                glad.setVisibility(View.INVISIBLE);
-                                                doeende.setVisibility(View.INVISIBLE);
-                                                sovende.setVisibility(View.INVISIBLE);
-                                                ae.setVisibility(View.INVISIBLE);
-                                                smerte.setVisibility(View.VISIBLE);
-                                            }
+            @Override
+            public void onClick(View v) {
+                if (setExcitedFace) {
+                    if (potato.happiness > 0) {
+                        potato.happiness = potato.happiness - 50;
+                    }
+                    updateBars();
+                    faces();
+                    smerteBool = true;
+                    vibrate(1);
+                    new CountDownTimer(1000, 100) {
+                        public void onTick(long millisUntilFinish) {
+                            excited.setVisibility(View.INVISIBLE);
+                            normal.setVisibility(View.INVISIBLE);
+                            sulten.setVisibility(View.INVISIBLE);
+                            trist.setVisibility(View.INVISIBLE);
+                            traet.setVisibility(View.INVISIBLE);
+                            glad.setVisibility(View.INVISIBLE);
+                            doeende.setVisibility(View.INVISIBLE);
+                            sovende.setVisibility(View.INVISIBLE);
+                            ae.setVisibility(View.INVISIBLE);
+                            smerte.setVisibility(View.VISIBLE);
+                        }
 
-                                                @Override
-                                                public void onFinish() {
-                                                    smerteBool = false;
-                                                    faces();
-                                                    updateBars();
-                                                    potato.deathCheck();
-                                                }
-                                            }.start();
-                                        }
-
-
-                                }
+                        @Override
+                        public void onFinish() {
+                            smerteBool = false;
+                            faces();
+                            updateBars();
+                            potato.deathCheck();
+                        }
+                    }.start();
+                }
 
 
-        );
+            }
+
+        });
     }
 
 
@@ -391,7 +394,7 @@ public class MainActivity extends Activity {
             overdoseBool = true;
             potato.sover = false;
 
-            new CountDownTimer(10000, 100) {
+            new CountDownTimer(3000, 100) {
                 public void onTick(long millisUntilFinish) {
                     excited.setVisibility(View.VISIBLE);
                     normal.setVisibility(View.INVISIBLE);
@@ -561,7 +564,6 @@ public class MainActivity extends Activity {
         {
             layoutBackground.setBackgroundResource(R.drawable.afternoon);
         }
-
     }
 
     @Override
@@ -574,7 +576,6 @@ public class MainActivity extends Activity {
                 potato.mediaplaystop();
             }
         }
-
         potato.save(preferences);
     }
 
