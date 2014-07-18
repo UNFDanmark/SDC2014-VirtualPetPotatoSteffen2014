@@ -1,4 +1,4 @@
-package dk.lott.VPPS2015;
+package dk.lott.VirtualPetPotatoSteffen;
 
 public class Time {
 

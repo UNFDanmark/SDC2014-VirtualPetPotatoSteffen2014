@@ -1,10 +1,11 @@
-package dk.lott.VPPS2015;
+package dk.lott.VirtualPetPotatoSteffen;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.preference.PreferenceManager;
 import android.widget.Toast;
+import dk.sdc14.VirtualPetPotatoSteffen.R;
 
 public class Potato {
 
@@ -176,7 +177,7 @@ public class Potato {
         thirst = preferences.getLong("thirst", thirst);
         happiness = preferences.getLong("happiness", happiness);
         energy = preferences.getLong("energy", energy);
-        time.timePause= preferences.getLong("time",  time.timePause);
+        time.timePause = preferences.getLong("time", time.timePause);
         hunger = hunger - time.timeRes;
         thirst = thirst - time.timeRes;
         energy = energy - time.timeRes;

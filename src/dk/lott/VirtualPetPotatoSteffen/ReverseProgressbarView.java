@@ -1,4 +1,4 @@
-package dk.lott.VPPS2015;
+package dk.lott.VirtualPetPotatoSteffen;
 
 import android.content.Context;
 import android.graphics.Canvas;

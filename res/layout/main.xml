@@ -124,10 +124,6 @@
                        android:background="@drawable/sulten"
                        android:layout_marginRight="5dp"
                        android:layout_marginBottom="200dp"/>
-            <ImageView android:layout_width="148dp" android:layout_height="209dp"
-                       android:layout_gravity="center_horizontal" android:visibility="invisible"
-                       android:background="@drawable/kvalme" android:layout_marginRight="5dp"
-                       android:layout_marginBottom="200dp" android:id="@+id/kvalme"/>
             <ImageView android:layout_width="148dp" android:layout_height="209dp" android:id="@+id/smerte"
                        android:layout_gravity="center_horizontal" android:visibility="invisible"
                        android:background="@drawable/smerte" android:layout_marginRight="5dp"
@@ -181,7 +177,7 @@
                         android:text="Happiness"
                         android:textColor="#ffffffff"
                         android:textSize="18dip"/>
-                <dk.lott.VPPS2015.ReverseProgressbarView
+                <dk.lott.VirtualPetPotatoSteffen.ReverseProgressbarView
                         android:layout_width="wrap_content"
                         android:layout_height="10dip"
                         android:id="@+id/happinessView"
@@ -197,7 +193,7 @@
                           android:textSize="18dip"/>
                 <view android:layout_width="wrap_content"
                       android:layout_height="10dip"
-                      class="dk.lott.VPPS2015.ReverseProgressbarView"
+                      class="dk.lott.VirtualPetPotatoSteffen.ReverseProgressbarView"
                       android:id="@+id/energyView"
                       android:layout_gravity="left"
                         />
@@ -253,7 +249,7 @@
                         android:text="Hunger"
                         android:textSize="18dip"
                         android:textColor="#ffffffff"/>
-                <dk.lott.VPPS2015.ProgressbarView
+                <dk.lott.VirtualPetPotatoSteffen.ProgressbarView
                         android:layout_width="wrap_content"
                         android:layout_height="10dip"
                         android:id="@+id/hungerView"/>
@@ -266,7 +262,7 @@
                           android:text="Thirst"
                           android:textColor="#ffffffff"
                           android:textSize="18dip"/>
-                <view class="dk.lott.VPPS2015.ProgressbarView"
+                <view class="dk.lott.VirtualPetPotatoSteffen.ProgressbarView"
                       android:layout_width="wrap_content"
                       android:layout_height="10dip"
                       android:id="@+id/thirstView"

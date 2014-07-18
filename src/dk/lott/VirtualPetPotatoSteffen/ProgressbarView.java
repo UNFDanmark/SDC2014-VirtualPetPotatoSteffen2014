@@ -1,4 +1,4 @@
-package dk.lott.VPPS2015;
+package dk.lott.VirtualPetPotatoSteffen;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,7 +7,7 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
-public class ProgressbarView extends View{
+public class ProgressbarView extends View {
     private long currentValue = 250;
     private long maxValue = 1000;
     private long minValue = 0;
@@ -36,15 +36,14 @@ public class ProgressbarView extends View{
 
         long span = getMaxValue() - getMinValue();
 
-        double percent = (double)getCurrentValue() / (double)span;
+        double percent = (double) getCurrentValue() / (double) span;
 
         paint.setColor(getColor());
 
-        canvas.drawRect(0, 0, (float)(width*percent), height, paint);
+        canvas.drawRect(0, 0, (float) (width * percent), height, paint);
     }
 
-    public void setValues(long currentValue, long minValue, long maxValue)
-    {
+    public void setValues(long currentValue, long minValue, long maxValue) {
         this.currentValue = currentValue;
         this.minValue = minValue;
         this.maxValue = maxValue;
@@ -90,8 +89,8 @@ public class ProgressbarView extends View{
         this.color = color;
     }
     /**  ^ ^
-    *  ( 0_0 )
-    *  ()   ()
-    *   (| |)
-    */
+     *  ( 0_0 )
+     *  ()   ()
+     *   (| |)
+     */
 }
