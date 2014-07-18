@@ -44,16 +44,16 @@ public class PotatoService extends IntentService {
         });
         potato.load(PreferenceManager.getDefaultSharedPreferences(getApplicationContext()));
         if(potato.hunger <= 200){
-            showNotification("So hungry. Please feed me");
+            showNotification("I'm starving... Won't you feed me, please?");
         }
         else if(potato.energy <= 200){
-            showNotification("So tired.....");
+            showNotification("So tired...");
         }
         else if(potato.thirst<= 200){
-            showNotification("No water.The end is near");
+            showNotification("No water... The end is near...");
         }
         else if(potato.happiness <= 200){
-            showNotification("So lonely... U y no love me anymore!?!");
+            showNotification("So lonely... Why do you not love me anymore!?!");
         }
 
         return super.onStartCommand(intent, flags, startId);
