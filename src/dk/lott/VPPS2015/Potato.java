@@ -120,7 +120,7 @@ public class Potato {
         mediaPlayer = MediaPlayer.create(context, R.raw.snore);
         mediaPlayer.start();
         mediaPlayer.setLooping(true);
-        sover=true;
+        sover = true;
 
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -134,7 +134,7 @@ public class Potato {
         Toast.makeText(context, "Potato Steffen Rested : " + energyrest + "" + " Energy", Toast.LENGTH_LONG).show();
         System.out.println("Energy Rested : " + energyrest);
         energy += energyrest;
-        sover=false;
+        sover = false;
 
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -149,8 +149,7 @@ public class Potato {
 
     public void onPause() {
         time.onPause();
-        if (sover)
-            mediaplaystop();
+
     }
 
     public void onResume(Context context) {

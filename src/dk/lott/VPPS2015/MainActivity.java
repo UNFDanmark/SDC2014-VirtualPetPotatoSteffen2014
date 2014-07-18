@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
@@ -50,6 +51,7 @@ public class MainActivity extends Activity {
     ImageView sDene;
     ImageView sDthi;
     ImageView ae;
+
     LinearLayout layoutBackground;
 
     private ReverseProgressbarView energyView;
@@ -555,15 +557,20 @@ public class MainActivity extends Activity {
         {
             layoutBackground.setBackgroundResource(R.drawable.afternoon);
         }
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         potato.onPause();
-        if (potato.mediaPlayer.isPlaying()) {
-            potato.mediaplaystop();
+
+        if (potato.mediaPlayer != null) {
+            if (potato.mediaPlayer.isLooping() || potato.mediaPlayer.isPlaying()) {
+                potato.mediaplaystop();
+            }
         }
+
         potato.save(preferences);
     }
 
